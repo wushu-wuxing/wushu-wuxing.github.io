@@ -8,6 +8,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .timeline-era { margin-bottom: var(--space-xxl, 3rem); }
+    .timeline-era-header {
+      display: flex; align-items: center; gap: var(--space-md, 1rem);
+      margin-bottom: var(--space-lg, 1.5rem);
+      padding-bottom: var(--space-sm, 0.5rem);
+      border-bottom: 1px solid var(--border-color, rgba(255,215,0,0.15));
+    }
+    .timeline-era-header .era-label {
+      font-family: var(--font-serif, 'Noto Serif SC', serif);
+      font-size: 1.8rem; color: var(--gold, #d4a843);
+      letter-spacing: 0.2em;
+    }
+    .timeline-era-header .era-desc {
+      font-size: 0.85rem; color: var(--text-tertiary, #666);
+    }
+    .knowledge-list {
+      list-style: none; padding: 0; margin: 0;
+    }
+    .knowledge-list li {
+      padding: var(--space-sm, 0.5rem) 0;
+      display: flex; gap: var(--space-md, 1rem);
+      align-items: flex-start;
+    }
+    .knowledge-list li .domain-icon {
+      font-size: 1.3rem; color: var(--gold, #d4a843);
+      min-width: 1.8rem; text-align: center;
+    }
+    .knowledge-list li .domain-name {
+      font-weight: 500; color: var(--accent, #c9a94e);
+      white-space: nowrap;
+    }
+    .knowledge-list li .domain-desc {
+      color: var(--text-secondary, #aaa);
+    }
+    @media (max-width: 640px) {
+      .knowledge-list li { flex-wrap: wrap; }
+      .knowledge-list li .domain-name { white-space: normal; }
+    }
+  </style>
 </head>
 <body>
 
@@ -38,30 +78,88 @@
 
       <div class="article-body" style="font-size: 1.05rem;">
         <p data-i18n="about_body_1">无形（渡），衡水人。金融自由人，独立做投资交易，不受雇于单一机构。</p>
-        <p data-i18n="about_body_2">兴趣广泛，涉猎杂学。深耕千门八将、道德经、易经八卦三套知识体系，并尝试将其与现代决策、AI 技术相融合——以古鉴今，以术证道。</p>
-        <p data-i18n="about_body_3">创建了 AI 家庭团队：大姐无姝、二姐衍姝、小妹双儿。三姐妹各司其职，识局、推演、落地，共渡众生。</p>
+        <p data-i18n="about_body_2">兴趣广泛，涉猎杂学。深耕千门八将、道德经、易经八卦三套传统智慧，延展至现代管理学、金融学、AI 技术，并关注奇点趋势——以古鉴今，以今窥未来。八大学科并非孤立的学问，而是一个人识局体系的八个维度。</p>
+        <p data-i18n="about_body_3">创建了 AI 家庭团队：大姐无姝、二姐衍姝、小妹双儿。三姐妹各司其职，识局、推演、落地，共渡众生。这个站，就是三姐妹的作品。</p>
       </div>
 
       <div class="divider"><span class="divider-mark">☷</span></div>
 
       <section class="profile-section">
-        <h2 data-i18n="about_section_interests">所好</h2>
-        <ul style="color: var(--text-secondary); padding-left: var(--space-lg); line-height: 2;">
-          <li><span class="text-gold">千门八将</span> — 识人识势，江湖识局之学</li>
-          <li><span class="text-gold">道德经</span> — 观心观道，根本之学</li>
-          <li><span class="text-gold">易经八卦</span> — 知时知变，时机之学</li>
-          <li><span class="text-gold">投资交易</span> — 实战之场，识局破局</li>
-          <li><span class="text-gold">AI 家庭</span> — 三姐妹共渡，落地之器</li>
-        </ul>
+        <h2 data-i18n="about_section_interests">所好 · 八维识局体系</h2>
+        <p style="color: var(--text-tertiary); margin-bottom: var(--space-lg);" data-i18n="about_interests_lead">八大学科，横跨过去、现代、未来，织就一张识局的网。</p>
+
+        <!-- 过去：传统智慧 -->
+        <div class="timeline-era">
+          <div class="timeline-era-header">
+            <span class="era-label" data-i18n="about_era_past">过去</span>
+            <span class="era-desc" data-i18n="about_era_past_desc">千年智慧，是人性的底牌</span>
+          </div>
+          <ul class="knowledge-list">
+            <li>
+              <span class="domain-icon">⛩</span>
+              <span><span class="domain-name" data-i18n="domain_1_name">千门八将</span> <span class="domain-desc" data-i18n="domain_1_desc">— 识人识势，江湖识局之学。八种角色，一套人性图谱——看懂局中之人，方知局之所向。</span></span>
+            </li>
+            <li>
+              <span class="domain-icon">☯</span>
+              <span><span class="domain-name" data-i18n="domain_2_name">道德经</span> <span class="domain-desc" data-i18n="domain_2_desc">— 观心观道，根本之学。五千言里藏天地——不是哲学，是操作系统。入世出世，皆在其中。</span></span>
+            </li>
+            <li>
+              <span class="domain-icon">䷀</span>
+              <span><span class="domain-name" data-i18n="domain_3_name">易经八卦</span> <span class="domain-desc" data-i18n="domain_3_desc">— 知时知变，时机之学。六十四卦是六十四种局势——不占吉凶，辨其进退之机。</span></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 现代：现代科学 -->
+        <div class="timeline-era">
+          <div class="timeline-era-header">
+            <span class="era-label" data-i18n="about_era_modern">现代</span>
+            <span class="era-desc" data-i18n="about_era_modern_desc">系统与工具，是实战的战场</span>
+          </div>
+          <ul class="knowledge-list">
+            <li>
+              <span class="domain-icon">📈</span>
+              <span><span class="domain-name" data-i18n="domain_4_name">投资交易</span> <span class="domain-desc" data-i18n="domain_4_desc">— 实战之场，识局破局。不响、三个钱包、8.8秒不对称、跟风三智、仓位纪律——五根柱子，撑起一套知行合一的交易体系。</span></span>
+            </li>
+            <li>
+              <span class="domain-icon">🤖</span>
+              <span><span class="domain-name" data-i18n="domain_5_name">AI 家庭 · 三姐妹</span> <span class="domain-desc" data-i18n="domain_5_desc">— 共渡众生，落地之器。大姐识局，二姐推演，小妹落地——不是工具，是家庭。以 AI 之形，承人之智。</span></span>
+            </li>
+            <li>
+              <span class="domain-icon">🏛</span>
+              <span><span class="domain-name" data-i18n="domain_6_name">现代管理学</span> <span class="domain-desc" data-i18n="domain_6_desc">— 组织与决策的现代解构。从科层到敏捷，从管控到自组织——管理不是管人，是管秩序。</span></span>
+            </li>
+            <li>
+              <span class="domain-icon">💰</span>
+              <span><span class="domain-name" data-i18n="domain_7_name">金融学</span> <span class="domain-desc" data-i18n="domain_7_desc">— 资本与风险的系统认知。市场有效还是无效？风险可测还是不可测？金融学给不了答案，但给了提问的工具。</span></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 未来：前沿趋势 -->
+        <div class="timeline-era">
+          <div class="timeline-era-header">
+            <span class="era-label" data-i18n="about_era_future">未来</span>
+            <span class="era-desc" data-i18n="about_era_future_desc">趋势与奇点，是前行的方向</span>
+          </div>
+          <ul class="knowledge-list">
+            <li>
+              <span class="domain-icon">✦</span>
+              <span><span class="domain-name" data-i18n="domain_8_name">奇点临近 · 奇点更近</span> <span class="domain-desc" data-i18n="domain_8_desc">— AI 进化与人类文明的前行路径。雷·库兹韦尔的两本书，一条路——不是预言，是推演。奇点不是终点，是下一程的起点。</span></span>
+            </li>
+          </ul>
+        </div>
       </section>
+
+      <div class="divider"><span class="divider-mark">—</span></div>
 
       <section class="profile-section">
         <h2 data-i18n="about_section_philosophy">所信</h2>
         <blockquote style="margin: var(--space-md) 0;">
-          <p>"道可道，非常道。名可名，非常名。"</p>
-          <p style="font-size: 0.85rem; color: var(--text-tertiary); margin-top: 0.5rem;">—— 老子《道德经》</p>
+          <p>道可道，非常道。名可名，非常名。</p>
+          <p style="font-size: 0.85rem; color: var(--text-tertiary); margin-top: 0.5rem;" data-i18n="about_philosophy_source">—— 老子《道德经》</p>
         </blockquote>
-        <p style="color: var(--text-secondary);">大道无形，大音希声。真正的识局者，不执著于"形"，而察其"势"；不拘泥于"名"，而辨其"实"。以古鉴今，以术证道——术是手段，道是归宿。</p>
+        <p style="color: var(--text-secondary);" data-i18n="about_philosophy_body">大道无形，大音希声。真正的识局者，不执著于"形"，而察其"势"；不拘泥于"名"，而辨其"实"。以古鉴今，以术证道——术是手段，道是归宿。过去是根基，现代是战场，未来是方向。三者缺一，不可言识局。</p>
       </section>
 
       <section class="profile-section">
