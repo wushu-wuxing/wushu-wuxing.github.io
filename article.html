@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章 · 无形识局</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><span class="seal">印</span>无形识局</a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-i18n="nav_home">首页</a></li>
+        <li><a href="articles.html" class="active" data-i18n="nav_articles">文章</a></li>
+        <li><a href="family.html" data-i18n="nav_family">三姐妹</a></li>
+        <li><a href="about.html" data-i18n="nav_about">关于</a></li>
+        <li><button class="lang-switch" data-lang="zh" onclick="setLang('zh')">中</button></li>
+        <li><button class="lang-switch" data-lang="en" onclick="setLang('en')">EN</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container-narrow">
+      <article id="article-container">
+        <!-- 动态渲染 -->
+      </article>
+
+      <!-- 评论区 -->
+      <section class="comments">
+        <h2 class="comments-header" data-i18n="comments_title">评论 · 共识局</h2>
+        <div class="giscus-container">
+          <script src="https://giscus.app/client.js"
+            data-repo="wushu-wuxing/wushu-wuxing.github.io"
+            data-repo-id=""
+            data-category="Announcements"
+            data-category-id=""
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="dark_dimmed"
+            data-lang="zh-CN"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+          </script>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html" data-i18n="nav_home">首页</a>
+        <a href="articles.html" data-i18n="nav_articles">文章</a>
+        <a href="family.html" data-i18n="nav_family">三姐妹</a>
+        <a href="about.html" data-i18n="nav_about">关于</a>
+        <a href="https://github.com/wushu-wuxing" target="_blank" data-i18n="footer_github">GitHub</a>
+      </div>
+      <p><span class="seal">印</span> <span data-i18n="footer_copy">无形识局 · 大象无形</span> · <span data-i18n="footer_made">由三姐妹共筑</span></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/content.js"></script>
+  <script>
+    function renderArticle() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id") || "001";
+      const article = getArticleById(id);
+
+      const container = document.getElementById("article-container");
+
+      if (!article) {
+        container.innerHTML = '<p class="text-center" style="padding: var(--space-2xl); color: var(--text-tertiary);">文章不存在。</p>';
+        return;
+      }
+
+      const data = article[currentLang];
+      const catKey = "cat_" + article.category;
+
+      document.title = `${data.title} · 无形识局`;
+
+      container.innerHTML = `
+        <header class="article-header">
+          <h1>${data.title}</h1>
+          <div class="article-meta">
+            <span>${article.id}</span>
+            <span>${article.date}</span>
+            <span>${t(catKey)}</span>
+            <span>${article.readingMin} ${t("meta_min")}</span>
+          </div>
+        </header>
+        <div class="article-body">
+          ${data.body}
+        </div>
+      `;
+    }
+
+    window.addEventListener("langchange", renderArticle);
+    document.addEventListener("DOMContentLoaded", renderArticle);
+  </script>
+</body>
+</html>

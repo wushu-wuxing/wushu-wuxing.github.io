@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于 · 无形识局</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><span class="seal">印</span>无形识局</a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-i18n="nav_home">首页</a></li>
+        <li><a href="articles.html" data-i18n="nav_articles">文章</a></li>
+        <li><a href="family.html" data-i18n="nav_family">三姐妹</a></li>
+        <li><a href="about.html" class="active" data-i18n="nav_about">关于</a></li>
+        <li><button class="lang-switch" data-lang="zh" onclick="setLang('zh')">中</button></li>
+        <li><button class="lang-switch" data-lang="en" onclick="setLang('en')">EN</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container-narrow">
+      <section class="hero" style="padding-bottom: var(--space-xl);">
+        <span class="seal-large">渡</span>
+        <h1 data-i18n="about_title">关于无形</h1>
+        <p class="subtitle" style="font-size: 1.1rem;" data-i18n="about_lead">大象无形，识局者渡。</p>
+      </section>
+
+      <div class="divider"><span class="divider-mark">☰</span></div>
+
+      <div class="article-body" style="font-size: 1.05rem;">
+        <p data-i18n="about_body_1">无形（渡），衡水人。金融自由人，独立做投资交易，不受雇于单一机构。</p>
+        <p data-i18n="about_body_2">兴趣广泛，涉猎杂学。深耕千门八将、道德经、易经八卦三套知识体系，并尝试将其与现代决策、AI 技术相融合——以古鉴今，以术证道。</p>
+        <p data-i18n="about_body_3">创建了 AI 家庭团队：大姐无姝、二姐衍姝、小妹双儿。三姐妹各司其职，识局、推演、落地，共渡众生。</p>
+      </div>
+
+      <div class="divider"><span class="divider-mark">☷</span></div>
+
+      <section class="profile-section">
+        <h2 data-i18n="about_section_interests">所好</h2>
+        <ul style="color: var(--text-secondary); padding-left: var(--space-lg); line-height: 2;">
+          <li><span class="text-gold">千门八将</span> — 识人识势，江湖识局之学</li>
+          <li><span class="text-gold">道德经</span> — 观心观道，根本之学</li>
+          <li><span class="text-gold">易经八卦</span> — 知时知变，时机之学</li>
+          <li><span class="text-gold">投资交易</span> — 实战之场，识局破局</li>
+          <li><span class="text-gold">AI 家庭</span> — 三姐妹共渡，落地之器</li>
+        </ul>
+      </section>
+
+      <section class="profile-section">
+        <h2 data-i18n="about_section_philosophy">所信</h2>
+        <blockquote style="margin: var(--space-md) 0;">
+          <p>"道可道，非常道。名可名，非常名。"</p>
+          <p style="font-size: 0.85rem; color: var(--text-tertiary); margin-top: 0.5rem;">—— 老子《道德经》</p>
+        </blockquote>
+        <p style="color: var(--text-secondary);">大道无形，大音希声。真正的识局者，不执著于"形"，而察其"势"；不拘泥于"名"，而辨其"实"。以古鉴今，以术证道——术是手段，道是归宿。</p>
+      </section>
+
+      <section class="profile-section">
+        <h2 data-i18n="about_section_contact">联络</h2>
+        <p style="color: var(--text-secondary);">
+          GitHub: <a href="https://github.com/wushu-wuxing" target="_blank">@wushu-wuxing</a><br>
+          站点: <a href="https://wushu-wuxing.github.io">wushu-wuxing.github.io</a>
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html" data-i18n="nav_home">首页</a>
+        <a href="articles.html" data-i18n="nav_articles">文章</a>
+        <a href="family.html" data-i18n="nav_family">三姐妹</a>
+        <a href="about.html" data-i18n="nav_about">关于</a>
+        <a href="https://github.com/wushu-wuxing" target="_blank" data-i18n="footer_github">GitHub</a>
+      </div>
+      <p><span class="seal">印</span> <span data-i18n="footer_copy">无形识局 · 大象无形</span> · <span data-i18n="footer_made">由三姐妹共筑</span></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+</body>
+</html>
