@@ -9,6 +9,7 @@ const i18n = {
     nav_articles: "文章",
     nav_family: "三姐妹",
     nav_about: "关于",
+    nav_insights: "产业洞察",
 
     // 首页 Hero
     hero_seal: "识",
@@ -74,6 +75,7 @@ const i18n = {
     footer_copy: "无形识局 · 大象无形",
     footer_made: "由三姐妹共筑",
     footer_github: "GitHub",
+    footer_insights: "产业洞察站",
 
     // 分类
     cat_philosophy: "识局",
@@ -89,6 +91,7 @@ const i18n = {
     nav_articles: "Essays",
     nav_family: "The Three",
     nav_about: "About",
+    nav_insights: "Insights",
 
     // Hero
     hero_seal: "识",
@@ -154,6 +157,7 @@ const i18n = {
     footer_copy: "Wu Xing · The Formless",
     footer_made: "Built by the three sisters",
     footer_github: "GitHub",
+    footer_insights: "Industry Insights",
 
     // Categories
     cat_philosophy: "Pattern",
