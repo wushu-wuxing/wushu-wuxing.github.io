@@ -559,10 +559,240 @@ id: "005",
 `
     }
   }
+,
+
+{
+    id: "006",
+    date: "2026-07-04",
+    category: "philosophy",
+    readingMin: 8,
+    zh: {
+      title: "三个钱包 —— 你其实有三个财富账户",
+      excerpt: "一个实，一个虚，一个最危险。大多数人一辈子都在追逐第三个，丢掉了第一个。«繁花»里爷叔教阿宝的三钱包，是我见过最通透的财富框架。",
+      body: `
+<p><strong>三个钱包</strong>，不是银行账户，不是资产配置——它是一个人财富认知的底层结构。</p>
+
+<p>我第一次听到这个概念，是在«繁花»里爷叔教阿宝的时候。他说：</p>
+
+<blockquote>"人有三个钱包：第一个，是你实际有的钱；第二个，是别人信你有的钱；第三个，是别人以为你有的钱。"</blockquote>
+
+<p>这句话我一直记着。不是因为它有道理——而是因为它<strong>有用</strong>。我后来做投资、做判断、看人、看己，全在这三个钱包里。</p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>第一个钱包：实际</h2>
+
+<p>第一个钱包最诚实——你银行卡里的数字、股票账户里的市值、包里能掏出来的现金。</p>
+
+<p>它不骗人。亏了就是亏了，赚了就是赚了。第一个钱包不会因为你穿得好就变多，不会因为你跟谁吃了饭就变厚。</p>
+
+<p>但它有一个特点：<strong>大多数人看不起它</strong>。</p>
+
+<p>因为第一个钱包太慢了。靠工资攒，一年涨不了多少；靠定投，三年才有感觉。而第二个钱包、第三个钱包——快得多。穿一身名牌，第一个钱包立刻"看起来"有了变化；跟大佬合张影，别人看你的眼神都不一样了。</p>
+
+<p>于是大多数人把精力放在第二和第三个钱包上，第一个钱包反而被掏空了。</p>
+
+<p>7月2日那天，我减仓清仓，保护的就是第一个钱包。42万的现金躺在账户里，我不在乎别人觉得我亏了还是赚了——第一个钱包还在，我就还有机会。</p>
+
+<p>这就是不响的底气：<strong>第一个钱包保住了，你就能等</strong>。</p>
+
+<h2>第二个钱包：信用</h2>
+
+<p>第二个钱包，是你从别人那里借来的——信任、声望、关系。</p>
+
+<p>它很真实，但又很虚幻。真实在于——有信用的人，可以借到钱、借到资源、借到时间。阿宝能在上海滩立起来，靠的不仅是第一个钱包，更是第二个钱包——别人信他。</p>
+
+<p>虚幻在于——它随时可能消失。一句错话、一次违约、一个失信行为——第二个钱包可能瞬间清零。</p>
+
+<p>我做投资这些年，最深的体会是：<strong>第二个钱包不能花太多</strong>。</p>
+
+<p>什么意思？你去找人借钱加杠杆，就是花第二个钱包。你跟别人说"这个项目稳赚"，也是花第二个钱包。每一次花出去，都是在消耗别人对你的信任。</p>
+
+<p>真正聪明的人，是让第二个钱包<strong>升值</strong>，而不是花掉它。</p>
+
+<ul>
+<li>说到做到——升的是第二个钱包</li>
+<li>从不吹牛——升的是第二个钱包</li>
+<li>亏了不找借口——升的还是第二个钱包</li>
+</ul>
+
+<p>7月2日我没发朋友圈、没在群里喊"抄底"，看似什么都做——实际上我是在保护第二个钱包。因为不响，所以没人知道我在干嘛。不知者，无可评。</p>
+
+<h2>第三个钱包：别人以为你有的</h2>
+
+<p>第三个钱包最危险。</p>
+
+<p>它不是你真的有，也不是别人信你有——它是<strong>别人脑补出来的数字</strong>。</p>
+
+<p>你买了套好房子，别人觉得你还有三套。你开了个好车，别人觉得你资产过千万。你在某个场合说了句话，别人觉得你"消息灵通"、"背后有人"。</p>
+
+<p>第三个钱包不需要你做什么——它自己会膨胀。</p>
+
+<p>但麻烦的是：<strong>它会让你自己都信了</strong>。</p>
+
+<p>当第三个钱包膨胀到一定程度，你就会开始按那个数字去生活——不是因为你真有，而是因为你<strong>以为别人以为你有</strong>。</p>
+
+<p>于是你开始花第一个钱包的钱，去维护第三个钱包的假象。你请客、你送礼、你装门面——第一个钱包越来越瘦，第三个钱包越来越胖。</p>
+
+<p>这叫"撑场面"——撑到撑不住那天。</p>
+
+<p>7月2日暴跌时，为什么那么多人拼命抄底？不是因为他们真有判断力——是因为他们怕第三个钱包爆了。别人会看到他们亏了、看到他们错了、看到他们"不行了"。</p>
+
+<p>所以他们宁愿第一个钱包受伤，也要保住第三个钱包的体面。</p>
+
+<p><strong>这是最愚蠢的交易。</strong></p>
+
+<h2>三钱包的操盘应用</h2>
+
+<p>我在交易里，把这套框架变成了一条纪律：</p>
+
+<ul>
+<li><strong>第一个钱包</strong>：管好实际仓位。单只不超过15%，跌到止损就走，不扛单。</li>
+<li><strong>第二个钱包</strong>：不借钱炒股，不加杠杆。信用是用来做人的，不是用来赌博的。</li>
+<li><strong>第三个钱包</strong>：不要！不需要任何人知道你在买什么、卖什么、赚多少、亏多少。</li>
+</ul>
+
+<p>没有了第三个钱包的干扰，你的决策会变得干净很多。</p>
+
+<p>你不需要证明自己是对的。你不需要在暴跌中撑场面。你不需要在月底晒收益图。</p>
+
+<p>你只需要把第一个钱包管好。</p>
+
+<h2>最后</h2>
+
+<p>三个钱包，对应的其实是三个问题：</p>
+
+<ul>
+<li>第一个钱包：你<strong>实际</strong>有吗？</li>
+<li>第二个钱包：别人<strong>信</strong>你有吗？</li>
+<li>第三个钱包：别人<strong>以为</strong>你有吗？</li>
+</ul>
+
+<p>做好第一个，用好第二个，忘掉第三个。</p>
+
+<p>爷叔教阿宝的是术，我读出的是道。</p>
+
+<blockquote>"不响，是最大的声音。"<br>—— 爷叔，«繁花»</blockquote>
+
+<p>不响，就是不需要第三个钱包发声。</p>
+`
+    },
+    en: {
+      title: "Three Wallets — You Actually Have Three Wealth Accounts",
+      excerpt: "One real. One borrowed. One dangerous. Most people spend their lives chasing the third, while losing the first. Uncle Ye\'s Three Wallets from Blossoms Shanghai — the most lucid wealth framework I\'ve ever encountered.",
+      body: `
+<p><strong>Three Wallets</strong> — not bank accounts, not asset allocation. They are the underlying architecture of how you perceive wealth.</p>
+
+<p>I first heard it from Uncle Ye teaching Ah Bao in <em>Blossoms Shanghai</em>:</p>
+
+<blockquote>"Every person has three wallets. The first: what you actually have. The second: what others trust you have. The third: what others assume you have."</blockquote>
+
+<p>I've never forgotten this. Not because it's profound — because it's <strong>useful</strong>. Every investment, every judgment, every reading of people and self — it all lives inside these three wallets.</p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>Wallet One: the real</h2>
+
+<p>Wallet One is the most honest — the number in your bank account, your portfolio's market value, the cash you can actually pull out.</p>
+
+<p>It doesn't lie. Lose money — it shows. Make money — it shows. Wallet One doesn't grow because you dress well or dine with the right people.</p>
+
+<p>But here's the thing: <strong>most people look down on it.</strong></p>
+
+<p>Because Wallet One is slow. Salary grows at inches. Dollar-cost averaging takes years to feel. Wallets Two and Three — much faster. A nice outfit, and suddenly Wallet One <em>looks</em> different. A photo with a big name, and people's eyes change.</p>
+
+<p>So most people pour their energy into Wallets Two and Three — and end up draining Wallet One.</p>
+
+<p>On July 2nd, when I cut my positions, I was protecting Wallet One. 420k in cash sat there. I didn't care what anyone thought I lost or gained. Wallet One was intact — I could wait.</p>
+
+<p>This is the confidence of Bu Xiang: <strong>guard Wallet One, and you can afford to wait.</strong></p>
+
+<h2>Wallet Two: trust</h2>
+
+<p>Wallet Two is borrowed from others — trust, reputation, connection.</p>
+
+<p>It's real yet fragile. Real because — with trust, you can borrow money, resources, time. Ah Bao rose in Shanghai not just on Wallet One, but on Wallet Two — people believed in him.</p>
+
+<p>Fragile because — it can vanish in an instant. One wrong word, one default, one broken promise — Wallet Two zeroes out.</p>
+
+<p>My deepest lesson from years of investing: <strong>don't overspend Wallet Two.</strong></p>
+
+<p>What does that mean? Borrowing money to add leverage — that's spending Wallet Two. Telling someone "this project is guaranteed" — that's spending Wallet Two too. Every time you spend it, you deplete trust.</p>
+
+<p>The truly smart play is to <strong>appreciate</strong> Wallet Two, not spend it.</p>
+
+<ul>
+<li>Say what you'll do, do what you said — that grows Wallet Two.</li>
+<li>Never boast — grows Wallet Two.</li>
+<li>Lose without excuses — grows Wallet Two.</li>
+</ul>
+
+<p>On July 2nd, I didn't post, didn't call the bottom in any chat group. It looked like I did nothing — actually I was protecting Wallet Two. Because I made no sound, nobody knew what I was doing. What isn't known, can't be judged.</p>
+
+<h2>Wallet Three: what others assume</h2>
+
+<p>Wallet Three is the most dangerous.</p>
+
+<p>It's not what you have. It's not what others trust you have. It's <strong>what others imagine you have</strong>.</p>
+
+<p>You buy a nice house — people assume you own three more. You drive a good car — they assume you're worth millions. You say one thing at the right table — they assume you're "connected" or "in the know."</p>
+
+<p>Wallet Three inflates itself. You don't have to do anything.</p>
+
+<p>The problem: <strong>you start believing it yourself.</strong></p>
+
+<p>When Wallet Three swells enough, you begin living at that level — not because you have it, but because you <em>think others think you have it</em>.</p>
+
+<p>So you spend Wallet One to maintain the illusion of Wallet Three. You host dinners, give gifts, keep up appearances — Wallet One gets thinner, Wallet Three gets fatter.</p>
+
+<p>This is called "keeping up face" — until the day you can't.</p>
+
+<p>Why did so many people frantically buy the dip on July 2nd? Not because they had conviction — because they were terrified of their Wallet Three collapsing. Others would see them lose, see them be wrong, see them "washed up."</p>
+
+<p>So they let Wallet One bleed to preserve the dignity of Wallet Three.</p>
+
+<p><strong>That is the stupidest trade there is.</strong></p>
+
+<h2>Trading by the Three Wallets</h2>
+
+<p>I turned this framework into a discipline:</p>
+
+<ul>
+<li><strong>Wallet One</strong>: manage the real position. Max 15% per name. Hit the stop — cut. No holding.</li>
+<li><strong>Wallet Two</strong>: no borrowed money for trading. No leverage. Trust is for living, not for gambling.</li>
+<li><strong>Wallet Three</strong>: eliminate it. Nobody needs to know what you're buying, selling, making, or losing.</li>
+</ul>
+
+<p>Without Wallet Three in the picture, your decisions become clean.</p>
+
+<p>You don't need to prove you're right. You don't need to save face in a crash. You don't need to show a screenshot at month-end.</p>
+
+<p>You just need to manage Wallet One.</p>
+
+<h2>In the end</h2>
+
+<p>Three Wallets, three questions:</p>
+
+<ul>
+<li>Wallet One: do you <strong>actually</strong> have it?</li>
+<li>Wallet Two: do others <strong>trust</strong> you have it?</li>
+<li>Wallet Three: do others <strong>assume</strong> you have it?</li>
+</ul>
+
+<p>Master the first. Use the second well. Forget the third.</p>
+
+<p>Uncle Ye taught Ah Bao a technique. I read a philosophy from it.</p>
+
+<blockquote>"Bu Xiang is the loudest sound."<br>— Uncle Ye, <em>Blossoms Shanghai</em></blockquote>
+
+<p>Bu Xiang — is not needing Wallet Three to speak for you.</p>
+`
+    }
+  },
 ];
 
 /* ============================================================
-   渲染辅助函数
+   渲染辅助函数   渲染辅助函数
    ============================================================ */
 
 function getArticles() {
