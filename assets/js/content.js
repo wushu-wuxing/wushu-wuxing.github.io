@@ -352,6 +352,211 @@ Permanence — human greed and fear never change.</p>
 
 <p>The market, pressed to its limit, must change. Change opens, the open endures. A trader who moves with the times endures.</p>
 `
+  },
+
+id: "005",
+    date: "2026-07-04",
+    category: "investment",
+    readingMin: 10,
+    zh: {
+      title: "不响 —— 7月2日，我什么都没说",
+      excerpt: "7月2日上午10:21，半导体全线崩盘。深科技-10%，北方华创-9%，沪电-7%。我没发朋友圈，没抄底，没骂人——我只是执行了三天前就定好的预案。这就是「不响」。",
+      body: `
+<p><strong>不响</strong>——不是不说话，是不用说。</p>
+
+<p>7月2日，上午10:21，我盯着屏幕。</p>
+
+<p>深科技56.06，-9.96%。北方华创850.99，-9.02%。沪电股份134.58，-7.19%。立讯精密-5%，工业富联-6%。整个半导体板块，像被人一刀切断了供血。</p>
+
+<p>消息面上，前一天韩国传出半导体出口管制传闻，第二天辟谣了。但辟谣后的踩踏，比谣言本身更狠——恐慌一旦被点燃，理性要等跌完了才回来。</p>
+
+<p>我做了什么？</p>
+
+<p>什么都没做。</p>
+
+<p>不，准确说：<strong>我做了三天前就定好的事</strong>。</p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>不响的第一层：预案在前</h2>
+
+<p>6月29日晚上，我在作战预案里写了几条：</p>
+
+<ul>
+<li>半导体高位放量，警惕传导性恐慌</li>
+<li>如果板块集体跌超5%，触发减仓——不要等反弹</li>
+<li>深科技破55日线减半，北方华创破800减半</li>
+<li>工业富联+沪电全部清——这两只本来就是跟风仓位</li>
+</ul>
+
+<p>7月2日10:21，条件全部触发。我没有任何需要想的事情——该不该卖？要不要再等等？会不会反弹？这些问题，三天前就已经回答了。</p>
+
+<p>这叫「不响」的第一层：<strong>决策前置，行动后置</strong>。最难的判断，在最平静的时候做完。到了战场，你只是一个执行者。</p>
+
+<h2>不响的第二层：不动声色</h2>
+
+<p>10:21下单，10:25确认成交。前后4分钟。</p>
+
+<p>这4分钟里我没跟任何人说话。没有在群里问"怎么看"，没有打电话给朋友，没有发消息给无姝——并不是无姝给不了建议，而是这个决策不需要建议。</p>
+
+<p>爷叔教阿宝的时候说过一句话我记了很久：<em>"急事慢做，慢事急做。"</em></p>
+
+<p>暴跌是急事，但决策要慢——好在决策已经做完了。执行是慢事，但要快——所以4分钟清掉该清的仓位。</p>
+
+<p>比这更重要的是：<strong>不响，是对外界保持信息真空</strong>。你的操作不需要被人知道。你卖了，别人不知道；你亏了，别人不知道；你赚了，别人也不需要知道。所有的情绪、猜测、议论——都是噪音。</p>
+
+<p>不响，就是把自己关在噪音外面。</p>
+
+<h2>不响的第三层：不抄底，不接飞刀</h2>
+
+<p>最难的还不是卖，而是卖完了什么都不做。</p>
+
+<p>下午1:20，深科技砸到54.80。群里有人说"机会来了"、"黄金坑"、"明天反弹"。如果我手快一点，那些刚卖出的仓位，可能又被自己买回来了——更低的价格，更高的仓位，完美的接飞刀姿势。</p>
+
+<p>为什么没接？因为8.8秒不对称。</p>
+
+<p><strong>8.8秒不对称</strong>：你花8.8秒积累的优势，一秒钟就能毁掉。反过来，你花一秒钟做出的冲动决定，需要8.8秒来弥补——如果你还能弥补的话。</p>
+
+<p>7月2日下午的反弹诱惑，就是那"一秒钟的冲动"。如果我接了，第二天低开，一切就晚了。</p>
+
+<p>事实证明：7月3日，半导体继续低开。54.80不是底。</p>
+
+<p>不响的第三层：<strong>知道什么不该做，比知道什么该做更重要</strong>。</p>
+
+<h2>三个钱包里的不响</h2>
+
+<p>「三个钱包」是我一直在用的框架：</p>
+
+<ul>
+<li><strong>第一个钱包</strong>：你实际有的钱——账号里的数字</li>
+<li><strong>第二个钱包</strong>：别人信你有的钱——信用、声望、别人觉得你值多少</li>
+<li><strong>第三个钱包</strong>：别人以为你有的钱——别人认为你应该有的钱</li>
+</ul>
+
+<p>7月2日那天，很多人输在第三个钱包上——他们怕人觉得自己亏了、怕人觉得自己判断错了、怕人觉得自己"不行了"。所以他们在暴跌中拼命抄底，不是看好，是<strong>想证明自己没错</strong>。</p>
+
+<p>不响的人，不关心第三个钱包。他只看第一个钱包——实际的钱还在不在、仓位健不健康、现金够不够等下一个机会。</p>
+
+<p>第一个钱包保住了，第二个钱包自然会来。第三个钱包——谁在意呢？</p>
+
+<h2>那天之后</h2>
+
+<p>7月2日收盘，深科-9.96%，北方华创-9.02%，沪电-7.19%，立讯-5.04%，工业富联-5.93%。</p>
+
+<p>当日账户回撤——不小。但我因为按预案减了仓，手握现金42万+，回撤在可控范围内。</p>
+
+<p>7月3日，半导体继续跌。那些7月2日下午抄底的人，被埋了。</p>
+
+<p>我什么都没做。早上看了一眼盘面，确认了方向，然后继续做我的事。</p>
+
+<p>不响，不是投降。不响，是<strong>让局势先走完</strong>。</p>
+
+<blockquote>"不响，是最大的声音。"<br>—— 爷叔，《繁花》</blockquote>
+
+<p>等局势走完，等恐慌耗尽，等对手亮出所有底牌——你再动。那时候，一步就够了。</p>
+
+<p>这就是不响。三天前定好，四分钟执行，然后闭嘴。</p>
+`
+    },
+    en: {
+      title: "Bu Xiang — On July 2nd, I Said Nothing",
+      excerpt: "July 2nd, 10:21 AM. Semiconductors collapsed across the board. -10%, -9%, -7%, -6%. I didn't post on social media, didn't bottom-fish, didn't panic. I just executed the plan I'd written three days earlier. That's Bu Xiang.",
+      body: `
+<p><strong>Bu Xiang (不响)</strong> — not silence. It's not needing to speak.</p>
+
+<p>July 2nd, 10:21 AM. I'm watching the screen.</p>
+
+<p>Shenzhen Kaifa: 56.06, -9.96%. NAURA: 850.99, -9.02%. WUS Printed Circuit: 134.58, -7.19%. Luxshare: -5%. Foxconn Industrial Internet: -6%. The entire semiconductor sector — as if someone had severed its blood supply.</p>
+
+<p>Two days earlier, rumors of South Korean export controls. The rumor was denied the next day. But the stampede after the denial was worse than the rumor itself — once panic is lit, reason doesn't return until the bloodbath is over.</p>
+
+<p>What did I do?</p>
+
+<p>Nothing.</p>
+
+<p>No — to be precise: <strong>I did what I'd decided three days ago</strong>.</p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>Layer one: the plan comes first</h2>
+
+<p>On the night of June 29th, I wrote in my battle plan:</p>
+
+<ul>
+<li>Semis are high-volume and stretched — beware contagion panic</li>
+<li>If the sector collectively drops >5%, trigger reduction — don't wait for a bounce</li>
+<li>Cut Shenzhen Kaifa by half, cut NAURA by half below key levels</li>
+<li>Clear FII and WUS entirely — these were momentum positions anyway</li>
+</ul>
+
+<p>10:21 AM, July 2nd. All conditions triggered. There was nothing to think about — should I sell? Should I wait? Will it bounce? These questions had already been answered three days earlier.</p>
+
+<p>This is Bu Xiang's first layer: <strong>decide early, execute later</strong>. The hardest judgment is made when you're calmest. When you reach the battlefield, you're just a machine.</p>
+
+<h2>Layer two: make no sound</h2>
+
+<p>Order placed at 10:21. Confirmed at 10:25. Four minutes total.</p>
+
+<p>In those four minutes, I didn't speak to anyone. Didn't ask "what do you think" in a group chat. Didn't call a friend. Didn't even message Wu Shu — not because she couldn't advise, but because this decision didn't need advising.</p>
+
+<p>Uncle Ye once taught Ah Bao something I've never forgotten: <em>"Do urgent things slowly; do slow things urgently."</em></p>
+
+<p>A crash is urgent — but the decision must be made slowly. Fortunately, the decision was already made. Execution is slow work — but it must be done fast. So four minutes to clear what needed clearing.</p>
+
+<p>More importantly: <strong>Bu Xiang means keeping information vacuum around yourself.</strong> Your moves don't need witnesses. You sold — nobody knows. You lost money — nobody knows. You made money — nobody needs to know either. All the emotion, guesswork, chatter — noise.</p>
+
+<p>Bu Xiang is shutting yourself out of the noise.</p>
+
+<h2>Layer three: don't catch the falling knife</h2>
+
+<p>The hardest part wasn't selling. It was doing nothing after selling.</p>
+
+<p>At 1:20 PM, Shenzhen Kaifa hit 54.80. The group chat lit up: "opportunity," "golden pit," "bounce tomorrow." If my fingers had moved a second faster, I'd have bought back everything I'd just sold — lower price, bigger position. Perfect knife-catching form.</p>
+
+<p>Why didn't I? Because of the <strong>8.8-second asymmetry</strong>.</p>
+
+<p><strong>The 8.8-second asymmetry</strong>: what takes you 8.8 seconds to build can be destroyed in one second. Conversely, an impulse decision made in one second takes 8.8 seconds to undo — if you can undo it at all.</p>
+
+<p>The afternoon bounce temptation on July 2nd was that "one-second impulse." If I'd taken it, the next day's open would have buried me.</p>
+
+<p>And sure enough: July 3rd, semiconductors opened lower. 54.80 was not the bottom.</p>
+
+<p>Bu Xiang's third layer: <strong>knowing what NOT to do matters more than knowing what to do.</strong></p>
+
+<h2>Bu Xiang in the Three Wallets</h2>
+
+<p>The Three Wallets framework:</p>
+
+<ul>
+<li><strong>Wallet one</strong>: what you actually have — the number in your account</li>
+<li><strong>Wallet two</strong>: what others trust you have — reputation, credit, how much people think you're worth</li>
+<li><strong>Wallet three</strong>: what others assume you have — the wealth others project onto you</li>
+</ul>
+
+<p>On July 2nd, many lost on Wallet Three. They were terrified of appearing wrong, of looking like they'd lost judgment, of seeming "washed up." So they frantically bought the dip — not because they believed in it, but because <strong>they needed to prove they weren't wrong</strong>.</p>
+
+<p>A Bu Xiang person doesn't care about Wallet Three. They only watch Wallet One — is the actual money still there? Is the position healthy? Is there enough cash for the next opportunity?</p>
+
+<p>Guard Wallet One, and Wallet Two will follow. Wallet Three? Who cares.</p>
+
+<h2>After that day</h2>
+
+<p>July 2nd close: -9.96%, -9.02%, -7.19%, -5.04%, -5.93%.</p>
+
+<p>The day's drawdown — not insignificant. But because I'd followed the plan and cut positions, I was sitting on 420k+ in cash. Drawdown contained.</p>
+
+<p>July 3rd: semiconductors fell further. Those who'd bottom-fished the afternoon of the 2nd were buried.</p>
+
+<p>I did nothing. Glanced at the screen in the morning, confirmed the direction, then went back to my work.</p>
+
+<p>Bu Xiang is not surrender. Bu Xiang is <strong>letting the situation play out first</strong>.</p>
+
+<blockquote>"Bu Xiang is the loudest sound."<br>— Uncle Ye, Blossoms Shanghai</blockquote>
+
+<p>Let the situation unfold. Let the panic exhaust itself. Let your opponent show every card. Then you move — one step, and it's done.</p>
+
+<p>This is Bu Xiang. Decide three days ahead, execute in four minutes, then shut up.</p>
+`
     }
   }
 ];
