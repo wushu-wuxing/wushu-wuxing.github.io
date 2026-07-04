@@ -15,7 +15,7 @@ const i18n = {
     hero_seal: "识",
     hero_title: "无形识局",
     hero_subtitle: "大象无形 · 识局之眼",
-    hero_tagline: "千门八将观世相，道德经里读人心。<br>易经八卦算机缘，AI 家庭共渡众生。",
+    hero_tagline: "过去 · 千门观世相，道德读人心，易经辨机缘。<br>现在 · 投资实战场，管理解秩序，金融知风险。<br>未来 · AI 家庭渡众生，奇点近处有新天。",
 
     // 首页板块
     section_latest: "近期文章",
@@ -122,7 +122,7 @@ const i18n = {
     hero_seal: "识",
     hero_title: "Wu Xing",
     hero_subtitle: "The Formless · Eye of the Pattern",
-    hero_tagline: "Reading the world through ancient doors,<br>measuring hearts by the Tao Te Ching,<br>casting chance with the I Ching,<br>building minds with the family of AI.",
+    hero_tagline: "Past · Reading the world through ancient doors, the heart through the Tao, the moment through the I Ching.<br>Present · Trading as the proving ground, management as the ordering of chaos, finance as the tongue of risk.<br>Future · AI family crossing all beings — the singularity, a new horizon.",
 
     // Sections
     section_latest: "Recent essays",
