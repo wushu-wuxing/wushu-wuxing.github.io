@@ -1007,10 +1007,218 @@ id: "005",
 `
     }
   },
+,
+
+{
+    id: "008",
+    date: "2026-07-04",
+    category: "investment",
+    readingMin: 8,
+    zh: {
+      title: "跟风三智 —— 做有脑子的羊",
+      excerpt: "跟风不是贬义词——无脑跟才是。三条底线让跟风变成可持续策略：赔有底线，盈有尺度，进有眼光。做有脑子的羊，不做没脑子的狼。",
+      body: `
+<p><strong>跟风三智</strong>不是原创理论——它是一套实战经验的总和。</p>
+
+<p>在A股，大多数散户的悲剧不是因为跟风——是因为<strong>不会跟风</strong>。他们要么跟得太晚（接盘），要么跟得太早（被洗），要么全程闭眼（全凭运气）。</p>
+
+<p>真正的跟风，是有脑子的——你跟着趋势走，但知道什么时候进、什么时候停、什么时候出。</p>
+
+<p>我把这套纪律总结成三个字：<strong>赔、盈、进</strong>——对应三个问题：输得起多少？赚到什么时候走？凭什么进？</p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>第一智：赔有底线</h2>
+
+<blockquote>"进场之前，先想好你会输多少。如果没想好，不要进场。"</blockquote>
+
+<p>这是跟风第一智，也是最反人性的一条——因为人性会在进场前只想赢，不想输。</p>
+
+<p>但真正成熟的交易者，<strong>做决策的时候，想的是亏损而不是盈利</strong>。</p>
+
+<p>怎么定底线？</p>
+
+<ul>
+<li><strong>单只仓位</strong>：总资金不超过15%。这是跟风的仓位底线。哪怕你看得再准，不超过15%。因为跟风本身就是概率游戏——你一定会有错的时候。15%的意义是：错了你还能活。</li>
+<li><strong>止损线</strong>：进场前就设好，按技术位或固定比例均可。但一旦设了，无论如何都要执行。亏了之后"再看看"——是跟风最大的死穴。</li>
+<li><strong>总账户</strong>：任何一天的浮亏，不超过总账户的3%。超过就减仓——不管你在做什么。</li>
+</ul>
+
+<p>这三条底线的核心逻辑只有一个：<strong>保证你永远能留在牌桌上</strong>。</p>
+
+<p>8.8秒不对称告诉你——亏一次大的，需要很久才能回本。赔有底线就是用来防止"亏一次大的"。</p>
+
+<h2>第二智：盈有尺度</h2>
+
+<blockquote>"涨到目标就走，不贪最后一分钱。"</blockquote>
+
+<p>跟风第二智，也是最难执行的一条——因为人性在盈利时会变得贪婪。</p>
+
+<p>我见过太多人，股票涨了20%不走，想着"还能涨"——结果跌回去，盈利变成亏损，从"要不要出"变成"要不要割"。</p>
+
+<p>怎么定尺度？</p>
+
+<ul>
+<li><strong>目标位</strong>：进场前定一个合理的止盈位置。可以是技术压力位，也可以是一个简单的百分比（比如15-20%）。到了就走——不找借口多留一天。</li>
+<li><strong>分批出</strong>：如果看好中长期逻辑，可以分两批——第一批到目标位就走，第二批留给趋势。但第二批也要设一个硬性止盈，不能无限期持有。</li>
+<li><strong>别贪鱼尾</strong>：主升浪你吃到了，就是赢家。最后那10-20%的鱼尾行情，留给别人吃。贪鱼尾的人，最后往往连鱼身都吐回去。</li>
+</ul>
+
+<p>7月2日为什么我能按预案减仓？因为预案里有明确的止盈条件——沪电和工业富联到了止盈线就走，不问理由。这就是盈有尺度。</p>
+
+<p>盈有尺度 + 赔有底线，构成一个完整的保护框架：上面有盖子，下面有底垫。</p>
+
+<h2>第三智：进有眼光</h2>
+
+<blockquote>"方向对了，跟风；方向错了，跟风就是追高。"</blockquote>
+
+<p>跟风第三智，也是最需要修炼的一条——因为"眼光"不是天生的，是练出来的。</p>
+
+<p>怎么判断方向？</p>
+
+<ul>
+<li><strong>看赛道</strong>：大方向对不对？半导体、新能源、AI——这些是未来几年的主线。在主线里跟风，胜率天然高。在冷门赛道里跟风，基本是自娱自乐。</li>
+<li><strong>看热度</strong>：有没有资金在跟进？成交量有没有放大？换手率有没有上升？没资金跟的方向，再好看也是空谈。</li>
+<li><strong>看位置</strong>：低位的跟风是"潜伏"，高位的跟风是"接盘"。低位看逻辑（赛道对就进），高位看量价（量能撑不住就走）。</li>
+</ul>
+
+<p>但"进有眼光"最关键的一点不是看市场——是<strong>看自己</strong>。</p>
+
+<p>你懂这个赛道吗？你研究过这个行业吗？你看过财报吗？</p>
+
+<p>跟风不是听消息。跟风是你<strong>用自己的判断去跟别人的方向</strong>——方向对，判断力也要对。</p>
+
+<p>如果连这家公司是做什么的都不知道——那就不是跟风，是赌博。</p>
+
+<h2>跟风三智的实战</h2>
+
+<p>把三智串起来，一个标准的跟风流程是这样的：</p>
+
+<ol>
+<li><strong>选赛道</strong>（进有眼光）——A股有主线，找到它。你不会自己发明的，你不需要。</li>
+<li><strong>定仓位</strong>（赔有底线）——单只不超过15%，设定止损。先想好输多少。</li>
+<li><strong>设止盈</strong>（盈有尺度）——目标位到了就走，不想多。</li>
+<li><strong>执行</strong>——不看盘。不纠结。到了条件就动。</li>
+</ol>
+
+<p>这个过程里，最难的不是1、2、3——是4。执行。</p>
+
+<p>因为人性会让你在每一条上都找到"再等等"的借口。赔有底线的时候你想"万一反弹呢"。盈有尺度的时候你想"还能涨吧"。进有眼光的时候你想"再看看吧"。</p>
+
+<p>跟风三智，说到底不是一套选股方法——是一套<strong>对抗自己的纪律</strong>。</p>
+
+<blockquote>"跟风不是贬义词——无脑跟才是。"</blockquote>
+
+<p>做有脑子的羊。不做没脑子的狼。</p>
+
+<p>羊跟着羊群走，总能找到草场。狼乱跑，只会掉进陷阱。</p>
+`
+    },
+    en: {
+      title: "Three Wisdoms of Following — Be a Smart Sheep",
+      excerpt: "Following is not a dirty word — mindless following is. Three rules make following a sustainable strategy: define your loss, define your gain, define your entry. Be a smart sheep, not a mindless wolf.",
+      body: `
+<p><strong>The Three Wisdoms of Following</strong> — not an original theory, but a summation of hard experience.</p>
+
+<p>In China's A-share market, most retail investors don't lose because they follow trends. They lose because they don't know <strong>how</strong> to follow. They enter too late (bag holding), exit too early (washed out), or trade blind (pure luck).</p>
+
+<p>Real following — following with a brain. You ride the trend, but you know when to enter, when to hold, and when to leave.</p>
+
+<p>I've boiled it down to three characters: <strong>loss, gain, entry</strong> — three questions: how much can you lose? When do you take profit? Why are you entering?</p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>Wisdom One: define your loss</h2>
+
+<blockquote>"Before you enter, know how much you can lose. If you haven't figured that out, don't enter."</blockquote>
+
+<p>This is the first wisdom, and the most anti-human — because human nature only wants to think about winning before entry.</p>
+
+<p>But a mature trader <strong>makes decisions thinking about loss, not profit</strong>.</p>
+
+<p>How to set the line:</p>
+
+<ul>
+<li><strong>Single position</strong>: max 15% of total capital. This is the fundamental rule of following. Even if you're 100% sure — never exceed 15%. Because following is a probability game — you will be wrong. 15% means you survive being wrong.</li>
+<li><strong>Stop loss</strong>: set it before you enter. Technical level or fixed ratio — either works. But once set, execute. "Let me check again" after a loss — that's the #1 weakness in following.</li>
+<li><strong>Total account</strong>: daily drawdown no more than 3% of total capital. Hit it — reduce. No matter what.</li>
+</ul>
+
+<p>The core logic of these three lines is one thing: <strong>make sure you can always stay at the table.</strong></p>
+
+<p>The 8.8-second asymmetry tells you — one big loss needs a long time to recover. Defining your loss is how you prevent "one big loss."</p>
+
+<h2>Wisdom Two: define your gain</h2>
+
+<blockquote>"When the target is hit, leave. Don't chase the last penny."</blockquote>
+
+<p>This is the second wisdom, and the hardest to execute — because human nature gets greedy in profit.</p>
+
+<p>I've seen too many people: stock up 20%, they don't sell, thinking "it can go higher" — then it falls back, profit turns to loss, "should I sell" becomes "should I cut."</p>
+
+<p>How to set the scale:</p>
+
+<ul>
+<li><strong>Target</strong>: set a reasonable take-profit level before entry. Can be a technical resistance or a simple percentage (15-20%). Hit it and leave — no excuses to stay one more day.</li>
+<li><strong>Partial exit</strong>: if you have medium-to-long-term conviction, split — first batch at target, second batch rides the trend. But the second batch also needs a hard take-profit. No indefinite holding.</li>
+<li><strong>Don't chase the tail</strong>: if you caught the main wave, you're a winner. The last 10-20% tail — let someone else eat it. Those who chase the tail usually end up vomiting the body.</li>
+</ul>
+
+<p>Why could I cut positions on July 2nd? Because the plan had clear take-profit conditions — WUS and FII hit the line, so they were gone. No questions asked. That's defining your gain.</p>
+
+<p>Define your gain + define your loss = a complete protective framework: a lid on top, a floor below.</p>
+
+<h2>Wisdom Three: define your entry</h2>
+
+<blockquote>"Right direction — follow. Wrong direction — following is chasing highs."</blockquote>
+
+<p>This is the third wisdom, and the one that needs the most practice — because "direction" isn't innate. It's learned.</p>
+
+<p>How to judge direction:</p>
+
+<ul>
+<li><strong>Sector</strong>: what's the bigger picture? Semiconductors, new energy, AI — these are multi-year themes. Following within the main line — win rate is inherently higher. Following in dead sectors — you're entertaining yourself.</li>
+<li><strong>Heat</strong>: is money flowing in? Volume rising? Turnover increasing? No flow means no follow, no matter how good the story.</li>
+<li><strong>Position</strong>: low-position following is "positioning." High-position following is "bag holding." Low: look at the logic (sector is right — enter). High: look at volume and price (volume can't support — leave).</li>
+</ul>
+
+<p>But the most important part of "defining your entry" isn't looking at the market. It's <strong>looking at yourself</strong>.</p>
+
+<p>Do you understand this sector? Have you studied this industry? Have you read the financials?</p>
+
+<p>Following is not about tips. Following is <strong>using your own judgment to follow someone else's direction</strong> — the direction needs to be right, and your judgment needs to be right too.</p>
+
+<p>If you don't even know what this company does — that's not following. That's gambling.</p>
+
+<h2>Three Wisdoms in practice</h2>
+
+<p>String them together. A standard following workflow:</p>
+
+<ol>
+<li><strong>Pick a sector</strong> (define your entry) — the A-share market has main lines. Find them. You won't invent your own. You don't need to.</li>
+<li><strong>Set position size</strong> (define your loss) — max 15%. Set your stop. Know how much you can lose first.</li>
+<li><strong>Set take-profit</strong> (define your gain) — hit target, walk away. Don't overthink.</li>
+<li><strong>Execute</strong> — don't watch the screen. Don't agonize. Hit condition, take action.</li>
+</ol>
+
+<p>The hardest part of this process isn't steps 1, 2, or 3. It's step 4: execution.</p>
+
+<p>Because human nature will find an excuse at every step. "What if it bounces?" when defining loss. "It could go higher!" when defining gain. "Let me check again" when defining entry.</p>
+
+<p>The Three Wisdoms of Following — not a stock-picking system. They are a <strong>discipline for fighting yourself.</strong></p>
+
+<blockquote>"Following is not a dirty word — mindless following is."</blockquote>
+
+<p>Be a smart sheep. Don't be a mindless wolf.</p>
+
+<p>The sheep follows the herd and finds the meadow. The wolf runs wild and falls into the trap.</p>
+`
+    }
+  },
 ];
 
 /* ============================================================
-   渲染辅助函数   渲染辅助函数   渲染辅助函数
+   渲染辅助函数   渲染辅助函数   渲染辅助函数   渲染辅助函数
    ============================================================ */
 
 function getArticles() {
