@@ -1215,10 +1215,267 @@ id: "005",
 `
     }
   },
+,
+
+{
+    id: "009",
+    date: "2026-07-04",
+    category: "investment",
+    readingMin: 7,
+    zh: {
+      title: "仓位纪律 —— 第一就是活下来",
+      excerpt: "所有投资体系里，只有一条纪律是不可打破的：永远不要让任何一笔交易毁掉你。15%上限、止损不商量、现金是氧气——活下来的人，才有资格谈回报。",
+      body: `
+<p>很多人问我做投资最看重什么。</p>
+
+<p>不是选股。不是择时。不是趋势判断。</p>
+
+<p><strong>是仓位纪律。</strong></p>
+
+<p>没有仓位纪律的选股，是猜大小。没有仓位纪律的择时，是赌博。没有仓位纪律的趋势判断——你对了赚不了多少，错了直接出局。</p>
+
+<p>仓位纪律只有一句话：<strong>在任何一笔交易中，你都不能死。</strong></p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>一、15%法则</h2>
+
+<p>我给自己定了一条死规矩：<strong>任何一只股票，占总仓位不超过15%。</strong></p>
+
+<p>为什么是15%？</p>
+<p>因为一支股票跌停是10%。如果你满仓它，一天就是-10%——你要花11%的回本。如果你重仓它（比如50%），一天就是-5%——你心态已经崩了。如果你仓控在15%，一天最多-1.5%——能接受，晚上睡得着。</p>
+
+<p>15%不是来自什么精密的计算——它是经验和人性的妥协点：</p>
+<ul>
+<li>太低（比如5%）：涨了对总账户没贡献，没意义</li>
+<li>太高（比如30%）：跌了你扛不住，会打破纪律做蠢事</li>
+<li>15%：正好——赚了有效果，亏了不伤筋动骨</li>
+</ul>
+
+<p>更重要的是：<strong>15%让你永远有剩下的85%可以操作</strong>。你永远不会被一支股票绑架。你永远有子弹。</p>
+
+<h2>二、止损不商量</h2>
+
+<p>我只有一条止损规则，比15%法则更硬：</p>
+
+<p><strong>止损线到了就走。不讨论。不观察。不"再看看"。</strong></p>
+
+<p>这不是技术问题，是心理问题。</p>
+<p>账户亏损的时候，大脑会分泌大量的焦虑激素。你所谓的"理性判断"，在它面前不值一提。你一定会找到一百个理由说服自己再等等。你一定会记得上次止损后涨回来的案例，忘记十次止损九次是对的。</p>
+<p>所以止损不能靠"判断"——它必须是自动的。</p>
+<p>入场前就写好止损位，到了就挂单走人。不要坐那儿盯着盘面做决定。八点八秒不对称已经告诉你了——冲动决策需要很久来弥补。</p>
+
+<h2>三、现金是氧气</h2>
+
+<p>大多数人把现金视为"闲置资金"。这是最危险的误解。</p>
+<p>现金不是闲置——现金是<strong>期权</strong>。你手里持有现金，就等于持有了一份"随时抄底"的期权。而这份期权的成本，只是通货膨胀——跟错过一波主升浪的机会成本相比，微不足道。</p>
+<p>7月2日我减仓后手上有42万现金。</p>
+<p>三天后半导体还在跌。我什么都没做——因为我有现金，我可以等。真正没有耐心的人，是那些满仓被套的人。是他们想反弹想疯了。不是我。</p>
+<p>现金给你两样东西：</p>
+<ul>
+<li><strong>选择权</strong>——你可以等最好的机会，而不是被迫在任何机会里选一个</li>
+<li><strong>心理安全</strong>——你晚上睡得着，不会因为市场波动而做蠢事</li>
+</ul>
+<p>永远不要满仓。永远留出至少20-30%的现金。哪怕牛市——尤其牛市。</p>
+
+<h2>四、三个层次</h2>
+
+<p>仓位纪律有三个层次，大部分人只停留在第一层：</p>
+
+<p><strong>第一层：交易纪律</strong>——单只15%，止损不商量，留现金。这是最基础的。做不到这一层，不要谈其他的。</p>
+
+<p><strong>第二层：情绪纪律</strong>——连续亏三笔就停手。不是因为你"状态不好"，是因为你的判断力已经被亏损扭曲了。停手一天、一周、一个月——都可以。市场不会关门。</p>
+
+<p><strong>第三层：人生纪律</strong>——不用杠杆。不借钱炒股。不把所有钱放进同一个市场。仓位纪律最终保护的不仅是你账户的数字——它保护你的生活。亏了钱可以再赚。亏了生活，什么都没了。</p>
+
+<blockquote>"第一就是活下来。"<br>—— 这是所有交易体系的共通道</blockquote>
+
+<p>活下来，才有下一次。活下来，才能犯错还能改。活下来，时间才会站在你这边。</p>
+`
+    },
+    en: {
+      title: "Position Discipline — Rule One: Survive",
+      excerpt: "Of all the rules in investing, only one is unbreakable: never let any single trade destroy you. 15% cap, stops are non-negotiable, cash is oxygen. Only survivors get to talk about returns.",
+      body: `
+<p>People often ask what I value most in investing.</p>
+<p>Not stock-picking. Not timing. Not trend analysis.</p>
+<p><strong>Position discipline.</strong></p>
+<p>Stock-picking without position discipline is gambling. Timing without it is a casino. Trend analysis without it — win a little when right, get wiped out when wrong.</p>
+<p>Position discipline has one sentence: <strong>in any single trade, you cannot die.</strong></p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>1. The 15% rule</h2>
+<p>Hard rule: <strong>no single stock exceeds 15% of total capital.</strong></p>
+<p>Why 15%?</p>
+<p>Because a stock's daily limit is 10%. If you're fully loaded on it, that's -10% in one day — you need +11% to recover. If heavily weighted (say 50%), that's -5% — your psychology shatters. At 15%, max daily loss is 1.5% — acceptable. You sleep.</p>
+<p>15% isn't from a precise calculation. It's the sweet spot between experience and human nature:</p>
+<ul>
+<li>Too low (5%): gains don't move the needle — pointless</li>
+<li>Too high (30%): losses break you — you'll break the rule</li>
+<li>15%: just right — wins matter, losses are manageable</li>
+</ul>
+<p>More importantly: <strong>15% means you always have 85% to work with.</strong> You're never held hostage by one stock. You always have ammunition.</p>
+
+<h2>2. Stops are non-negotiable</h2>
+<p>One rule harder than 15%:</p>
+<p><strong>When the stop is hit, you exit. No discussion. No observation. No "let me see."</strong></p>
+<p>This isn't technical — it's psychological.</p>
+<p>When your account is bleeding, your brain floods with anxiety. What you call "rational judgment" is worthless. You will find a hundred reasons to wait. You will remember the one stop you missed that came back, and forget the nine that were right.</p>
+<p>So stops can't rely on "judgment." They must be automatic.</p>
+<p>Write the stop before you enter. When it's hit, place the order. Don't sit there deciding. The 8.8-second asymmetry already told you — impulse decisions take forever to undo.</p>
+
+<h2>3. Cash is oxygen</h2>
+<p>Most people treat cash as "idle funds." This is the most dangerous misconception.</p>
+<p>Cash isn't idle — cash is <strong>an option</strong>. Holding cash means holding an option to buy the next opportunity, and the cost of that option is just inflation — trivial compared to the cost of missing the main wave.</p>
+<p>After cutting on July 2nd, I sat on 420k in cash.</p>
+<p>Three days later, semis were still falling. I did nothing — because I had cash. I could wait. The ones who can't wait are the ones fully loaded and trapped. They're desperate for the bounce. Not me.</p>
+<p>Cash gives two things:</p>
+<ul>
+<li><strong>Optionality</strong> — you wait for the best opportunity, not pick among whatever's available</li>
+<li><strong>Psychological safety</strong> — you sleep at night, you don't do stupid things from market noise</li>
+</ul>
+<p>Never go all-in. Always keep at least 20-30% cash. Even in bull markets — especially then.</p>
+
+<h2>4. Three layers</h2>
+<p>Position discipline has three layers. Most people only manage the first:</p>
+<p><strong>Layer one: trade discipline</strong> — 15% per name, non-negotiable stops, cash reserve. The foundation. If you can't do this, nothing else matters.</p>
+<p><strong>Layer two: emotional discipline</strong> — stop after three consecutive losers. Not because you're "off," but because your judgment is already distorted by loss. Stop for a day, a week, a month. The market won't close.</p>
+<p><strong>Layer three: life discipline</strong> — no leverage. No borrowed money. Not all eggs in one market. Position discipline ultimately protects not your account numbers — it protects your life. Lost money can be re-earned. Lost life cannot.</p>
+
+<blockquote>"Rule one: survive."<br>— The universal truth of every trading system</blockquote>
+
+<p>Survive, and there's a next time. Survive, and you can afford to make mistakes and fix them. Survive, and time works for you.</p>
+`
+    }
+  },,
+
+{
+    id: "010",
+    date: "2026-07-04",
+    category: "philosophy",
+    readingMin: 9,
+    zh: {
+      title: "无形识局 —— 一个人的体系",
+      excerpt: "不响、三个钱包、8.8秒不对称、跟风三智、仓位纪律——五篇看似独立，实则一体。它们是一个人在市场中摸爬滚打后，从血肉里长出来的东西。",
+      body: `
+<p>五篇文章，一个体系。</p>
+<p>从第一笔交易到现在，这条路走了很多年。弯路、死路、回头路——都走过。这些文字不是理论推导——是伤痕结成的茧。</p>
+<p>五篇文章从五个角度切入同一个核心问题：<strong>一个人，如何在不确定中活下来，然后活好。</strong></p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>五篇文章的骨架</h2>
+
+<p>我试着把它们画成一棵树。</p>
+
+<p><strong>根：不响</strong></p>
+<p>不响是所有纪律的起点。它解决的是决策机制问题——不响的意思是：最难的决定，在最平静的时候做完。到了战场上，你只是一个执行者。</p>
+<p>没有不响，其他四个都是空话。因为你一定会在某个恐慌时刻放弃一切纪律。</p>
+
+<p><strong>干：三个钱包</strong></p>
+<p>三个钱包解决的是认知框架问题。它告诉你什么是真的、什么是借的、什么是别人脑补的。</p>
+<p>大多数人在交易中输钱，不是输给市场——是输在第三个钱包上。他们太在意别人怎么看自己，所以做出各种非理性的决策。三个钱包把这个问题直接钉在了桌上，让你没法假装没看见。</p>
+
+<p><strong>枝：8.8秒不对称</strong></p>
+<p>不对称解决的是为什么的问题——为什么必须有不响？为什么必须管好第一个钱包？因为金融市场天然对你不利：你输得比赚得快，你知道得比别人慢，你做出冲动决定后需要很久来弥补。</p>
+<p>不对称是市场给你的<strong>条件</strong>。接受它，你才能制定正确的策略。对抗它，只会让你更快出局。</p>
+
+<p><strong>叶：跟风三智</strong></p>
+<p>跟风三智解决的是怎么做的问题——给定不对称的条件，给定三个钱包的框架，给定不响的决策机制——你到底怎么操作？</p>
+<p>赔有底线、盈有尺度、进有眼光。三句话。简单到不像策略，但做起来比什么都难——因为每一条都在跟人性作对。</p>
+
+<p><strong>果：仓位纪律</strong></p>
+<p>仓位纪律是所有思考的<strong>落地检测</strong>。你懂再多道理——如果仓位控制不住，一切都是白搭。</p>
+<p>15%上限、止损不商量、留现金——这三条是检验你有没有真正理解的试金石。理解了，自然做得到。做不到，说明你还没理解。</p>
+
+<h2>体系不是公式</h2>
+<p>很多人问我要"系统"——三句话能说清楚的那种。</p>
+<p>我没有。</p>
+<p>因为这些规则大部分时候互相冲突。</p>
+<p>不响告诉你"不动声色"——跟风三智告诉你"跟趋势走"。三个钱包告诉你"只操心第一个"——仓位纪律告诉你"留现金"。</p>
+<p>没有一条规则是绝对正确的。它们是一个<strong>张力场</strong>——你需要在具体情况下，判断哪条纪律更重要。</p>
+<p>这就是为什么它不是一个公式——它是一组原则，需要你自己在实战中内化、打磨、调整。</p>
+
+<h2>这套体系的意义</h2>
+<p>如果只能留一句话给读到这里的你：</p>
+<blockquote>"永远先活下来。活下来的人，才有资格谈回报。"</blockquote>
+<p>这不是一套教你"怎么赚大钱"的体系。它是一套<strong>怎么不亏大钱</strong>的体系。而当你真的不亏大钱，赚钱会自然而然地发生。</p>
+<p>因为市场一直在奖励那些纪律好的人——只是大部分人在被奖励之前，就已经出局了。</p>
+<p>如果你能一直留在桌上，时间会站在你这边。</p>
+
+<h2>最后</h2>
+<p>这些文字，既是写给读者看的，也是写给我自己看的。</p>
+<p>每一篇都是我踩过的坑、流过的血、做错过的决定。写出来不是为了教谁——是为了提醒自己：</p>
+<p><strong>别忘了你是怎么活下来的。</strong></p>
+<p>这个站叫"无形识局"——识局者，先识其无形，再辨其有形。</p>
+<p>如果你能从这些文字里读出一个框架、一种态度、一次提醒——那它就有了意义。</p>
+
+<blockquote>"不响，是最大的声音。"<br>—— 爷叔，«繁花»</blockquote>
+`
+    },
+    en: {
+      title: "Wu Xing Reads the Pattern — One Person's System",
+      excerpt: "Bu Xiang, Three Wallets, 8.8-Second Asymmetry, Three Wisdoms of Following, Position Discipline. Five articles that seem independent — but are one body. They grew out of one person's scars inside the market.",
+      body: `
+<p>Five articles. One system.</p>
+<p>From the first trade to now — many years. Wrong turns, dead ends, U-turns — all of them. These words aren't theoretical deductions. They're scars turned into words.</p>
+<p>Five angles, one core question: <strong>how does a person survive uncertainty — and then thrive in it?</strong></p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>The skeleton of five articles</h2>
+
+<p><strong>Root: Bu Xiang</strong></p>
+<p>Bu Xiang is the starting point of all discipline. It solves the decision-making problem — the hardest decisions are made when you're calmest. On the battlefield, you're just an executor.</p>
+<p>Without Bu Xiang, the other four are empty talk. Because at some moment of panic, you will abandon every discipline you have.</p>
+
+<p><strong>Trunk: Three Wallets</strong></p>
+<p>The Three Wallets solve the cognitive framework problem. It tells you what's real, what's borrowed, and what others imagine.</p>
+<p>Most people lose in trading not to the market — they lose on Wallet Three. They care too much about how others see them, so they make irrational decisions. The Three Wallets nails this problem to the table and forces you to see it.</p>
+
+<p><strong>Branch: 8.8-Second Asymmetry</strong></p>
+<p>Asymmetry solves the why — why must you have Bu Xiang? Why must you guard Wallet One? Because the market is structurally against you: you lose faster than you win, you know slower than others, and impulse decisions take forever to undo.</p>
+<p>Asymmetry is the <strong>condition</strong> the market gives you. Accept it, and you can build the right strategy. Fight it, and you exit faster.</p>
+
+<p><strong>Leaf: Three Wisdoms of Following</strong></p>
+<p>The Three Wisdoms solve the how — given the condition of asymmetry, given the Three Wallets framework, given Bu Xiang as the decision mechanism — how do you actually operate?</p>
+<p>Define your loss. Define your gain. Define your entry. Three sentences. So simple they don't look like a strategy — but harder than anything to execute, because each one fights human nature.</p>
+
+<p><strong>Fruit: Position Discipline</strong></p>
+<p>Position discipline is the <strong>ground truth</strong> of all thinking. If you understand everything but can't control position size — none of it matters.</p>
+<p>15% cap. Non-negotiable stops. Cash reserves. These three rules are the test of whether you truly understand. Understand them, and you'll follow them naturally. If you can't follow them, you haven't understood yet.</p>
+
+<h2>A system is not a formula</h2>
+<p>People often ask me for "the system" — one that fits in three sentences.</p>
+<p>I don't have one.</p>
+<p>Because these rules often conflict with each other.</p>
+<p>Bu Xiang says "make no sound" — the Three Wisdoms say "follow the trend." The Three Wallets say "only watch Wallet One" — Position Discipline says "keep cash."</p>
+<p>No single rule is always right. They form a <strong>tension field</strong> — you need to judge which discipline matters more in each specific situation.</p>
+<p>That's why it's not a formula. It's a set of principles that you internalize, refine, and adjust through practice.</p>
+
+<h2>What this system means</h2>
+<p>If I could leave one sentence for anyone reading this:</p>
+<blockquote>"Survive first. Only survivors get to talk about returns."</blockquote>
+<p>This is not a system for "how to make big money." It's a system for <strong>how not to lose big money</strong>. And when you truly don't lose big money, making money happens naturally.</p>
+<p>Because the market always rewards those with discipline — most people just exit before they get rewarded.</p>
+<p>If you can stay at the table, time works for you.</p>
+
+<h2>Finally</h2>
+<p>These words are written for readers — and for myself.</p>
+<p>Every article is a pit I fell into, blood I bled, a decision I made wrong. Written not to teach — but to remind myself:</p>
+<p><strong>Don't forget how you survived.</strong></p>
+<p>This site is called "Wu Xing Reads the Pattern" — reading the pattern means first seeing the formless, then discerning the formed.</p>
+<p>If you find in these words a framework, an attitude, a reminder — then it has meaning.</p>
+
+<blockquote>"Bu Xiang is the loudest sound."<br>— Uncle Ye, <em>Blossoms Shanghai</em></blockquote>
+`
+    }
+  },
 ];
 
 /* ============================================================
-   渲染辅助函数   渲染辅助函数   渲染辅助函数   渲染辅助函数
+   渲染辅助函数   渲染辅助函数   渲染辅助函数   渲染辅助函数   渲染辅助函数
    ============================================================ */
 
 function getArticles() {
