@@ -1,0 +1,2421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>无形识局 · 决策沙盘</title>
+<!-- 图表库 -->
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
+<script src="js/chart-engine.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="js/stock-terms-data.js"></script>
+<style>
+/* ===================================================================
+   无形识局 · 决策沙盘 — CSS
+   =================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap');
+:root {
+  --bg-deep: #0a0a12; --bg-primary: #0c0c1d; --bg-secondary: #13132b; --bg-card: #191935; --bg-card-hover: #1e1e42;
+  --border: #2a2a4a; --text-primary: #e8e2d4; --text-secondary: #9999bb; --text-muted: #666688;
+  --red: #ef4444; --red-bg: rgba(239,68,68,0.15); --green: #22c55e; --green-bg: rgba(34,197,94,0.15);
+  --accent: #b8956a; --accent-bg: rgba(184,149,106,0.12); --accent-dim: rgba(184,149,106,0.06);
+  --gold: #f59e0b; --gold-dim: rgba(245,158,11,0.12); --purple: #a855f7; --cyan: #06b6d4; --orange: #f97316;
+  --font-sans: 'Noto Sans SC',sans-serif; --font-serif: 'Noto Serif SC',serif;
+  --admin-accent: #4a9eff; --admin-bg: rgba(74,158,255,0.1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-sans);background:var(--bg-deep);color:var(--text-primary);min-height:100vh;line-height:1.6;overflow-x:hidden;}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 20% 50%,rgba(184,149,106,0.03) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(139,58,58,0.02) 0%,transparent 50%);pointer-events:none;z-index:-1;}
+a{color:var(--accent);text-decoration:none;} a:hover{text-decoration:underline;}
+input,select,button,textarea{font-family:inherit;}
+
+/* === Scrollbar === */
+::-webkit-scrollbar{width:6px;height:6px;} ::-webkit-scrollbar-track{background:var(--bg-deep);} ::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+::-webkit-scrollbar-thumb:hover{background:var(--text-muted);}
+
+/* === UTILITY === */
+.hidden{display:none!important;}
+.flex{display:flex;} .flex-center{align-items:center;justify-content:center;} .flex-between{justify-content:space-between;}
+.gap-8{gap:8px;} .gap-12{gap:12px;} .gap-16{gap:16px;}
+.mt-8{margin-top:8px;} .mt-16{margin-top:16px;} .mb-8{margin-bottom:8px;} .mb-16{margin-bottom:16px;}
+.text-up{color:var(--red)!important;} .text-down{color:var(--green)!important;} .text-flat{color:var(--text-muted)!important;}
+.text-accent{color:var(--accent)!important;} .text-muted{color:var(--text-muted)!important;}
+.fw-6{font-weight:600!important;} .fs-12{font-size:12px!important;} .fs-14{font-size:14px!important;} .fs-18{font-size:18px!important;}
+.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+/* === BUTTONS === */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border:none;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+.btn-primary{background:var(--accent);color:#0a0a12;}.btn-primary:hover{background:#c9a67a;transform:translateY(-1px);}
+.btn-secondary{background:var(--bg-card);color:var(--text-primary);border:1px solid var(--border);}.btn-secondary:hover{background:var(--bg-card-hover);border-color:var(--text-muted);}
+.btn-danger{background:var(--red-bg);color:var(--red);border:1px solid rgba(239,68,68,0.3);}.btn-danger:hover{background:rgba(239,68,68,0.25);}
+.btn-sm{padding:5px 12px;font-size:12px;}
+.btn-xs{padding:3px 8px;font-size:11px;border-radius:4px;}
+.btn-admin{background:var(--admin-accent);color:#fff;}.btn-admin:hover{background:#5aaeff;}
+.btn-icon{width:32px;height:32px;padding:0;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;background:transparent;border:1px solid var(--border);color:var(--text-secondary);cursor:pointer;transition:all 0.2s;}
+.btn-icon:hover{background:var(--bg-card-hover);color:var(--text-primary);}
+
+/* === FORM === */
+.form-group{margin-bottom:12px;}
+.form-label{display:block;font-size:12px;color:var(--text-secondary);margin-bottom:4px;font-weight:500;}
+.form-input{width:100%;padding:9px 12px;background:var(--bg-card);border:1px solid var(--border);border-radius:6px;color:var(--text-primary);font-size:13px;outline:none;transition:border 0.2s;}
+.form-input:focus{border-color:var(--accent);}
+.form-input::placeholder{color:var(--text-muted);}
+.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239999bb' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:30px;}
+.form-error{font-size:11px;color:var(--red);margin-top:4px;display:none;}
+.form-error.show{display:block;}
+
+/* ===================================================================
+   LOGIN / REGISTER
+   =================================================================== */
+#loginPage{position:fixed;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;z-index:1000;background:var(--bg-deep);}
+.login-bg{position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 30% 50%,rgba(184,149,106,0.05) 0%,transparent 50%),radial-gradient(ellipse at 70% 50%,rgba(239,68,68,0.02) 0%,transparent 50%);pointer-events:none;}
+.login-card{position:relative;width:380px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:32px;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+.login-brand{text-align:center;margin-bottom:28px;}
+.login-brand .logo{font-family:var(--font-serif);font-size:28px;font-weight:700;letter-spacing:6px;color:var(--accent);}
+.login-brand .logo .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin:0 4px 0 2px;vertical-align:middle;}
+.login-brand .sub{font-size:12px;color:var(--text-muted);margin-top:4px;letter-spacing:2px;}
+.login-tabs{display:flex;margin-bottom:20px;border-bottom:1px solid var(--border);}
+.login-tab{flex:1;text-align:center;padding:10px;font-size:14px;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;}
+.login-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+.login-tab:hover{color:var(--text-primary);}
+.login-submit{width:100%;padding:11px;margin-top:8px;}
+.login-hint{font-size:11px;color:var(--text-muted);text-align:center;margin-top:12px;}
+.login-capital-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:2000;}
+.login-capital-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:28px;width:360px;text-align:center;}
+.login-capital-card h3{font-size:18px;margin-bottom:8px;color:var(--accent);}
+.login-capital-card p{font-size:13px;color:var(--text-secondary);margin-bottom:16px;}
+.login-capital-card .form-input{text-align:center;font-size:22px;font-weight:700;padding:12px;}
+.login-capital-card .form-input:focus{border-color:var(--accent);}
+
+/* ===================================================================
+   MAIN APP SHELL
+   =================================================================== */
+#appShell{display:none;}
+.admin-mode #appShell{display:block;}
+.user-mode #appShell{display:block;}
+
+/* === TOP BAR === */
+.topbar{display:flex;align-items:center;padding:0 24px;height:52px;background:var(--bg-secondary);border-bottom:1px solid var(--border);}
+.topbar-brand{font-family:var(--font-serif);font-size:18px;font-weight:700;letter-spacing:3px;color:var(--accent);margin-right:24px;white-space:nowrap;}
+.topbar-brand .dot-gold{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--accent);margin:0 3px;vertical-align:middle;}
+.topbar-nav{display:flex;gap:4px;flex:1;overflow-x:auto;}
+.topbar-nav a{padding:8px 14px;font-size:13px;color:var(--text-secondary);text-decoration:none;border-radius:6px;white-space:nowrap;transition:all 0.15s;}
+.topbar-nav a:hover{color:var(--text-primary);background:rgba(255,255,255,0.04);}
+.topbar-nav a.active{color:var(--accent);background:var(--accent-dim);}
+.topbar-right{display:flex;align-items:center;gap:12px;margin-left:auto;white-space:nowrap;}
+.topbar-user{font-size:13px;color:var(--text-secondary);}
+.topbar-user b{color:var(--text-primary);}
+.topbar-cash{font-size:13px;color:var(--gold);font-weight:600;}
+.topbar-logout{font-size:12px;color:var(--text-muted);cursor:pointer;padding:4px 10px;border-radius:4px;transition:all 0.2s;}
+.topbar-logout:hover{color:var(--red);background:var(--red-bg);}
+
+/* === ADMIN TOPBAR === */
+.admin-topbar{background:linear-gradient(90deg,var(--bg-secondary),#1a1a3a);border-bottom:1px solid var(--admin-accent);}
+.admin-topbar .topbar-brand{color:var(--admin-accent);}
+.admin-topbar .topbar-nav a.active{color:var(--admin-accent);background:var(--admin-bg);}
+.admin-nav-divider{width:1px;height:20px;background:var(--border);margin:0 8px;}
+.admin-badge{display:inline-block;font-size:10px;padding:2px 6px;border-radius:4px;background:var(--admin-bg);color:var(--admin-accent);margin-left:6px;letter-spacing:1px;}
+
+/* === PAGE CONTAINER === */
+.page-container{display:none;max-width:1200px;margin:0 auto;padding:20px 16px 60px;}
+.page-container.active{display:block;}
+
+/* === CARD === */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:14px;}
+.card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;border-bottom:1px solid var(--border);padding-bottom:10px;}
+.card-title{font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px;}
+.card-title::before{content:'';width:4px;height:18px;border-radius:2px;background:var(--accent);}
+.card-title.admin-title::before{background:var(--admin-accent);}
+.card-actions{display:flex;gap:6px;align-items:center;}
+
+/* === STAT CARDS === */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:16px;}
+.stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px;text-align:center;transition:all 0.2s;}
+.stat-card:hover{background:var(--bg-card-hover);border-color:var(--text-muted);}
+.stat-value{font-size:24px;font-weight:700;}
+.stat-label{font-size:11px;color:var(--text-muted);margin-top:4px;}
+.stat-change{font-size:11px;margin-top:2px;}
+
+/* === TABLE === */
+.table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th{text-align:left;padding:8px 10px;font-weight:500;color:var(--text-muted);font-size:11px;border-bottom:1px solid var(--border);white-space:nowrap;}
+td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,0.03);vertical-align:middle;}
+tr:hover td{background:rgba(255,255,255,0.02);}
+th.sortable{cursor:pointer;} th.sortable:hover{color:var(--text-primary);}
+th.sortable::after{content:'⇅';margin-left:4px;font-size:10px;opacity:0.4;}
+th.sortable.asc::after{content:'↑';opacity:0.8;} th.sortable.desc::after{content:'↓';opacity:0.8;}
+
+/* === TAG === */
+.tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:500;}
+.tag-band{background:var(--red-bg);color:var(--red);}
+.tag-long{background:rgba(168,85,247,0.15);color:var(--purple);}
+.tag-watch{background:var(--gold-dim);color:var(--gold);}
+.tag-sold{background:rgba(255,255,255,0.05);color:var(--text-muted);text-decoration:line-through;}
+.tag-admin{background:var(--admin-bg);color:var(--admin-accent);}
+.tag-premium{background:rgba(245,158,11,0.2);color:var(--gold);}
+.tag-free{background:rgba(255,255,255,0.05);color:var(--text-muted);}
+.tag-frozen{background:rgba(239,68,68,0.1);color:var(--red);}
+.tag-active{background:rgba(34,197,94,0.1);color:var(--green);}
+.tag-hot{background:var(--accent-bg);color:var(--accent);}
+
+/* === SEARCH + FILTER BAR === */
+.search-bar{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center;}
+.search-bar .form-input{width:200px;max-width:100%;}
+.search-bar .form-select{width:140px;}
+
+/* === PAGINATION === */
+.pagination{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;}
+.page-btn{width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:4px;background:transparent;border:1px solid var(--border);color:var(--text-secondary);font-size:12px;cursor:pointer;transition:all 0.15s;}
+.page-btn:hover{background:var(--bg-card-hover);color:var(--text-primary);}
+.page-btn.active{background:var(--accent);color:#0a0a12;border-color:var(--accent);}
+.page-btn.disabled{opacity:0.3;cursor:not-allowed;}
+
+/* === PATTERN MATCH === */
+.pattern-badge{font-size:11px;padding:3px 10px;border-radius:12px;display:inline-flex;align-items:center;gap:4px;}
+.pattern-high{background:var(--accent-bg);color:var(--accent);}
+.pattern-mid{background:var(--gold-dim);color:var(--gold);}
+.pattern-low{background:rgba(255,255,255,0.05);color:var(--text-muted);}
+.pattern-card{background:var(--bg-secondary);border-left:3px solid var(--accent);padding:12px 14px;border-radius:0 6px 6px 0;margin-bottom:8px;}
+.pattern-card.wash{border-left-color:var(--red);}
+.pattern-card.dist{border-left-color:var(--green);}
+.pattern-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.pattern-name{font-size:14px;font-weight:600;}
+.pattern-detail{font-size:12px;color:var(--text-secondary);line-height:1.7;}
+
+/* === MODAL / CONFIRM === */
+.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.65);display:flex;align-items:center;justify-content:center;z-index:1500;}
+.modal{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:24px;width:480px;max-width:90vw;max-height:80vh;overflow-y:auto;}
+.modal h3{font-size:16px;margin-bottom:12px;color:var(--accent);}
+.modal p{font-size:13px;color:var(--text-secondary);margin-bottom:16px;line-height:1.7;}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;}
+.modal-wide{width:640px;}
+.modal-full{width:800px;}
+
+/* === ADMIN === */
+.admin-stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.admin-stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px;border-left:3px solid var(--admin-accent);}
+.admin-stat-card .label{font-size:11px;color:var(--text-muted);}
+.admin-stat-card .value{font-size:28px;font-weight:700;color:var(--admin-accent);margin-top:4px;}
+.admin-stat-card .sub{font-size:11px;color:var(--text-secondary);margin-top:2px;}
+.admin-quick-actions{display:flex;gap:8px;flex-wrap:wrap;}
+
+/* === STATUS DOT === */
+.status-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;}
+.status-dot.online{background:var(--green);}
+.status-dot.offline{background:var(--text-muted);}
+.status-dot.frozen{background:var(--red);}
+
+/* === ANNOUNCEMENT BAR === */
+.announcement-bar{background:var(--accent-dim);border-bottom:1px solid var(--border);padding:6px 24px;font-size:12px;color:var(--accent);display:flex;align-items:center;gap:8px;}
+.announcement-bar .ann-text{flex:1;}
+.announcement-bar .ann-close{cursor:pointer;opacity:0.5;transition:opacity 0.15s;}
+.announcement-bar .ann-close:hover{opacity:1;}
+
+/* === RESPONSIVE === */
+@media(max-width:768px){
+  .topbar{padding:0 12px;overflow-x:auto;}
+  .topbar-brand{font-size:15px;margin-right:12px;}
+  .topbar-nav a{padding:6px 10px;font-size:12px;}
+  .stat-grid{grid-template-columns:repeat(2,1fr);}
+  .admin-stat-grid{grid-template-columns:1fr 1fr;}
+  .search-bar .form-input{width:100%;}
+  .modal{width:95vw;padding:16px;}
+  .hide-mobile{display:none!important;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================================================================
+     LOGIN / REGISTER PAGE
+     =================================================================== -->
+<div id="loginPage">
+  <div class="login-bg"></div>
+  <div class="login-card">
+    <div class="login-brand">
+      <div class="logo">无<span class="dot"></span>形<span class="dot"></span>识局</div>
+      <div class="sub">决 策 沙 盘</div>
+    </div>
+    <div class="login-tabs">
+      <div class="login-tab active" onclick="Auth.switchTab('login')">登录</div>
+      <div class="login-tab" onclick="Auth.switchTab('register')">注册</div>
+    </div>
+    <!-- 登录 -->
+    <form id="loginForm" onsubmit="return Auth.login(event)">
+      <div class="form-group">
+        <label class="form-label">用户名</label>
+        <input class="form-input" id="loginUser" placeholder="请输入用户名" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label class="form-label">密码</label>
+        <input class="form-input" id="loginPass" type="password" placeholder="请输入密码">
+      </div>
+      <div id="loginError" class="form-error"></div>
+      <button type="submit" class="btn btn-primary login-submit">登 录</button>
+      <div class="login-hint">新用户？<a href="#" onclick="Auth.switchTab('register');return false">立即注册免费使用</a></div>
+    </form>
+    <!-- 注册 -->
+    <form id="registerForm" class="hidden" onsubmit="return Auth.register(event)">
+      <div class="form-group">
+        <label class="form-label">昵称</label>
+        <input class="form-input" id="regNick" placeholder="如：小散张三" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label class="form-label">用户名</label>
+        <input class="form-input" id="regUser" placeholder="登录用，3-16位字母或数字" autocomplete="off">
+      </div>
+      <div class="form-group">
+        <label class="form-label">密码</label>
+        <input class="form-input" id="regPass" type="password" placeholder="6位以上密码">
+      </div>
+      <div id="regError" class="form-error"></div>
+      <button type="submit" class="btn btn-primary login-submit">注 册</button>
+      <div class="login-hint">已有账号？<a href="#" onclick="Auth.switchTab('login');return false">去登录</a></div>
+    </form>
+  </div>
+</div>
+
+<!-- ===================================================================
+     初始资金弹窗
+     =================================================================== -->
+<div id="capitalModal" class="hidden login-capital-modal">
+  <div class="login-capital-card">
+    <h3>💰 设置初始模拟资金</h3>
+    <p>请输入您的虚拟本金，用于模拟交易。</p>
+    <input class="form-input" id="capitalInput" type="number" value="1000000" min="10000" step="50000">
+    <div style="font-size:11px;color:var(--text-muted);margin-top:6px;">可修改，建议 ¥100,000 ~ ¥10,000,000</div>
+    <button class="btn btn-primary login-submit mt-16" onclick="Auth.setCapital()">进入决策沙盘</button>
+  </div>
+</div>
+
+<!-- ===================================================================
+     ANNOUNCEMENT BAR
+     =================================================================== -->
+<div id="announcementBar" class="hidden announcement-bar">
+  <span>📢</span>
+  <span class="ann-text" id="announcementText"></span>
+  <span class="ann-close" onclick="this.parentElement.classList.add('hidden')">✕</span>
+</div>
+
+<!-- ===================================================================
+     MAIN APP SHELL
+     =================================================================== -->
+<div id="appShell">
+
+  <!-- TOPBAR -->
+  <div class="topbar" id="mainTopbar">
+    <div class="topbar-brand">无<span class="dot-gold"></span>形 · 决策沙盘</div>
+    <div class="topbar-nav" id="mainNav">
+      <a href="#" data-page="dashboard" class="active">📊 看板</a>
+      <a href="#" data-page="watchlist">📋 自选</a>
+      <a href="#" data-page="trade">💰 交易</a>
+      <a href="#" data-page="pattern">📐 形态</a>
+      <a href="#" data-page="chart">📈 图表</a>
+      <a href="#" data-page="records">📜 记录</a>
+      <a href="#" data-page="wiki">📖 百科</a>
+      <span class="admin-nav-divider hide-mobile"></span>
+      <a href="#" data-page="admin-dashboard" class="admin-link hidden" style="color:var(--admin-accent)">⚙️ 后台</a>
+    </div>
+    <div class="topbar-right">
+      <span class="topbar-user"><b id="topbarNick">用户</b></span>
+      <span class="topbar-cash" id="topbarCash">¥--</span>
+      <span class="topbar-logout" onclick="Auth.logout()">退出</span>
+    </div>
+  </div>
+
+  <!-- ADMIN SUB-BAR (hidden for users) -->
+  <div class="topbar admin-topbar hidden" id="adminTopbar">
+    <div class="topbar-brand">⚙️ 管理后台<span class="admin-badge">ADMIN</span></div>
+    <div class="topbar-nav" id="adminNav">
+      <a href="#" data-page="admin-dashboard" class="active">📊 工作台</a>
+      <a href="#" data-page="admin-users">👥 用户管理</a>
+      <a href="#" data-page="admin-stats">📈 数据统计</a>
+      <a href="#" data-page="admin-tools">🔧 运营工具</a>
+      <a href="#" data-page="admin-settings">⚙️ 系统设置</a>
+    </div>
+    <div class="topbar-right">
+      <span class="topbar-user"><b id="adminTopbarNick">管理员</b></span>
+      <span class="topbar-logout" onclick="Auth.logout()">退出</span>
+    </div>
+  </div>
+
+  <!-- ========================== USER PAGES ========================== -->
+
+  <!-- Dashboard -->
+  <div id="page-dashboard" class="page-container active">
+    <div class="stat-grid" id="dashboardStats">
+      <div class="stat-card"><div class="stat-value" id="dashTotalAssets" style="color:var(--accent)">--</div><div class="stat-label">总资产</div></div>
+      <div class="stat-card"><div class="stat-value" id="dashTotalPnl">--</div><div class="stat-change" id="dashPnlPct"></div><div class="stat-label">总盈亏</div></div>
+      <div class="stat-card"><div class="stat-value" id="dashHoldings">0</div><div class="stat-label">持仓数</div></div>
+      <div class="stat-card"><div class="stat-value" id="dashWinRate">--</div><div class="stat-label">胜率</div></div>
+      <div class="stat-card"><div class="stat-value" id="dashWatchlist">0</div><div class="stat-label">自选股</div></div>
+      <div class="stat-card"><div class="stat-value" id="dashPosRatio">0%</div><div class="stat-label">仓位占比</div></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">自选股总览</div><div class="card-actions"><button class="btn btn-sm btn-secondary" onclick="App.navigate('watchlist')">管理自选</button></div></div>
+      <div class="table-wrap"><table><thead><tr><th>类型</th><th>名称</th><th>现价</th><th>涨跌幅</th><th>成本</th><th>持股</th><th>浮动盈亏</th><th>盈亏率</th><th>市值</th></tr></thead><tbody id="dashWatchlistTable"><tr><td colspan="9" style="text-align:center;color:var(--text-muted);padding:20px;">暂无自选股，去添加吧</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+  <!-- Watchlist -->
+  <div id="page-watchlist" class="page-container">
+    <div class="card">
+      <div class="card-header"><div class="card-title">我的自选股</div><div class="card-actions"><button class="btn btn-sm btn-primary" onclick="Watchlist.showAdd()">+ 添加</button></div></div>
+      <div class="search-bar">
+        <input class="form-input" id="wlSearch" placeholder="搜索名称或代码..." oninput="Watchlist.render()">
+        <select class="form-input form-select" id="wlGroupFilter" onchange="Watchlist.render()">
+          <option value="">全部分组</option>
+          <option value="波段">波段</option>
+          <option value="长线">长线</option>
+          <option value="观察">观察</option>
+        </select>
+        <select class="form-input form-select" id="wlSort" onchange="Watchlist.render()">
+          <option value="name">按名称</option>
+          <option value="change">按涨幅</option>
+          <option value="price">按价格</option>
+        </select>
+        <button class="btn btn-sm btn-secondary" onclick="Watchlist.refreshQuotes()">⟳ 刷新</button>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>类型</th><th>名称</th><th>现价</th><th>涨跌幅</th><th>成本</th><th>持股</th><th>浮动盈亏</th><th>盈亏率</th><th>市值</th><th style="width:100px">操作</th></tr></thead><tbody id="wlTableBody"><tr><td colspan="10" style="text-align:center;color:var(--text-muted);padding:30px;">暂无自选股，点击上方 "+ 添加" 开始</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+  <!-- Trade -->
+  <div id="page-trade" class="page-container">
+    <div class="stat-grid" style="grid-template-columns:repeat(4,1fr)">
+      <div class="stat-card"><div class="stat-value" id="tradeCash" style="color:var(--gold)">--</div><div class="stat-label">可用资金</div></div>
+      <div class="stat-card"><div class="stat-value" id="tradeMarket">--</div><div class="stat-label">持仓市值</div></div>
+      <div class="stat-card"><div class="stat-value" id="tradeTotalPnl">--</div><div class="stat-label">浮动盈亏</div></div>
+      <div class="stat-card"><div class="stat-value" id="tradePosRatio">0%</div><div class="stat-label">仓位</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div class="card">
+        <div class="card-header"><div class="card-title">买入</div></div>
+        <div class="form-group"><label class="form-label">股票代码</label><input class="form-input" id="buyCode" placeholder="如：sz000725 或 000725" oninput="Trade.lookupBuy()"></div>
+        <div id="buyPreview" class="hidden" style="background:var(--bg-secondary);border-radius:6px;padding:10px;margin-bottom:12px;">
+          <div style="font-size:14px;font-weight:600" id="buyName">--</div>
+          <div style="font-size:12px;color:var(--text-muted)">现价: <b id="buyPrice" style="color:var(--text-primary)">--</b></div>
+        </div>
+        <div class="form-group"><label class="form-label">数量（股）</label><input class="form-input" id="buyQty" type="number" placeholder="50的整数倍" min="50" step="50"></div>
+        <div id="buyCost" class="hidden fs-12 text-muted">预计成本: <b id="buyCostVal" style="color:var(--gold)">¥--</b></div>
+        <div id="buyWarn" class="form-error mt-8"></div>
+        <button class="btn btn-primary mt-8" onclick="Trade.buy()">买入</button>
+      </div>
+      <div class="card">
+        <div class="card-header"><div class="card-title">持仓 · 卖出</div></div>
+        <div class="table-wrap"><table><thead><tr><th>名称</th><th>持仓</th><th>成本</th><th>现价</th><th>盈亏</th><th>操作</th></tr></thead><tbody id="tradePosBody"><tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:16px;">暂无持仓</td></tr></tbody></table></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pattern Analysis -->
+  <div id="page-pattern" class="page-container">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">形态分析引擎</div>
+        <div class="card-actions">
+          <label class="fs-12 text-muted" style="display:flex;align-items:center;gap:6px;">
+            <input type="checkbox" id="autoMatchToggle" checked onchange="PatternMatcher.toggleAuto()"> 自动匹配
+          </label>
+          <button class="btn btn-sm btn-primary" onclick="PatternMatcher.analyzeAll()">⟳ 刷新分析</button>
+        </div>
+      </div>
+      <div id="patternResults" class="pattern-list"><div style="text-align:center;padding:30px;color:var(--text-muted);">暂无自选股，先去 <a href="#" onclick="App.navigate('watchlist');return false">自选页</a> 添加</div></div>
+    </div>
+    <div class="card">
+      <div class="card-header"><div class="card-title">9种回调形态库</div></div>
+      <div id="patternLibGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;"></div>
+    </div>
+  </div>
+
+  <!-- Chart -->
+  <div id="page-chart" class="page-container">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">📈 实时图表</div>
+        <div class="card-actions flex gap-8" style="align-items:center;flex-wrap:wrap;">
+          <select class="form-input form-select" id="chartStockSel" style="width:140px;" onchange="ChartApp.switchStock()"></select>
+          <div class="flex gap-8" id="chartTimeBtns">
+            <button class="btn btn-sm btn-secondary active" data-kl="day" onclick="ChartApp.switchKL('day')">日线</button>
+            <button class="btn btn-sm btn-secondary" data-kl="week" onclick="ChartApp.switchKL('week')">周线</button>
+            <button class="btn btn-sm btn-secondary" data-kl="month" onclick="ChartApp.switchKL('month')">月线</button>
+            <button class="btn btn-sm btn-secondary" data-kl="60min" onclick="ChartApp.switchKL('60min')">60分</button>
+            <button class="btn btn-sm btn-secondary" data-kl="30min" onclick="ChartApp.switchKL('30min')">30分</button>
+            <button class="btn btn-sm btn-secondary" data-kl="15min" onclick="ChartApp.switchKL('15min')">15分</button>
+            <button class="btn btn-sm btn-secondary" data-kl="5min" onclick="ChartApp.switchKL('5min')">5分</button>
+            <button class="btn btn-sm btn-secondary" data-kl="1min" onclick="ChartApp.switchKL('1min')">1分</button>
+          </div>
+        </div>
+      </div>
+      <div class="chart-indicator-bar flex gap-8" style="padding:8px 0;border-bottom:1px solid var(--border);margin-bottom:10px;">
+        <span class="fs-12 text-muted">指标:</span>
+        <button class="btn btn-xs btn-secondary active" data-ind="macd" onclick="ChartApp.switchInd('macd')">MACD</button>
+        <button class="btn btn-xs btn-secondary" data-ind="kdj" onclick="ChartApp.switchInd('kdj')">KDJ</button>
+        <button class="btn btn-xs btn-secondary" data-ind="rsi" onclick="ChartApp.switchInd('rsi')">RSI</button>
+      </div>
+      <div id="chartContainer" style="width:100%;height:520px;">
+        <div class="text-muted" style="text-align:center;padding:80px 20px;">
+          📊 请先添加自选股，然后在图表页选择股票查看K线
+        </div>
+      </div>
+      <div class="chart-info fs-12 text-muted mt-8 flex gap-16" id="chartStockInfo" style="padding:6px 0;border-top:1px solid var(--border);margin-top:8px;">
+        <span>💡 滚轮缩放 · 拖拽平移 · 悬停查看详情</span>
+        <span id="chartDataStatus"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Records -->
+  <div id="page-records" class="page-container">
+    <div class="card">
+      <div class="card-header"><div class="card-title">交易记录</div><div class="card-actions"><button class="btn btn-sm btn-danger" onclick="Trade.clearRecords()">清空记录</button></div></div>
+      <div class="table-wrap"><table><thead><tr><th>时间</th><th>类型</th><th>股票</th><th>数量</th><th>价格</th><th>金额</th></tr></thead><tbody id="recordBody"><tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:20px;">暂无交易记录</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+  <!-- Wiki / 百科 -->
+  <div id="page-wiki" class="page-container">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">📖 股票术语百科</div>
+        <div class="card-actions flex gap-8" style="flex-wrap:wrap;">
+          <input class="form-input" id="wikiSearch" placeholder="搜索术语..." style="width:160px;" oninput="TermWiki.search(this.value)">
+          <select class="form-input form-select" id="wikiCatFilter" style="width:120px;" onchange="TermWiki.filterCat(this.value)"></select>
+          <select class="form-input form-select" id="wikiTagFilter" style="width:120px;" onchange="TermWiki.filterTag(this.value)"></select>
+          <span class="fs-12 text-muted" id="wikiCount"></span>
+        </div>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th style="width:40px">#</th><th style="width:160px">术语</th><th style="width:80px">分类</th><th>释义</th><th style="width:100px">标签</th><th style="width:50px"></th></tr></thead><tbody id="wikiTableBody"><tr><td colspan="6" style="text-align:center;padding:30px;color:var(--text-muted);">⏳ 加载术语库...</td></tr></tbody></table></div>
+      <div class="flex gap-8 mt-8" style="align-items:center;justify-content:center;" id="wikiPagination"></div>
+    </div>
+  </div>
+
+  <!-- ========================== ADMIN PAGES ========================== -->
+
+  <!-- Admin Dashboard -->
+  <div id="page-admin-dashboard" class="page-container">
+    <div class="admin-stat-grid">
+      <div class="admin-stat-card"><div class="label">注册用户</div><div class="value" id="adTotalUsers">0</div><div class="sub">今日新增: <b id="adNewToday">0</b></div></div>
+      <div class="admin-stat-card"><div class="label">活跃用户(7日)</div><div class="value" id="adActiveUsers">0</div><div class="sub">日活: <b id="adDailyActive">0</b></div></div>
+      <div class="admin-stat-card"><div class="label">模拟交易笔数</div><div class="value" id="adTotalTrades">0</div><div class="sub">形态分析: <b id="adPatternCalls">0</b></div></div>
+      <div class="admin-stat-card"><div class="label">付费转化率</div><div class="value" id="adPaidRate">0%</div><div class="sub">专业版: <b id="adPremiumCount">0</b> / 免费: <b id="adFreeCount">0</b></div></div>
+    </div>
+    <div class="admin-quick-actions">
+      <button class="btn btn-sm btn-admin" onclick="App.navigate('admin-users')">👥 查看用户</button>
+      <button class="btn btn-sm btn-secondary" onclick="App.navigate('admin-stats')">📈 数据面板</button>
+      <button class="btn btn-sm btn-secondary" onclick="App.navigate('admin-tools')">🔧 运营工具</button>
+    </div>
+    <div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div class="card"><div class="card-header"><div class="card-title admin-title">注册趋势</div></div><canvas id="adRegChart" height="180"></canvas></div>
+      <div class="card"><div class="card-header"><div class="card-title admin-title">自选热度榜</div></div>
+        <div class="table-wrap"><table><thead><tr><th>#</th><th>股票</th><th>关注人数</th></tr></thead><tbody id="adHotStocks"><tr><td colspan="3" style="text-align:center;color:var(--text-muted);padding:16px;">暂无数据</td></tr></tbody></table></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Users -->
+  <div id="page-admin-users" class="page-container">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title admin-title">用户管理</div>
+        <div class="card-actions">
+          <button class="btn btn-sm btn-admin" onclick="Admin.exportUsers()">📥 导出CSV</button>
+        </div>
+      </div>
+      <div class="search-bar">
+        <input class="form-input" id="adUserSearch" placeholder="搜索用户名/昵称..." oninput="Admin.renderUsers()">
+        <select class="form-input form-select" id="adUserFilter" onchange="Admin.renderUsers()">
+          <option value="">全部状态</option>
+          <option value="active">正常</option>
+          <option value="frozen">已冻结</option>
+          <option value="premium">专业版</option>
+        </select>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>用户名</th><th>昵称</th><th>注册时间</th><th>最后登录</th><th>会员等级</th><th>到期</th><th>状态</th><th style="width:200px">操作</th></tr></thead><tbody id="adUserBody"><tr><td colspan="8" style="text-align:center;color:var(--text-muted);padding:20px;">暂无注册用户</td></tr></tbody></table></div>
+      <div class="pagination" id="adUserPages"></div>
+    </div>
+  </div>
+
+  <!-- Admin Stats -->
+  <div id="page-admin-stats" class="page-container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div class="card"><div class="card-header"><div class="card-title admin-title">注册趋势（近30日）</div></div><canvas id="adRegTrendChart" height="200"></canvas></div>
+      <div class="card"><div class="card-header"><div class="card-title admin-title">用户活跃度</div></div><canvas id="adActiveChart" height="200"></canvas></div>
+      <div class="card"><div class="card-header"><div class="card-title admin-title">形态识别排行榜</div></div><canvas id="adPatternChart" height="200"></canvas></div>
+      <div class="card"><div class="card-header"><div class="card-title admin-title">交易频次</div></div><canvas id="adTradeChart" height="200"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Admin Tools -->
+  <div id="page-admin-tools" class="page-container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div class="card">
+        <div class="card-header"><div class="card-title admin-title">系统公告</div></div>
+        <div class="form-group"><label class="form-label">公告内容</label><textarea class="form-input" id="adAnnounceInput" rows="3" placeholder="输入要显示在用户页顶部的公告内容..."></textarea></div>
+        <div class="flex gap-8"><button class="btn btn-sm btn-admin" onclick="Admin.publishAnnounce()">📢 发布公告</button><button class="btn btn-sm btn-secondary" onclick="Admin.clearAnnounce()">清除</button></div>
+      </div>
+      <div class="card">
+        <div class="card-header"><div class="card-title admin-title">模拟金派发</div></div>
+        <div class="form-group"><label class="form-label">目标用户</label>
+          <select class="form-input form-select" id="adGrantTarget"><option value="all">全服用户</option><option value="active">活跃用户</option><option value="single">指定用户</option></select>
+        </div>
+        <div class="form-group hidden" id="adGrantUserGroup"><label class="form-label">用户名</label><input class="form-input" id="adGrantUser" placeholder="输入用户名"></div>
+        <div class="form-group"><label class="form-label">额外模拟金（¥）</label><input class="form-input" id="adGrantAmount" type="number" value="100000"></div>
+        <button class="btn btn-sm btn-admin" onclick="Admin.grantCapital()">派发</button>
+      </div>
+      <div class="card">
+        <div class="card-header"><div class="card-title admin-title">维护模式</div></div>
+        <p class="fs-12 text-muted">开启后用户端无法登录，显示维护提示。</p>
+        <div class="flex gap-8 mt-8">
+          <button class="btn btn-sm btn-danger" id="adMaintOn" onclick="Admin.setMaintenance(true)">🔴 开启维护</button>
+          <button class="btn btn-sm btn-secondary" id="adMaintOff" onclick="Admin.setMaintenance(false)">🟢 恢复正常</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header"><div class="card-title admin-title">发送消息</div></div>
+        <div class="form-group"><label class="form-label">目标用户</label><input class="form-input" id="adMsgTarget" placeholder="用户名，留空=全服"></div>
+        <div class="form-group"><label class="form-label">消息内容</label><textarea class="form-input" id="adMsgContent" rows="3" placeholder="输入..."></textarea></div>
+        <button class="btn btn-sm btn-admin" onclick="Admin.sendMessage()">发送</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Settings -->
+  <div id="page-admin-settings" class="page-container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+      <div class="card">
+        <div class="card-header"><div class="card-title admin-title">管理员账号</div></div>
+        <div class="form-group"><label class="form-label">当前管理员</label><input class="form-input" id="adAdminUser" value="admin" readonly style="opacity:0.6"></div>
+        <div class="form-group"><label class="form-label">新密码</label><input class="form-input" id="adAdminPass" type="password" placeholder="留空不修改"></div>
+        <div class="form-group"><label class="form-label">确认密码</label><input class="form-input" id="adAdminPass2" type="password"></div>
+        <button class="btn btn-sm btn-admin" onclick="Admin.changePassword()">修改密码</button>
+      </div>
+      <div class="card">
+        <div class="card-header"><div class="card-title admin-title">平台参数</div></div>
+        <div class="form-group"><label class="form-label">模拟金上限（¥）</label><input class="form-input" id="adMaxCapital" type="number" value="10000000"></div>
+        <div class="form-group"><label class="form-label">交易手续费率</label><input class="form-input" id="adFeeRate" type="number" value="0.00025" step="0.0001"></div>
+        <button class="btn btn-sm btn-admin" onclick="Admin.saveSettings()">保存设置</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /appShell -->
+
+<!-- ===================================================================
+     MODAL CONTAINER
+     =================================================================== -->
+<div id="modalContainer"></div>
+
+<!-- ===================================================================
+     JAVASCRIPT
+     =================================================================== -->
+<script>
+// ==========================================================================
+// CONFIG
+// ==========================================================================
+const CONFIG = {
+  PROXIES: [
+    'http://127.0.0.1:8082/api/proxy?url=',
+    'https://api.allorigins.win/raw?url=',
+    'https://corsproxy.io/?url=',
+    '',
+  ],
+  ADMIN_USER: 'admin',
+  ADMIN_PASS: 'admin123',
+  DEFAULT_CAPITAL: 1000000,
+  MIN_CAPITAL: 10000,
+  MAX_CAPITAL: 10000000,
+  LOT_SIZE: 50,          // 最小交易单位（股），北方华创可50股起
+  FEE_RATE: 0.00025,    // 万2.5
+  STAMP_TAX: 0.001,     // 千1
+  VERSION: '1.0.0',
+  MEMBER_LEVELS: { free: '免费', premium: '专业版', vip: '尊享版' },
+};
+
+// ==========================================================================
+// PATTERN_LIB — 9种回调形态数据
+// ==========================================================================
+const PATTERN_LIB = [
+  { id:1, number:"01", name:"ABC三浪调整", tag:"概率最高>70%", category:"复杂调整", difficulty:"中等", probability:"高", washType:"恐慌清洗",
+    features:"股价经历流畅上涨后分三波完成回调。A浪跌破短期均线，B浪反弹无法突破A浪起点，C浪跌幅最大但成交量持续萎缩。",
+    intent:"A浪试盘，B浪诱多，C浪彻底清洗浮筹，垫高市场平均成本。",
+    buyPoint:"C浪成交量比A浪缩量60%以上且不破重要支撑。放量突破C浪高点时进场。",
+    volumeChange:"C浪比A浪缩量60%以上", buySignal:"放量突破C浪高点，量能达A浪1.5倍", stopLoss:"C浪低点下方3%-5%" },
+  { id:2, number:"02", name:"趋势一浪调整", tag:"温和洗盘·干脆利落", category:"单边调整", difficulty:"简单", probability:"高", washType:"温和洗盘",
+    features:"拉升后直接单边下跌完成回调，无反弹。回调幅度为前期涨幅1/2或1/3，时间3-5个交易日，跌幅不超8%。",
+    intent:"清洗短线投机客，减少拉升阻力，保持人气。边拉边洗。",
+    buyPoint:"缩量止跌后放量突破回调前小高点。", volumeChange:"逐步萎缩，末期缩量小K线", buySignal:"放量突破回调前小高点", stopLoss:"回调低点下方3%-5%" },
+  { id:3, number:"03", name:"箱体震荡回调", tag:"磨盘洗盘·高度控盘", category:"横盘整理", difficulty:"中等", probability:"中", washType:"时间消耗",
+    features:"股价形成明显箱体区间，上有压力下有支撑，成交量持续萎缩，末期常现地量。",
+    intent:"制造鸡肋行情逼走散户，暗中吸筹。主力高度控盘。",
+    buyPoint:"放量突破箱体上沿，量能达均量2倍；回抽不破为二次机会。", volumeChange:"持续萎缩，末期现地量", buySignal:"放量突破箱体上沿", stopLoss:"箱体下沿下方3%" },
+  { id:4, number:"04", name:"三角形收敛回调", tag:"整理蓄力·向上突破", category:"收敛整理", difficulty:"中等", probability:"高", washType:"蓄力吸筹",
+    features:"高点逐步降低、低点逐步抬高形成收敛三角形。成交量随收敛持续萎缩。",
+    intent:"悄悄吸筹，浮筹清洗完毕后启动拉升。向上突破概率高。",
+    buyPoint:"放量突破三角形上轨压力线。", volumeChange:"随收敛持续萎缩，末端极小", buySignal:"放量突破三角形上轨", stopLoss:"三角形下轨下方3%" },
+  { id:5, number:"05", name:"趋势5浪回调", tag:"波浪理论·层层清洗", category:"复杂调整", difficulty:"困难", probability:"中", washType:"反复震荡",
+    features:"1、3、5浪下跌，2、4浪反弹，跌幅逐浪减小，成交量逐浪萎缩。",
+    intent:"反复震荡让散户失去耐心交出筹码，洗盘彻底后续空间大。",
+    buyPoint:"5浪末期极度缩量，放量突破下降趋势线。", volumeChange:"逐浪萎缩，末期极度缩量", buySignal:"放量突破5浪下降趋势线", stopLoss:"5浪低点下方3%-5%" },
+  { id:6, number:"06", name:"旗形下跌回调", tag:"假跌真洗·不破支撑", category:"通道调整", difficulty:"中等", probability:"中", washType:"假跌真洗",
+    features:"高点和低点逐步下移形成向下倾斜平行通道，成交量持续萎缩。",
+    intent:"制造持续下跌假象逼走筹码，不破关键支撑。假跌真洗。",
+    buyPoint:"放量突破旗形上轨压力线。", volumeChange:"持续萎缩，越跌越小", buySignal:"放量突破旗形上轨", stopLoss:"旗形通道下沿下方3%" },
+  { id:7, number:"07", name:"上升旗形回调", tag:"边拉边洗·强势延续", category:"通道调整", difficulty:"简单", probability:"高", washType:"强势洗盘",
+    features:"短暂回调形成向上倾斜旗形，成交量温和放大，不跌破下沿支撑。",
+    intent:"清洗短线获利盘并承接抛盘，边拉升边洗盘。",
+    buyPoint:"放量突破旗形上轨时上车。", volumeChange:"温和放大", buySignal:"放量突破旗形上轨", stopLoss:"旗形下沿下方3%" },
+  { id:8, number:"08", name:"缩量圆弧回调", tag:"温水煮蛙·底部扎实", category:"圆弧形态", difficulty:"困难", probability:"中", washType:"温和吸筹",
+    features:"股价缓慢下跌形成圆弧底，成交量同步呈圆弧状萎缩。底部扎实筹码集中。",
+    intent:"不引发剧烈波动，暗中吸筹，温水煮青蛙。",
+    buyPoint:"放量突破圆弧高点确认洗盘结束。", volumeChange:"圆弧状萎缩，底部极度萎缩", buySignal:"放量突破圆弧高点", stopLoss:"圆弧最低点下方3%" },
+  { id:9, number:"09", name:"喇叭形扩散回调", tag:"最后洗盘·宽幅震荡", category:"扩散形态", difficulty:"困难", probability:"低", washType:"心态清洗",
+    features:"高点抬高、低点降低形成扩散喇叭形。成交量震荡中放大末期萎缩。",
+    intent:"宽幅震荡让散户追涨杀跌，交出筹码完成最后清洗。",
+    buyPoint:"放量突破喇叭形上轨上车。", volumeChange:"震荡中放大，末期萎缩", buySignal:"放量突破喇叭形上轨", stopLoss:"喇叭形最近低点下方5%" },
+];
+
+// ==========================================================================
+// DATA ENGINE (精简版)
+// ==========================================================================
+const DATA_ENGINE = (function() {
+  const state = { quotes: {}, lastUpdate: null };
+
+  function parseTencent(text) {
+    const r = {};
+    text.split(';').filter(l=>l.trim()).forEach(line => {
+      const m = line.match(/v_(\w+)="([^"]+)"/);
+      if (!m) return;
+      const parts = m[2].split('~');
+      if (parts.length < 5) return;
+      const code = m[1], price = parseFloat(parts[3]), prev = parseFloat(parts[4]);
+      r[code] = { name: parts[1], price, prevClose: prev, changePct: prev > 0 ? (price-prev)/prev*100 : 0 };
+    });
+    return r;
+  }
+
+  async function fetchWithFallback(url, retries=1) {
+    for (let pi = CONFIG.PROXIES.length - 1; pi >= 0; pi--) {
+      const proxy = CONFIG.PROXIES[pi];
+      const full = proxy ? proxy + encodeURIComponent(url) : url;
+      for (let a = 0; a <= retries; a++) {
+        try {
+          const resp = await fetch(full, { signal: AbortSignal.timeout(5000) });
+          if (resp.ok) {
+            const buf = await resp.arrayBuffer();
+            try { return new TextDecoder('gbk').decode(buf); }
+            catch(e) { return new TextDecoder('utf-8').decode(buf); }
+          }
+        } catch(e) { if (a === retries) continue; await new Promise(r=>setTimeout(r,800*(a+1))); }
+      }
+    }
+    throw new Error('All proxies failed');
+  }
+
+  async function fetchQuotes(codes) {
+    if (!codes || codes.length === 0) return {};
+    const url = `https://qt.gtimg.cn/q=${codes.join(',')}`;
+    const text = await fetchWithFallback(url);
+    const parsed = parseTencent(text);
+    Object.assign(state.quotes, parsed);
+    state.lastUpdate = new Date();
+    return parsed;
+  }
+
+  function getQuote(code) { return state.quotes[code] || null; }
+
+  async function lookupStock(code) {
+    try {
+      const q = await fetchQuotes([code]);
+      return q[code] || null;
+    } catch(e) { return null; }
+  }
+
+  return { state, fetchQuotes, getQuote, lookupStock };
+})();
+
+/**
+ * 无形识局 · 决策沙盘 — 应用核心逻辑
+ * v1.0 | 纯前端SPA | localStorage持久化
+ */
+// ==========================================================================
+// DB — 数据层抽象 (v1: localStorage, 预留云化接口)
+// ==========================================================================
+const DB = {
+  _prefix: 'sandbox_',
+
+  _k(key) { return this._prefix + key; },
+
+  // ---- 用户管理 ----
+  saveUser(user) {
+    const users = this.getAllUsers();
+    const idx = users.findIndex(u => u.username === user.username);
+    if (idx >= 0) users[idx] = user; else users.push(user);
+    localStorage.setItem(this._k('users'), JSON.stringify(users));
+  },
+  getUser(username) {
+    return this.getAllUsers().find(u => u.username === username) || null;
+  },
+  getAllUsers() {
+    try { return JSON.parse(localStorage.getItem(this._k('users')) || '[]'); } catch(e) { return []; }
+  },
+  deleteUser(username) {
+    let users = this.getAllUsers();
+    users = users.filter(u => u.username !== username);
+    localStorage.setItem(this._k('users'), JSON.stringify(users));
+    localStorage.removeItem(this._k('ud_' + username));
+  },
+
+  // ---- 用户数据 ----
+  saveUserData(username, data) {
+    localStorage.setItem(this._k('ud_' + username), JSON.stringify(data));
+  },
+  getUserData(username) {
+    try { return JSON.parse(localStorage.getItem(this._k('ud_' + username)) || '{}'); } catch(e) { return {}; }
+  },
+
+  // ---- 系统数据（管理后台） ----
+  saveSystem(key, value) {
+    localStorage.setItem(this._k('sys_' + key), JSON.stringify(value));
+  },
+  getSystem(key, def) {
+    try { return JSON.parse(localStorage.getItem(this._k('sys_' + key)) || JSON.stringify(def)); } catch(e) { return def; }
+  },
+
+  // ---- 管理员 ----
+  getAdmin() {
+    return { username: CONFIG.ADMIN_USER, password: CONFIG.ADMIN_PASS, role: 'admin' };
+  },
+  changeAdminPass(newPass) {
+    // 在实际后端场景中会写入数据库，v1用系统参数存储
+    this.saveSystem('admin_pass', newPass);
+  },
+  getAdminPass() {
+    return this.getSystem('admin_pass', CONFIG.ADMIN_PASS);
+  },
+
+  // ---- 统计数据累积 ----
+  incrementStat(key) {
+    const val = parseInt(localStorage.getItem(this._k('stat_' + key)) || '0');
+    localStorage.setItem(this._k('stat_' + key), String(val + 1));
+  },
+  getStat(key) {
+    return parseInt(localStorage.getItem(this._k('stat_' + key)) || '0');
+  },
+
+  // ---- 导出 ----
+  exportUsersCSV() {
+    const users = this.getAllUsers();
+    if (users.length === 0) return null;
+    const headers = '用户名,昵称,注册时间,最后登录,会员等级,会员到期,状态,模拟金,交易笔数\n';
+    const rows = users.map(u => {
+      const ud = this.getUserData(u.username);
+      return `${u.username},${u.nickname},${u.regTime},${u.lastLogin||''},${u.level||'free'},${u.expire||''},${u.frozen?'冻结':'正常'},${ud.capital||0},${(ud.trades||[]).length}`;
+    }).join('\n');
+    return '\uFEFF' + headers + rows;
+  },
+};
+
+// ==========================================================================
+// AUTH
+// ==========================================================================
+const Auth = {
+  currentUser: null,
+
+  init() {
+    const saved = sessionStorage.getItem('sandbox_current');
+    if (saved) {
+      this.currentUser = JSON.parse(saved);
+      this.enterApp();
+    }
+  },
+
+  switchTab(tab) {
+    document.querySelectorAll('.login-tab').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.login-tab').forEach(el => {
+      if (el.textContent.includes(tab === 'login' ? '登录' : '注册')) el.classList.add('active');
+    });
+    document.getElementById('loginForm').classList.toggle('hidden', tab !== 'login');
+    document.getElementById('registerForm').classList.toggle('hidden', tab !== 'register');
+    document.getElementById('loginError').classList.remove('show');
+    document.getElementById('regError').classList.remove('show');
+  },
+
+  login(e) {
+    e.preventDefault();
+    const user = document.getElementById('loginUser').value.trim();
+    const pass = document.getElementById('loginPass').value.trim();
+    const errEl = document.getElementById('loginError');
+
+    // 管理员检测
+    const adminPass = DB.getAdminPass();
+    if (user === CONFIG.ADMIN_USER && pass === adminPass) {
+      this.currentUser = { username: CONFIG.ADMIN_USER, nickname: '管理员', role: 'admin' };
+      sessionStorage.setItem('sandbox_current', JSON.stringify(this.currentUser));
+      this.enterApp();
+      return;
+    }
+
+    const u = DB.getUser(user);
+    if (!u) { errEl.textContent = '用户不存在'; errEl.classList.add('show'); return false; }
+    if (u.frozen) { errEl.textContent = '账号已被冻结'; errEl.classList.add('show'); return false; }
+    if (u.password !== pass) { errEl.textContent = '密码错误'; errEl.classList.add('show'); return false; }
+
+    u.lastLogin = new Date().toISOString();
+    DB.saveUser(u);
+    this.currentUser = u;
+    sessionStorage.setItem('sandbox_current', JSON.stringify(u));
+    this.enterApp();
+    return false;
+  },
+
+  register(e) {
+    e.preventDefault();
+    const nick = document.getElementById('regNick').value.trim();
+    const user = document.getElementById('regUser').value.trim();
+    const pass = document.getElementById('regPass').value.trim();
+    const errEl = document.getElementById('regError');
+
+    if (!nick) { errEl.textContent = '请输入昵称'; errEl.classList.add('show'); return false; }
+    if (!user || user.length < 3) { errEl.textContent = '用户名至少3位'; errEl.classList.add('show'); return false; }
+    if (!/^[a-zA-Z0-9_]{3,16}$/.test(user)) { errEl.textContent = '用户名仅限字母数字下划线，3-16位'; errEl.classList.add('show'); return false; }
+    if (user.toLowerCase() === CONFIG.ADMIN_USER) { errEl.textContent = '该用户名已被注册'; errEl.classList.add('show'); return false; }
+    if (!pass || pass.length < 6) { errEl.textContent = '密码至少6位'; errEl.classList.add('show'); return false; }
+    if (DB.getUser(user)) { errEl.textContent = '用户名已存在'; errEl.classList.add('show'); return false; }
+
+    const newUser = {
+      username: user, nickname: nick, password: pass,
+      regTime: new Date().toISOString(), lastLogin: new Date().toISOString(),
+      level: 'free', expire: null, frozen: false, tags: [],
+    };
+    DB.saveUser(newUser);
+    DB.saveUserData(user, { capital: CONFIG.DEFAULT_CAPITAL, holdings: [], trades: [], watchlist: [], patternLogs: [], groups: { '默认': [] } });
+    DB.incrementStat('total_users');
+
+    this.currentUser = newUser;
+    sessionStorage.setItem('sandbox_current', JSON.stringify(newUser));
+    this.showCapitalDialog();
+    return false;
+  },
+
+  showCapitalDialog() {
+    document.getElementById('loginPage').classList.add('hidden');
+    document.getElementById('capitalModal').classList.remove('hidden');
+  },
+
+  setCapital() {
+    const val = parseFloat(document.getElementById('capitalInput').value) || CONFIG.DEFAULT_CAPITAL;
+    const capped = Math.max(CONFIG.MIN_CAPITAL, Math.min(CONFIG.MAX_CAPITAL, val));
+    const ud = DB.getUserData(this.currentUser.username) || {};
+    ud.capital = capped;
+    DB.saveUserData(this.currentUser.username, ud);
+    document.getElementById('capitalModal').classList.add('hidden');
+    this.enterApp();
+  },
+
+  enterApp() {
+    document.getElementById('loginPage').classList.add('hidden');
+    document.getElementById('capitalModal').classList.add('hidden');
+    document.getElementById('appShell').style.display = 'block';
+
+    const isAdmin = this.currentUser.role === 'admin';
+    document.getElementById('mainTopbar').classList.toggle('hidden', false);
+    document.getElementById('adminTopbar').classList.toggle('hidden', !isAdmin);
+
+    // Admin nav links
+    document.querySelectorAll('.admin-link').forEach(el => el.classList.toggle('hidden', !isAdmin));
+
+    if (isAdmin) {
+      document.getElementById('adminTopbarNick').textContent = this.currentUser.nickname || '管理员';
+      App.navigate('admin-dashboard');
+    } else {
+      document.getElementById('topbarNick').textContent = this.currentUser.nickname;
+      // 检查公告
+      const ann = DB.getSystem('announcement', '');
+      if (ann) { document.getElementById('announcementBar').classList.remove('hidden'); document.getElementById('announcementText').textContent = ann; }
+      App.navigate('dashboard');
+    }
+    App.refreshUI();
+  },
+
+  logout() {
+    if (!confirm('确认退出？')) return;
+    sessionStorage.removeItem('sandbox_current');
+    this.currentUser = null;
+    document.getElementById('appShell').style.display = 'none';
+    document.getElementById('loginPage').classList.remove('hidden');
+    document.getElementById('capitalModal').classList.add('hidden');
+    // 重置表单
+    document.getElementById('loginUser').value = '';
+    document.getElementById('loginPass').value = '';
+    document.getElementById('loginError').classList.remove('show');
+  },
+};
+
+// ==========================================================================
+// WATCHLIST — 自选股管理
+// ==========================================================================
+const Watchlist = {
+  getData() {
+    if (!Auth.currentUser) return { items: [], groups: { '默认': [] } };
+    const ud = DB.getUserData(Auth.currentUser.username);
+    return { items: ud.watchlist || [], groups: ud.groups || { '默认': [] }, };
+  },
+
+  save(items, groups) {
+    if (!Auth.currentUser) return;
+    const ud = DB.getUserData(Auth.currentUser.username);
+    ud.watchlist = items;
+    ud.groups = groups || ud.groups;
+    DB.saveUserData(Auth.currentUser.username, ud);
+  },
+
+  showAdd() {
+    App.showModal(`
+      <h3>添加自选股</h3>
+      <div class="form-group"><label class="form-label">股票代码</label><input class="form-input" id="addWlCode" placeholder="如：sz000725 或 000725"></div>
+      <div class="form-group"><label class="form-label">分组</label>
+        <select class="form-input form-select" id="addWlGroup"><option>默认</option><option>波段</option><option>长线</option><option>观察</option><option value="__new">+ 新建分组</option></select>
+      </div>
+      <div class="form-group hidden" id="addWlNewGroup"><label class="form-label">新分组名称</label><input class="form-input" id="addWlNewGroupInput"></div>
+      <div id="addWlPreview" class="hidden" style="background:var(--bg-secondary);border-radius:6px;padding:10px;margin-bottom:12px;">
+        <div style="font-size:13px;font-weight:600" id="addWlName">--</div>
+      </div>
+      <div id="addWlError" class="form-error"></div>
+      <div class="modal-actions"><button class="btn btn-secondary" onclick="App.closeModal()">取消</button><button class="btn btn-primary" onclick="Watchlist.doAdd()">添加</button></div>
+    `);
+    setTimeout(() => {
+      const codeEl = document.getElementById('addWlCode');
+      codeEl.focus();
+      codeEl.addEventListener('input', async function() {
+        const v = this.value.trim();
+        if (!v) return;
+        // 自动补全sz/sh: 60xx=沪, 5xxx=沪ETF, 68xx=科创板, 其他=深
+        let code = v;
+        if (!/^(sz|sh)/i.test(code)) {
+          const first = code.charAt(0);
+          if (first === '6' || first === '5' || first === '9') code = 'sh' + code;
+          else code = 'sz' + code;
+        }
+        const q = await DATA_ENGINE.lookupStock(code);
+        const preview = document.getElementById('addWlPreview');
+        const nameEl = document.getElementById('addWlName');
+        if (q && q.price) {
+          preview.classList.remove('hidden');
+          nameEl.textContent = `${q.name}（${q.price.toFixed(2)}）`;
+        } else {
+          preview.classList.remove('hidden');
+          nameEl.textContent = `${code}（查询中...）`;
+        }
+      });
+      document.getElementById('addWlGroup').addEventListener('change', function() {
+        document.getElementById('addWlNewGroup').classList.toggle('hidden', this.value !== '__new');
+      });
+    }, 50);
+  },
+
+  async doAdd() {
+    let code = document.getElementById('addWlCode').value.trim();
+    if (!code) return;
+    // 自动补全sz/sh: 60xx=沪, 5xxx=沪ETF, 68xx=科创板, 其他=深
+    if (!/^(sz|sh)/i.test(code)) {
+      const first = code.charAt(0);
+      if (first === '6' || first === '5' || first === '9') code = 'sh' + code;
+      else code = 'sz' + code;
+    }
+
+    const data = this.getData();
+    if (data.items.find(i => i.code === code)) {
+      document.getElementById('addWlError').textContent = '该股票已在自选列表中';
+      document.getElementById('addWlError').classList.add('show');
+      return;
+    }
+
+    let group = document.getElementById('addWlGroup').value;
+    if (group === '__new') {
+      group = document.getElementById('addWlNewGroupInput').value.trim();
+      if (!group) return;
+    }
+
+    const q = await DATA_ENGINE.lookupStock(code);
+    const item = { code, name: q ? q.name : code, group, addedAt: new Date().toISOString() };
+    data.items.push(item);
+    if (!data.groups[group]) data.groups[group] = [];
+    this.save(data.items, data.groups);
+    App.closeModal();
+    this.render();
+    Trade.refreshPositions();
+    App.refreshUI();
+  },
+
+  remove(code) {
+    if (!confirm('确认移除？')) return;
+    const data = this.getData();
+    data.items = data.items.filter(i => i.code !== code);
+    this.save(data.items, data.groups);
+    this.render();
+  },
+
+  async refreshQuotes() {
+    const data = this.getData();
+    if (data.items.length === 0) return;
+    const codes = data.items.map(i => i.code);
+    await DATA_ENGINE.fetchQuotes(codes);
+    this.render();
+    App.refreshUI();
+  },
+
+  // 股票类型
+  _getType(code) {
+    const c = code.toLowerCase();
+    if (c.startsWith('sh68')) return '科创板';
+    if (c.startsWith('sh51') || c.startsWith('sh56') || c.startsWith('sh58')) return '沪ETF';
+    if (c.startsWith('sh60')) return '沪A';
+    if (c.startsWith('sz30')) return '创业板';
+    if (c.startsWith('sz15') || c.startsWith('sz16')) return '深ETF';
+    if (c.startsWith('sz00') || c.startsWith('sz0')) return '深A';
+    return 'A股';
+  },
+
+  render() {
+    const data = this.getData();
+    const search = (document.getElementById('wlSearch')?.value || '').toLowerCase();
+    const filter = document.getElementById('wlGroupFilter')?.value || '';
+    const sort = document.getElementById('wlSort')?.value || 'name';
+
+    let items = data.items.filter(i => {
+      if (search && !i.name.toLowerCase().includes(search) && !i.code.toLowerCase().includes(search)) return false;
+      if (filter && i.group !== filter) return false;
+      return true;
+    });
+
+    // Sort
+    items.sort((a, b) => {
+      const qa = DATA_ENGINE.getQuote(a.code);
+      const qb = DATA_ENGINE.getQuote(b.code);
+      if (sort === 'change') return (qa?.changePct||0) - (qb?.changePct||0);
+      if (sort === 'price') return (qa?.price||0) - (qb?.price||0);
+      return a.name.localeCompare(b.name);
+    });
+
+    const body = document.getElementById('wlTableBody');
+    if (!body) return;
+    if (items.length === 0) { body.innerHTML = '<tr><td colspan="10" style="text-align:center;color:var(--text-muted);padding:30px;">暂无匹配的自选股</td></tr>'; return; }
+
+    // Get holdings for cost data
+    const tradeData = Trade.getData();
+    const holdings = (tradeData.holdings || []);
+
+    body.innerHTML = items.map(i => {
+      const q = DATA_ENGINE.getQuote(i.code);
+      const price = q ? q.price : null;
+      const priceStr = price !== null ? price.toFixed(2) : '--';
+      const chg = q ? q.changePct : null;
+      const chgStr = chg !== null ? `${chg >= 0 ? '+' : ''}${chg.toFixed(2)}%` : '--';
+      const cls = chg !== null ? (chg > 0 ? 'text-up' : chg < 0 ? 'text-down' : 'text-flat') : '';
+
+      // Check holdings
+      const holding = holdings.find(h => h.code === i.code);
+      const cost = holding ? holding.buyPrice : null;
+      const shares = holding ? holding.shares : null;
+      const marketVal = (price !== null && shares !== null) ? price * shares : null;
+      const pnl = (price !== null && cost !== null && shares !== null) ? (price - cost) * shares : null;
+      const pnlPct = (price !== null && cost !== null && cost > 0) ? (price - cost) / cost * 100 : null;
+      const pnlCls = pnl !== null ? (pnl > 0 ? 'text-up' : pnl < 0 ? 'text-down' : '') : '';
+
+      const type = this._getType(i.code);
+
+      return `<tr>
+        <td><span class="fs-12 tag ${type.includes('ETF') ? 'tag-band' : 'tag-watch'}">${type}</span></td>
+        <td><b>${i.name}</b><br><span class="text-muted fs-12">${i.code.replace('sh','').replace('sz','')}</span></td>
+        <td class="fw-6">${priceStr}</td>
+        <td class="${cls} fw-6">${chgStr}</td>
+        <td class="${cost !== null ? '' : 'text-muted'}">${cost !== null ? '¥' + cost.toFixed(2) : '--'}</td>
+        <td>${shares !== null ? shares.toLocaleString() : '--'}</td>
+        <td class="${pnlCls}">${pnl !== null ? (pnl >= 0 ? '+' : '') + pnl.toFixed(0) : '--'}</td>
+        <td class="${pnlCls}">${pnlPct !== null ? (pnlPct >= 0 ? '+' : '') + pnlPct.toFixed(2) + '%' : '--'}</td>
+        <td class="text-accent">${marketVal !== null ? '¥' + marketVal.toLocaleString() : '--'}</td>
+        <td>
+          <button class="btn btn-xs btn-secondary" onclick="ChartApp.open('${i.code}')">📈</button>
+          <button class="btn btn-xs btn-danger" onclick="Watchlist.remove('${i.code}')">✕</button>
+        </td>
+      </tr>`;
+    }).join('');
+  },
+};
+
+// ==========================================================================
+// TRADE — 模拟交易引擎
+// ==========================================================================
+const Trade = {
+  getData() {
+    if (!Auth.currentUser) return {};
+    return DB.getUserData(Auth.currentUser.username);
+  },
+
+  saveData(data) {
+    if (!Auth.currentUser) return;
+    DB.saveUserData(Auth.currentUser.username, data);
+  },
+
+  async lookupBuy() {
+    let code = document.getElementById('buyCode').value.trim();
+    if (!code) { document.getElementById('buyPreview').classList.add('hidden'); document.getElementById('buyCost').classList.add('hidden'); return; }
+    if (!/^(sz|sh)/i.test(code)) {
+      const first = code.charAt(0);
+      if (first === '6' || first === '5' || first === '9') code = 'sh' + code;
+      else code = 'sz' + code;
+    }
+
+    const q = await DATA_ENGINE.lookupStock(code);
+    const preview = document.getElementById('buyPreview');
+    const cost = document.getElementById('buyCost');
+    if (q && q.price) {
+      preview.classList.remove('hidden');
+      document.getElementById('buyName').textContent = `${q.name}（${q.price.toFixed(2)}）`;
+      document.getElementById('buyPrice').textContent = q.price.toFixed(2);
+      this._calcCost();
+    } else {
+      preview.classList.remove('hidden');
+      document.getElementById('buyName').textContent = '查询中...';
+      document.getElementById('buyPrice').textContent = '--';
+    }
+  },
+
+  _calcCost() {
+    const price = parseFloat(document.getElementById('buyPrice').textContent) || 0;
+    const qty = parseInt(document.getElementById('buyQty').value) || 0;
+    const costEl = document.getElementById('buyCost');
+    const valEl = document.getElementById('buyCostVal');
+    if (qty > 0 && price > 0) {
+      costEl.classList.remove('hidden');
+      valEl.textContent = '¥' + (price * qty).toLocaleString('en-US', { minFraction: 2, maxFraction: 2 });
+    } else {
+      costEl.classList.add('hidden');
+    }
+  },
+
+  async buy() {
+    let code = document.getElementById('buyCode').value.trim();
+    if (!/^(sz|sh)/i.test(code)) {
+      const first = code.charAt(0);
+      if (first === '6' || first === '5' || first === '9') code = 'sh' + code;
+      else code = 'sz' + code;
+    }
+
+    const q = await DATA_ENGINE.lookupStock(code);
+    if (!q || !q.price) { document.getElementById('buyWarn').textContent = '无法获取行情'; document.getElementById('buyWarn').classList.add('show'); return; }
+
+    const qty = parseInt(document.getElementById('buyQty').value) || 0;
+    if (qty <= 0 || qty % CONFIG.LOT_SIZE !== 0) { document.getElementById('buyWarn').textContent = '数量须为' + CONFIG.LOT_SIZE + '的整数倍'; document.getElementById('buyWarn').classList.add('show'); return; }
+
+    const price = q.price;
+    const cost = price * qty;
+    const fee = cost * CONFIG.FEE_RATE;
+    const total = cost + fee;
+
+    const d = this.getData();
+    if (total > (d.capital || 0)) { document.getElementById('buyWarn').textContent = '资金不足'; document.getElementById('buyWarn').classList.add('show'); return; }
+
+    // Check position limit 15%
+    const existingPosition = d.holdings.find(h => h.code === code);
+    const currentHolding = existingPosition ? existingPosition.shares : 0;
+    const totalHoldingValue = (currentHolding + qty) * price;
+    const totalAssets = (d.capital || 0) + (d.holdings.reduce((s, h) => {
+      const hq = DATA_ENGINE.getQuote(h.code);
+      return s + (hq ? hq.price : h.buyPrice) * h.shares;
+    }, 0) || 0);
+    const newPosRatio = totalHoldingValue / (totalAssets + total) * 100;
+    if (newPosRatio > 15) { document.getElementById('buyWarn').textContent = `⚠️ 仓位超过15%（当前估算${newPosRatio.toFixed(1)}%）`; document.getElementById('buyWarn').classList.add('show'); return; }
+
+    document.getElementById('buyWarn').classList.remove('show');
+
+    // Execute
+    if (existingPosition) {
+      existingPosition.shares += qty;
+      existingPosition.buyPrice = (existingPosition.buyPrice * existingPosition.shares + cost) / (existingPosition.shares + qty);
+    } else {
+      d.holdings.push({ code, name: q.name, shares: qty, buyPrice: price, buyTime: new Date().toISOString() });
+    }
+    d.capital -= total;
+    if (!d.trades) d.trades = [];
+    d.trades.push({ type: '买入', code, name: q.name, qty, price: price.toFixed(2), amount: total.toFixed(2), time: new Date().toLocaleString(), fee: fee.toFixed(3) });
+    DB.incrementStat('total_trades');
+    this.saveData(d);
+    this.refreshPositions();
+    this.renderRecords();
+    App.refreshUI();
+    document.getElementById('buyCode').value = '';
+    document.getElementById('buyQty').value = '';
+    document.getElementById('buyPreview').classList.add('hidden');
+    document.getElementById('buyCost').classList.add('hidden');
+  },
+
+  sell(code, idx) {
+    const d = this.getData();
+    const h = d.holdings[idx];
+    if (!h) return;
+    // 分批卖出弹窗
+    const q = DATA_ENGINE.getQuote(h.code);
+    const price = q ? q.price : h.buyPrice;
+    App.showModal(`
+      <h3>卖出 · ${h.name}</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">
+        <div><span class="text-muted fs-12">代码</span><br><b>${h.code}</b></div>
+        <div><span class="text-muted fs-12">现价</span><br><b style="color:var(--accent)">¥${price.toFixed(2)}</b></div>
+        <div><span class="text-muted fs-12">持仓</span><br><b>${h.shares.toLocaleString()}股</b></div>
+        <div><span class="text-muted fs-12">成本</span><br><b>¥${h.buyPrice.toFixed(2)}</b></div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">卖出数量（最多 ${h.shares}股，须${CONFIG.LOT_SIZE}的整数倍）</label>
+        <input class="form-input" id="sellQty" type="number" value="${h.shares}" min="${CONFIG.LOT_SIZE}" max="${h.shares}" step="${CONFIG.LOT_SIZE}">
+      </div>
+      <div id="sellPreview" class="fs-12 text-muted" style="margin-bottom:12px;">
+        预计所得: <b id="sellAmount" style="color:var(--gold)">¥${(price * h.shares).toFixed(2)}</b>
+        （含手续费）
+      </div>
+      <div id="sellError" class="form-error"></div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="App.closeModal()">取消</button>
+        <button class="btn btn-danger" onclick="Trade.doSell('${h.code}', ${idx})">确认卖出</button>
+      </div>
+    `);
+    setTimeout(() => {
+      const qtyEl = document.getElementById('sellQty');
+      if (qtyEl) qtyEl.focus();
+      document.addEventListener('input', function _calc(ev) {
+        if (ev.target.id === 'sellQty') {
+          const qty = parseInt(ev.target.value) || 0;
+          const amtEl = document.getElementById('sellAmount');
+          if (amtEl) amtEl.textContent = '¥' + (price * qty).toFixed(2);
+        }
+      });
+    }, 50);
+  },
+
+  doSell(code, idx) {
+    const qty = parseInt(document.getElementById('sellQty').value) || 0;
+    const d = this.getData();
+    const h = d.holdings[idx];
+    if (!h) return;
+    if (qty <= 0 || qty % CONFIG.LOT_SIZE !== 0) {
+      document.getElementById('sellError').textContent = '数量须为' + CONFIG.LOT_SIZE + '的整数倍';
+      document.getElementById('sellError').classList.add('show');
+      return;
+    }
+    if (qty > h.shares) {
+      document.getElementById('sellError').textContent = '超出持仓数量';
+      document.getElementById('sellError').classList.add('show');
+      return;
+    }
+    const q = DATA_ENGINE.getQuote(h.code);
+    const price = q ? q.price : h.buyPrice;
+    const amount = price * qty;
+    const fee = amount * CONFIG.FEE_RATE;
+    const tax = amount * CONFIG.STAMP_TAX;
+    const netAmount = amount - fee - tax;
+
+    d.capital += netAmount;
+    if (!d.trades) d.trades = [];
+    d.trades.push({ type: '卖出', code: h.code, name: h.name, qty, price: price.toFixed(2), amount: netAmount.toFixed(2), time: new Date().toLocaleString(), fee: (fee+tax).toFixed(3) });
+    DB.incrementStat('total_trades');
+
+    if (qty >= h.shares) {
+      d.holdings.splice(idx, 1);
+    } else {
+      h.shares -= qty;
+    }
+    this.saveData(d);
+    App.closeModal();
+    this.refreshPositions();
+    this.renderRecords();
+    App.refreshUI();
+  },
+
+  refreshPositions() {
+    const d = this.getData();
+    const body = document.getElementById('tradePosBody');
+    if (!body) return;
+    if (!d.holdings || d.holdings.length === 0) { body.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:16px;">暂无持仓</td></tr>'; return; }
+
+    body.innerHTML = d.holdings.map((h, idx) => {
+      const q = DATA_ENGINE.getQuote(h.code);
+      const price = q ? q.price : h.buyPrice;
+      const pnl = (price - h.buyPrice) * h.shares;
+      const pnlPct = h.buyPrice > 0 ? (price - h.buyPrice) / h.buyPrice * 100 : 0;
+      const cls = pnl > 0 ? 'text-up' : pnl < 0 ? 'text-down' : '';
+      return `<tr>
+        <td><b>${h.name}</b></td>
+        <td>${h.shares.toLocaleString()}</td>
+        <td class="text-muted">${h.buyPrice.toFixed(2)}</td>
+        <td>${price.toFixed(2)}</td>
+        <td class="${cls}">${pnl >= 0 ? '+' : ''}${pnl.toFixed(0)}（${pnlPct >= 0 ? '+' : ''}${pnlPct.toFixed(2)}%）</td>
+        <td><button class="btn btn-xs btn-danger" onclick="Trade.sell('${h.code}', ${idx})">卖出</button></td>
+      </tr>`;
+    }).join('');
+  },
+
+  renderRecords() {
+    const d = this.getData();
+    const body = document.getElementById('recordBody');
+    if (!body) return;
+    if (!d.trades || d.trades.length === 0) { body.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--text-muted);padding:20px;">暂无交易记录</td></tr>'; return; }
+
+    body.innerHTML = [...d.trades].reverse().slice(0, 100).map(t => {
+      const isBuy = t.type === '买入';
+      return `<tr>
+        <td class="text-muted fs-12">${t.time}</td>
+        <td style="color:${isBuy ? 'var(--red)' : 'var(--green)'}">${t.type}</td>
+        <td><b>${t.name}</b><span class="text-muted fs-12"> ${t.code}</span></td>
+        <td>${t.qty}</td>
+        <td>¥${t.price}</td>
+        <td style="color:var(--gold)">¥${parseFloat(t.amount).toLocaleString('en-US',{minFraction:2,maxFraction:2})}</td>
+      </tr>`;
+    }).join('');
+  },
+
+  clearRecords() {
+    if (!confirm('确认清空所有交易记录？')) return;
+    const d = this.getData();
+    d.trades = [];
+    this.saveData(d);
+    this.renderRecords();
+  },
+};
+
+// ==========================================================================
+// PATTERNMATCHER — 形态匹配引擎
+// ==========================================================================
+const PatternMatcher = {
+  _autoEnabled: true,
+
+  toggleAuto() {
+    this._autoEnabled = document.getElementById('autoMatchToggle').checked;
+    if (this._autoEnabled) this.analyzeAll();
+  },
+
+  matchSingle(code) {
+    const q = DATA_ENGINE.getQuote(code);
+    if (!q || q.changePct === undefined) return null;
+
+    const change = Math.abs(q.changePct);
+    const price = q.price;
+    if (change < 0.1) return null;
+
+    // 简化的规则匹配
+    let matches = PATTERN_LIB.map(p => {
+      let score = 0;
+      // 缩量相关形态
+      if (p.volumeChange.includes('缩量')) {
+        if (p.volumeChange.includes('60%')) score += change > 1.5 ? 25 : 10;
+        else if (p.volumeChange.includes('萎缩')) score += change > 1 ? 20 : 5;
+        else score += change > 0.5 ? 15 : 5;
+      }
+      // 难度匹配
+      if (p.difficulty === '简单' && change < 2) score += 15;
+      else if (p.difficulty === '中等' && change >= 1 && change < 4) score += 15;
+      else if (p.difficulty === '困难' && change >= 2) score += 10;
+      // 概率匹配
+      if (p.probability === '高' && change < 3) score += 10;
+      else if (p.probability === '中' && change >= 1) score += 10;
+      // 类别匹配
+      if (p.category === '简单调整' && change < 1.5) score += 10;
+      if (p.category === '复杂调整' && change >= 2) score += 10;
+      if (p.category === '横盘整理' && change < 0.8) score += 20;
+      if (p.category === '收敛整理' && change < 1) score += 15;
+      if (p.category === '通道调整' && change >= 0.5 && change < 3) score += 15;
+
+      return { ...p, score };
+    });
+
+    matches.sort((a, b) => b.score - a.score);
+    const top = matches[0];
+    if (top.score < 10) return null;
+
+    return {
+      ...top,
+      confidence: top.score,
+      probClass: top.score > 50 ? 'pattern-high' : top.score > 30 ? 'pattern-mid' : 'pattern-low',
+    };
+  },
+
+  analyzeOne(code) {
+    this._showResult(code);
+  },
+
+  analyzeAll() {
+    const wl = Watchlist.getData().items;
+    if (wl.length === 0) return;
+    const container = document.getElementById('patternResults');
+    if (!container) return;
+    container.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-muted);">⏳ 分析中...</div>';
+
+    // 先确保有行情数据
+    DATA_ENGINE.fetchQuotes(wl.map(w => w.code)).then(() => {
+      this._renderAllResults();
+    }).catch(() => this._renderAllResults());
+  },
+
+  _renderAllResults() {
+    const wl = Watchlist.getData().items;
+    const container = document.getElementById('patternResults');
+    if (!container) return;
+
+    if (wl.length === 0) { container.innerHTML = '<div style="text-align:center;padding:30px;color:var(--text-muted);">暂无自选股</div>'; return; }
+
+    let html = '';
+    wl.forEach(i => {
+      const result = this.matchSingle(i.code);
+      const q = DATA_ENGINE.getQuote(i.code);
+      const price = q ? q.price.toFixed(2) : '--';
+      const chg = q ? (q.changePct >= 0 ? '+' : '') + q.changePct.toFixed(2) + '%' : '--';
+
+      if (result) {
+        html += `<div class="pattern-card wash">
+          <div class="pattern-card-header">
+            <div><span class="pattern-name">${i.name}</span> <span class="text-muted fs-12">${price} ${chg}</span></div>
+            <span class="pattern-badge ${result.probClass}">${result.name} · ${result.confidence}分</span>
+          </div>
+          <div class="pattern-detail">
+            <b>形态特征：</b>${result.features}<br>
+            <b>主力意图：</b>${result.intent}<br>
+            <b>买入信号：</b>${result.buySignal} | <b>止损参考：</b>${result.stopLoss}
+          </div>
+        </div>`;
+      } else {
+        html += `<div class="pattern-card" style="border-left-color:var(--text-muted);">
+          <div class="pattern-card-header">
+            <div><span class="pattern-name">${i.name}</span> <span class="text-muted fs-12">${price} ${chg}</span></div>
+            <span class="pattern-badge pattern-low">未识别</span>
+          </div>
+          <div class="pattern-detail text-muted">当前行情数据不足以匹配已知回调形态，建议手动标注。</div>
+        </div>`;
+      }
+    });
+    container.innerHTML = html;
+  },
+
+  _showResult(code) {
+    const result = this.matchSingle(code);
+    const wl = Watchlist.getData().items;
+    const i = wl.find(w => w.code === code);
+    const q = DATA_ENGINE.getQuote(code);
+
+    let html = '<div class="card" style="border-color:var(--accent);">';
+    if (result) {
+      html += `<div class="card-header"><div class="card-title">📐 ${i?.name || code} · 形态分析</div></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div><div class="pattern-badge ${result.probClass}" style="font-size:13px;padding:5px 14px;margin-bottom:8px;">${result.name} · 置信度${result.confidence}%</div>
+            <p class="fs-14"><b>形态特征</b><br><span class="text-muted">${result.features}</span></p>
+            <p class="fs-14 mt-8"><b>主力意图</b><br><span class="text-muted">${result.intent}</span></p></div>
+          <div><p class="fs-14"><b>买入信号</b><br><span class="text-accent">${result.buySignal}</span></p>
+            <p class="fs-14 mt-8"><b>止损参考</b><br><span class="text-down">${result.stopLoss}</span></p>
+            <p class="fs-14 mt-8"><b>买点描述</b><br><span class="text-muted">${result.buyPoint}</span></p>
+            <p class="fs-14 mt-8"><b>类别</b> ${result.category} · <b>难度</b> ${result.difficulty} · <b>洗盘类型</b> ${result.washType}</p></div>
+        </div>`;
+    } else {
+      html += `<div class="card-header"><div class="card-title">📐 ${i?.name || code} · 形态分析</div></div>
+        <p class="text-muted">未匹配到已知回调形态。</p>`;
+    }
+    if (q) html += `<div class="fs-12 text-muted mt-8">当前行情：${q.name}  ¥${q.price.toFixed(2)}  ${q.changePct >= 0 ? '+' : ''}${q.changePct.toFixed(2)}%</div>`;
+    html += '</div>';
+    App.showModal(html + '<div class="modal-actions"><button class="btn btn-secondary" onclick="App.closeModal()">关闭</button></div>');
+  },
+};
+
+// ==========================================================================
+// PATTERNLIB — 形态库展示
+// ==========================================================================
+const PatternLib = {
+  render() {
+    const grid = document.getElementById('patternLibGrid');
+    if (!grid) return;
+    const comparisons = PATTERN_LIB.length > 0 ? [] : [];
+    // 获取比较数据（从 admin-system 的 seed 数据格式来）
+    const compData = [
+      {dimension:'股价位置',wash:'累计涨幅30%-80%，主力未获利丰厚',dist:'累计涨幅超80%-100%，处于高位区间'},
+      {dimension:'成交量',wash:'必然缩量，越跌量越小',dist:'放量滞涨或放量下跌'},
+      {dimension:'支撑位',wash:'不跌破关键支撑',dist:'有效跌破关键支撑位'},
+      {dimension:'修复速度',wash:'结束后快速企稳回升',dist:'跌破后持续低迷'},
+    ];
+    const principles = [
+      {title:'只做上升趋势回调',detail:'关注中期均线向上的个股，回避下跌趋势的反弹陷阱'},
+      {title:'严格控制仓位',detail:'分批进场，先试错确认后再加仓'},
+      {title:'设置止损纪律',detail:'进场后必须设置止损，跌破果断离场'},
+      {title:'耐心持有主升浪',detail:'只要上升趋势不变且支撑不破，不因短期震荡操作'},
+    ];
+
+    grid.innerHTML = PATTERN_LIB.map(p => `
+      <div class="pattern-lib-card" onclick="PatternLib.showDetail(${p.id})">
+        <div class="pattern-lib-header">
+          <span class="pattern-lib-num">${p.number}</span>
+          <span class="pattern-lib-name">${p.name}</span>
+          <span class="badge ${p.probability === '高' ? 'badge-up' : p.probability === '中' ? 'badge-warn' : 'badge-muted'}">${p.probability}</span>
+        </div>
+        <div class="pattern-lib-meta">
+          <span>${p.category}</span> · <span>${p.difficulty}</span> · <span>${p.washType}</span>
+        </div>
+        <div class="pattern-lib-tag">${p.tag}</div>
+        <div class="pattern-lib-preview">${(p.features||'').substring(0,60)}...</div>
+      </div>
+    `).join('');
+
+    // Comparison table
+    const compContainer = document.getElementById('patternComp') || (() => {
+      const c = document.createElement('div');
+      const card = document.querySelector('#page-pattern .card:last-child');
+      if (!card) return null;
+      c.id = 'patternComp';
+      c.style.marginTop = '12px';
+      card.after(c);
+      return c;
+    })();
+    if (compContainer) {
+      let compHtml = `<div class="card"><div class="card-header"><div class="card-title">🔄 洗盘 vs 出货 核心对比</div></div><div class="table-wrap"><table><thead><tr><th>维度</th><th>洗盘特征</th><th>出货特征</th></tr></thead><tbody>`;
+      compData.forEach(c => {
+        compHtml += `<tr><td class="fw-6">${c.dimension}</td><td style="color:var(--green)">${c.wash}</td><td style="color:var(--red)">${c.dist}</td></tr>`;
+      });
+      compHtml += '</tbody></table></div></div>';
+
+      // Principles
+      compHtml += `<div class="card mt-8"><div class="card-header"><div class="card-title">📌 核心交易原则</div></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;">`;
+      principles.forEach(p => {
+        compHtml += `<div style="background:rgba(255,255,255,0.03);border-radius:8px;padding:12px;border-left:3px solid var(--accent);">
+          <div class="fw-6">${p.title}</div><div class="fs-12 text-muted mt-4">${p.detail}</div>
+        </div>`;
+      });
+      compHtml += '</div></div>';
+
+      compContainer.innerHTML = compHtml;
+    }
+  },
+
+  showDetail(id) {
+    const p = PATTERN_LIB.find(x => x.id === id);
+    if (!p) return;
+    const html = `<div class="card" style="border-color:var(--accent);">
+      <div class="card-header"><div class="card-title">📐 #${p.number} ${p.name}</div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div>
+          <p class="fs-14"><b>形态特征</b><br><span class="text-muted">${p.features}</span></p>
+          <p class="fs-14 mt-8"><b>主力意图</b><br><span class="text-muted">${p.intent}</span></p>
+        </div>
+        <div>
+          <p class="fs-14"><b>买入信号</b><br><span class="text-accent">${p.buySignal}</span></p>
+          <p class="fs-14 mt-8"><b>止损参考</b><br><span class="text-down">${p.stopLoss}</span></p>
+          <p class="fs-14 mt-8"><b>买点</b><br><span class="text-muted">${p.buyPoint}</span></p>
+          <p class="fs-14 mt-8"><b>类别</b> ${p.category} · <b>难度</b> ${p.difficulty}</p>
+        </div>
+      </div>
+    </div>`;
+    App.showModal(html + '<div class="modal-actions"><button class="btn btn-secondary" onclick="App.closeModal()">关闭</button></div>');
+  },
+};
+
+// ==========================================================================
+// TERMWIKI — 股票术语百科
+// ==========================================================================
+const TermWiki = {
+  _data: [],
+  _page: 1,
+  _pageSize: 15,
+  _search: '',
+  _cat: '',
+  _tag: '',
+
+  init() {
+    this._data = window.STOCK_TERMS || [];
+    this._populateFilters();
+    this.render();
+  },
+
+  _populateFilters() {
+    const cats = [...new Set(this._data.map(t => t.category))].sort();
+    const tags = [...new Set(this._data.flatMap(t => t.tags || []))].sort();
+    const catEl = document.getElementById('wikiCatFilter');
+    const tagEl = document.getElementById('wikiTagFilter');
+    if (catEl) catEl.innerHTML = '<option value="">全部分类</option>' + cats.map(c => `<option value="${c}">${c}</option>`).join('');
+    if (tagEl) tagEl.innerHTML = '<option value="">全部标签</option>' + tags.map(t => `<option value="${t}">${t}</option>`).join('');
+  },
+
+  search(v) { this._search = v.toLowerCase(); this._page = 1; this.render(); },
+  filterCat(v) { this._cat = v; this._page = 1; this.render(); },
+  filterTag(v) { this._tag = v; this._page = 1; this.render(); },
+
+  _getFiltered() {
+    let d = this._data;
+    if (this._search) d = d.filter(t => (t.term||'').toLowerCase().includes(this._search) || (t.definition||'').toLowerCase().includes(this._search));
+    if (this._cat) d = d.filter(t => t.category === this._cat);
+    if (this._tag) d = d.filter(t => (t.tags||[]).includes(this._tag));
+    return d;
+  },
+
+  render() {
+    const filtered = this._getFiltered();
+    const totalPages = Math.max(1, Math.ceil(filtered.length / this._pageSize));
+    if (this._page > totalPages) this._page = totalPages;
+    const start = (this._page - 1) * this._pageSize;
+    const pageData = filtered.slice(start, start + this._pageSize);
+
+    const body = document.getElementById('wikiTableBody');
+    const count = document.getElementById('wikiCount');
+    if (count) count.textContent = `共 ${filtered.length} 条`;
+
+    if (pageData.length === 0) {
+      if (body) body.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:30px;color:var(--text-muted);">暂无匹配的术语</td></tr>';
+    } else {
+      if (body) body.innerHTML = pageData.map(t => `<tr onclick="TermWiki.showDetail(${t.id})" style="cursor:pointer;">
+        <td class="fs-12 text-muted">${t.id}</td>
+        <td class="fw-6">${t.term}</td>
+        <td><span class="tag tag-watch">${t.category}</span></td>
+        <td class="fs-12 text-muted" style="max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${(t.definition||'').replace(/"/g,'&quot;')}">${(t.definition||'').substring(0,120)}${(t.definition||'').length > 120 ? '...' : ''}</td>
+        <td>${(t.tags||[]).slice(0,2).map(tag => `<span class="fs-11" style="background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:4px;margin:0 2px;">${tag}</span>`).join('')}</td>
+        <td><button class="btn btn-xs btn-secondary" onclick="event.stopPropagation();TermWiki.showDetail(${t.id})">详情</button></td>
+      </tr>`).join('');
+    }
+
+    // Pagination
+    const pag = document.getElementById('wikiPagination');
+    if (!pag) return;
+    let ph = '';
+    if (this._page > 1) ph += `<button class="btn btn-xs btn-secondary" onclick="TermWiki.goPage(${this._page - 1})">‹</button>`;
+    ph += `<span class="fs-12 text-muted" style="padding:0 8px;">${this._page}/${totalPages}</span>`;
+    if (this._page < totalPages) ph += `<button class="btn btn-xs btn-secondary" onclick="TermWiki.goPage(${this._page + 1})">›</button>`;
+    pag.innerHTML = ph;
+  },
+
+  goPage(p) { this._page = p; this.render(); },
+
+  showDetail(id) {
+    const t = this._data.find(x => x.id === id);
+    if (!t) return;
+    const html = `<div class="card" style="border-color:var(--accent);">
+      <div class="card-header"><div class="card-title">📖 ${t.term}</div></div>
+      <div class="fs-14" style="line-height:1.8;">${t.definition || '暂无释义'}</div>
+      <div class="flex gap-8 mt-8" style="align-items:center;">
+        <span class="tag tag-watch">${t.category}</span>
+        ${(t.tags||[]).map(tag => `<span class="fs-11" style="background:rgba(255,255,255,0.08);padding:2px 8px;border-radius:4px;">${tag}</span>`).join('')}
+        ${t.englishName ? `<span class="fs-12 text-muted ml-8">EN: ${t.englishName}</span>` : ''}
+      </div>
+    </div>`;
+    App.showModal(html + '<div class="modal-actions"><button class="btn btn-secondary" onclick="App.closeModal()">关闭</button></div>');
+  },
+};
+
+// ==========================================================================
+// APP — 主应用控制器
+// ==========================================================================
+const App = {
+  currentPage: 'dashboard',
+
+  navigate(page) {
+    this.currentPage = page;
+
+    // Hide all pages
+    document.querySelectorAll('.page-container').forEach(el => el.classList.remove('active'));
+
+    // Show target
+    const target = document.getElementById('page-' + page);
+    if (target) target.classList.add('active');
+
+    // Update nav
+    document.querySelectorAll('.topbar-nav a').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll(`.topbar-nav a[data-page="${page}"]`).forEach(el => el.classList.add('active'));
+
+    // Refresh content
+    this.refreshUI();
+
+    // Chart page init
+    if (page === 'chart') {
+      setTimeout(() => ChartApp.open(), 100);
+    }
+    // Wiki / 百科 init
+    if (page === 'wiki') {
+      setTimeout(() => TermWiki.init(), 50);
+    }
+    // Pattern lib rendering
+    if (page === 'pattern') {
+      setTimeout(() => PatternLib.render(), 50);
+    }
+  },
+
+  refreshUI() {
+    if (!Auth.currentUser) return;
+    const isAdmin = Auth.currentUser.role === 'admin';
+
+    if (isAdmin) {
+      Admin.renderDashboard();
+      Admin.renderUsers();
+      Admin.renderStats();
+      Admin.loadSettings();
+    } else {
+      this._refreshUserUI();
+      // Sync watchlist render when on watchlist page
+      if (this.currentPage === 'watchlist') Watchlist.render();
+      if (this.currentPage === 'trade') {
+        Trade.refreshPositions();
+        Trade.renderRecords();
+      }
+    }
+  },
+
+  _refreshUserUI() {
+    const d = Trade.getData();
+    const wl = Watchlist.getData();
+
+    // Topbar cash
+    const cap = d.capital || 0;
+    const posValue = (d.holdings || []).reduce((s, h) => {
+      const q = DATA_ENGINE.getQuote(h.code);
+      return s + (q ? q.price : h.buyPrice) * h.shares;
+    }, 0);
+    const totalAssets = cap + posValue;
+    document.getElementById('topbarCash').textContent = '¥' + totalAssets.toLocaleString('en-US', { minFraction: 0, maxFraction: 0 });
+
+    // Dashboard stats
+    const totalPnl = posValue - (d.holdings || []).reduce((s, h) => s + h.buyPrice * h.shares, 0);
+    const pnlPct = (posValue > 0 ? totalPnl / (posValue - totalPnl) * 100 : 0);
+    document.getElementById('dashTotalAssets').textContent = '¥' + totalAssets.toLocaleString('en-US', { minFraction: 0, maxFraction: 0 });
+    document.getElementById('dashTotalPnl').textContent = (totalPnl >= 0 ? '+' : '') + totalPnl.toFixed(0);
+    document.getElementById('dashTotalPnl').style.color = totalPnl >= 0 ? 'var(--red)' : 'var(--green)';
+    document.getElementById('dashPnlPct').textContent = (pnlPct >= 0 ? '+' : '') + pnlPct.toFixed(2) + '%';
+    document.getElementById('dashHoldings').textContent = (d.holdings || []).length;
+    document.getElementById('dashWatchlist').textContent = wl.items.length;
+
+    // Win rate
+    const trades = d.trades || [];
+    const sells = trades.filter(t => t.type === '卖出');
+    const wins = sells.filter(t => parseFloat(t.amount) > parseFloat(t.amount) * 0.98);
+    const wr = sells.length > 0 ? (wins.length / sells.length * 100).toFixed(1) : '--';
+    document.getElementById('dashWinRate').textContent = wr + (sells.length > 0 ? '%' : '');
+
+    const posRatio = totalAssets > 0 ? (posValue / totalAssets * 100) : 0;
+    document.getElementById('dashPosRatio').textContent = posRatio.toFixed(1) + '%';
+
+    // Watchlist overview on dashboard
+    const dashBody = document.getElementById('dashWatchlistTable');
+    if (dashBody) {
+      if (wl.items.length === 0) {
+        dashBody.innerHTML = '<tr><td colspan="10" style="text-align:center;color:var(--text-muted);padding:20px;">暂无自选股，去 <a href="#" onclick="App.navigate(\'watchlist\');return false">添加</a></td></tr>';
+      } else {
+        const holdings = (d.holdings || []);
+        dashBody.innerHTML = wl.items.slice(0, 10).map(i => {
+          const q = DATA_ENGINE.getQuote(i.code);
+          const price = q ? q.price : null;
+          const priceStr = price !== null ? price.toFixed(2) : '--';
+          const chg = q ? q.changePct : null;
+          const chgStr = chg !== null ? (chg >= 0 ? '+' : '') + chg.toFixed(2) + '%' : '--';
+          const cls = chg !== null ? (chg > 0 ? 'text-up' : chg < 0 ? 'text-down' : '') : '';
+          const holding = holdings.find(h => h.code === i.code);
+          const cost = holding ? holding.buyPrice : null;
+          const shares = holding ? holding.shares : null;
+          const marketVal = (price !== null && shares !== null) ? price * shares : null;
+          const pnl = (price !== null && cost !== null && shares !== null) ? (price - cost) * shares : null;
+          const pnlPct = (price !== null && cost !== null && cost > 0) ? (price - cost) / cost * 100 : null;
+          const pnlCls = pnl !== null ? (pnl > 0 ? 'text-up' : pnl < 0 ? 'text-down' : '') : '';
+          const type = Watchlist._getType ? Watchlist._getType(i.code) : 'A股';
+          return `<tr>
+            <td><span class="fs-12 tag ${type.includes('ETF') ? 'tag-band' : 'tag-watch'}">${type}</span></td>
+            <td><b>${i.name}</b><span class="text-muted fs-12"> ${i.code.replace('sh','').replace('sz','')}</span></td>
+            <td>${priceStr}</td>
+            <td class="${cls}">${chgStr}</td>
+            <td class="${cost !== null ? '' : 'text-muted'}">${cost !== null ? '¥' + cost.toFixed(2) : '--'}</td>
+            <td>${shares !== null ? shares.toLocaleString() : '--'}</td>
+            <td class="${pnlCls}">${pnl !== null ? (pnl >= 0 ? '+' : '') + pnl.toFixed(0) : '--'}</td>
+            <td class="${pnlCls}">${pnlPct !== null ? (pnlPct >= 0 ? '+' : '') + pnlPct.toFixed(2) + '%' : '--'}</td>
+            <td class="text-accent">${marketVal !== null ? '¥' + marketVal.toLocaleString() : '--'}</td>
+          </tr>`;
+        }).join('');
+      }
+    }
+
+    // Trade refresh
+    Trade.refreshPositions();
+    Trade.renderRecords();
+
+    // Trade sidebar
+    const cashEl = document.getElementById('tradeCash');
+    if (cashEl) cashEl.textContent = '¥' + (cap || 0).toLocaleString('en-US', { minFraction: 0, maxFraction: 0 });
+    document.getElementById('tradeMarket').textContent = '¥' + posValue.toLocaleString('en-US', { minFraction: 0, maxFraction: 0 });
+    document.getElementById('tradeTotalPnl').textContent = (totalPnl >= 0 ? '+' : '') + totalPnl.toFixed(0);
+    document.getElementById('tradeTotalPnl').style.color = totalPnl >= 0 ? 'var(--red)' : 'var(--green)';
+    document.getElementById('tradePosRatio').textContent = posRatio.toFixed(1) + '%';
+
+    // Auto pattern match
+    if (this.currentPage === 'pattern' && PatternMatcher._autoEnabled) {
+      PatternMatcher.analyzeAll();
+    }
+  },
+
+  // ---- Modal ----
+  showModal(html) {
+    const container = document.getElementById('modalContainer');
+    container.innerHTML = `<div class="modal-overlay" onclick="if(event.target===this)App.closeModal()"><div class="modal modal-wide">${html}</div></div>`;
+    container.classList.remove('hidden');
+  },
+  closeModal() {
+    document.getElementById('modalContainer').innerHTML = '';
+  },
+
+  // ---- Pattern lib render ----
+  renderPatternLib() {
+    const grid = document.getElementById('patternLibGrid');
+    if (!grid) return;
+    grid.innerHTML = PATTERN_LIB.map(p => `
+      <div class="card" style="cursor:pointer;padding:12px;" onclick="App._showPatternDetail(${p.id})">
+        <div style="font-size:13px;font-weight:600;color:var(--accent)">${p.number}. ${p.name}</div>
+        <div class="fs-12 text-muted mt-8">${p.category} · ${p.difficulty} · 概率${p.probability}</div>
+        <div class="fs-12 text-muted mt-8 truncate">${p.features.substring(0, 40)}...</div>
+        <div style="margin-top:6px;"><span class="tag tag-hot">${p.washType}</span></div>
+      </div>
+    `).join('');
+  },
+
+  _showPatternDetail(id) {
+    const p = PATTERN_LIB.find(x => x.id === id);
+    if (!p) return;
+    this.showModal(`
+      <h3>${p.number}. ${p.name}</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div>
+          <p class="fs-14"><b>形态特征</b><br><span class="text-muted">${p.features}</span></p>
+          <p class="fs-14 mt-8"><b>主力意图</b><br><span class="text-muted">${p.intent}</span></p>
+          <p class="fs-14 mt-8"><b>买点描述</b><br><span class="text-muted">${p.buyPoint}</span></p>
+        </div>
+        <div>
+          <p class="fs-14"><b>量能变化</b><br><span class="text-accent">${p.volumeChange}</span></p>
+          <p class="fs-14 mt-8"><b>买入信号</b><br><span class="text-accent">${p.buySignal}</span></p>
+          <p class="fs-14 mt-8"><b>止损参考</b><br><span class="text-down">${p.stopLoss}</span></p>
+          <p class="fs-12 text-muted mt-8">类别: ${p.category} · 难度: ${p.difficulty} · 概率: ${p.probability}</p>
+        </div>
+      </div>
+      <div class="modal-actions"><button class="btn btn-secondary" onclick="App.closeModal()">关闭</button></div>
+    `);
+  },
+};
+
+// ==========================================================================
+// ADMIN — 管理后台
+// ==========================================================================
+const Admin = {
+  _userPage: 1,
+  _pageSize: 15,
+
+  init() {
+    if (!Auth.currentUser || Auth.currentUser.role !== 'admin') return;
+    this.renderDashboard();
+    this.renderUsers();
+    this.renderStats();
+    this.loadSettings();
+  },
+
+  // ---- Dashboard ----
+  renderDashboard() {
+    const users = DB.getAllUsers();
+    const today = new Date().toISOString().slice(0, 10);
+    const newToday = users.filter(u => u.regTime && u.regTime.slice(0, 10) === today).length;
+    const active = users.filter(u => {
+      if (!u.lastLogin) return false;
+      const d = new Date(u.lastLogin);
+      return (new Date() - d) < 7 * 24 * 60 * 60 * 1000;
+    }).length;
+    const daily = users.filter(u => {
+      if (!u.lastLogin) return false;
+      return (new Date() - new Date(u.lastLogin)) < 24 * 60 * 60 * 1000;
+    }).length;
+    const premium = users.filter(u => u.level === 'premium' || u.level === 'vip').length;
+    const free = users.filter(u => !u.level || u.level === 'free').length;
+
+    document.getElementById('adTotalUsers').textContent = users.length;
+    document.getElementById('adNewToday').textContent = newToday;
+    document.getElementById('adActiveUsers').textContent = active;
+    document.getElementById('adDailyActive').textContent = daily;
+    document.getElementById('adTotalTrades').textContent = DB.getStat('total_trades');
+    document.getElementById('adPatternCalls').textContent = DB.getStat('pattern_calls');
+    document.getElementById('adPaidRate').textContent = users.length > 0 ? (premium / users.length * 100).toFixed(1) + '%' : '0%';
+    document.getElementById('adPremiumCount').textContent = premium;
+    document.getElementById('adFreeCount').textContent = free;
+
+    this._renderRegChart(users);
+    this._renderHotStocks();
+  },
+
+  _renderRegChart(users) {
+    const canvas = document.getElementById('adRegChart');
+    if (!canvas) return;
+    // 近7日注册分布
+    const days = [];
+    const counts = [];
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date(); d.setDate(d.getDate() - i);
+      const key = d.toISOString().slice(0, 10);
+      days.push((d.getMonth() + 1) + '/' + d.getDate());
+      counts.push(users.filter(u => u.regTime && u.regTime.slice(0, 10) === key).length);
+    }
+    if (window._adRegChart) window._adRegChart.destroy();
+    const ctx = canvas.getContext('2d');
+    window._adRegChart = new Chart(ctx, {
+      type: 'line',
+      data: { labels: days, datasets: [{ label: '新增注册', data: counts, borderColor: '#4a9eff', backgroundColor: 'rgba(74,158,255,0.1)', fill: true, tension: 0.3, pointRadius: 3 }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } },
+        scales: { x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#9999bb', font: { size: 10 } } },
+          y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#9999bb', font: { size: 10 }, stepSize: 1 } } } }
+    });
+  },
+
+  _renderHotStocks() {
+    const body = document.getElementById('adHotStocks');
+    if (!body) return;
+    // 收集所有用户的自选股
+    const stockCount = {};
+    DB.getAllUsers().forEach(u => {
+      const ud = DB.getUserData(u.username);
+      (ud.watchlist || []).forEach(w => {
+        const key = w.code;
+        stockCount[key] = stockCount[key] || { name: w.name, code: w.code, count: 0 };
+        stockCount[key].count++;
+      });
+    });
+    const sorted = Object.values(stockCount).sort((a, b) => b.count - a.count).slice(0, 10);
+    if (sorted.length === 0) {
+      body.innerHTML = '<tr><td colspan="3" style="color:var(--text-muted);padding:16px;">暂无数据</td></tr>';
+      return;
+    }
+    body.innerHTML = sorted.map((s, i) => `<tr><td>${i + 1}</td><td>${s.name}<span class="text-muted fs-12"> ${s.code.replace('sh','').replace('sz','')}</span></td><td>${s.count}</td></tr>`).join('');
+  },
+
+  // ---- User Management ----
+  renderUsers() {
+    const search = (document.getElementById('adUserSearch')?.value || '').toLowerCase();
+    const filter = document.getElementById('adUserFilter')?.value || '';
+    let users = DB.getAllUsers();
+
+    // Filter
+    if (search) users = users.filter(u => u.username.includes(search) || u.nickname.includes(search));
+    if (filter === 'frozen') users = users.filter(u => u.frozen);
+    if (filter === 'active') users = users.filter(u => !u.frozen);
+    if (filter === 'premium') users = users.filter(u => u.level === 'premium' || u.level === 'vip');
+
+    // Pagination
+    const total = users.length;
+    const pages = Math.ceil(total / this._pageSize) || 1;
+    this._userPage = Math.min(this._userPage, pages);
+    const start = (this._userPage - 1) * this._pageSize;
+    const page = users.slice(start, start + this._pageSize);
+
+    const body = document.getElementById('adUserBody');
+    if (!body) return;
+    if (page.length === 0) { body.innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--text-muted);padding:20px;">暂无用户</td></tr>'; return; }
+
+    body.innerHTML = page.map(u => {
+      const levelLabel = CONFIG.MEMBER_LEVELS[u.level] || '免费';
+      const expireStr = u.expire ? new Date(u.expire).toLocaleDateString() : '--';
+      const status = u.frozen ? '冻结' : '正常';
+      const statusClass = u.frozen ? 'tag-frozen' : 'tag-active';
+      const levelClass = (u.level === 'premium' || u.level === 'vip') ? 'tag-premium' : 'tag-free';
+      return `<tr>
+        <td><b>${u.username}</b></td>
+        <td>${u.nickname}</td>
+        <td class="text-muted fs-12">${u.regTime ? new Date(u.regTime).toLocaleDateString() : '--'}</td>
+        <td class="text-muted fs-12">${u.lastLogin ? new Date(u.lastLogin).toLocaleString() : '--'}</td>
+        <td><span class="tag ${levelClass}">${levelLabel}</span></td>
+        <td class="fs-12">${expireStr}</td>
+        <td><span class="status-dot ${u.frozen ? 'frozen' : 'online'}"></span><span class="tag ${statusClass}">${status}</span></td>
+        <td>
+          <button class="btn btn-xs btn-secondary" onclick="Admin.showUserDetail('${u.username}')">详情</button>
+          <button class="btn btn-xs ${u.frozen ? 'btn-primary' : 'btn-secondary'}" onclick="Admin.toggleFreeze('${u.username}')">${u.frozen ? '解冻' : '冻结'}</button>
+          <button class="btn btn-xs btn-secondary" onclick="Admin.editMember('${u.username}')">会员</button>
+          <button class="btn btn-xs btn-danger" onclick="Admin.deleteUser('${u.username}')">删除</button>
+        </td>
+      </tr>`;
+    }).join('');
+
+    // Pagination
+    const pagEl = document.getElementById('adUserPages');
+    if (pagEl) {
+      let pagHtml = `<button class="page-btn ${this._userPage <= 1 ? 'disabled' : ''}" onclick="Admin._pageUser(${this._userPage - 1})">‹</button>`;
+      for (let i = 1; i <= pages; i++) {
+        if (i === 1 || i === pages || Math.abs(i - this._userPage) <= 2) {
+          pagHtml += `<button class="page-btn ${i === this._userPage ? 'active' : ''}" onclick="Admin._pageUser(${i})">${i}</button>`;
+        } else if (Math.abs(i - this._userPage) === 3) {
+          pagHtml += `<span class="text-muted fs-12">…</span>`;
+        }
+      }
+      pagHtml += `<button class="page-btn ${this._userPage >= pages ? 'disabled' : ''}" onclick="Admin._pageUser(${this._userPage + 1})">›</button>`;
+      pagEl.innerHTML = pagHtml;
+    }
+  },
+
+  _pageUser(p) {
+    this._userPage = Math.max(1, p);
+    this.renderUsers();
+  },
+
+  showUserDetail(username) {
+    const u = DB.getUser(username);
+    const ud = DB.getUserData(username);
+    if (!u) return;
+    App.showModal(`
+      <h3>用户详情 · ${u.nickname}</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div>
+          <p class="fs-14"><b>用户名</b> ${u.username}</p>
+          <p class="fs-14"><b>昵称</b> ${u.nickname}</p>
+          <p class="fs-14"><b>注册时间</b> <span class="text-muted">${u.regTime ? new Date(u.regTime).toLocaleString() : '--'}</span></p>
+          <p class="fs-14"><b>最后登录</b> <span class="text-muted">${u.lastLogin ? new Date(u.lastLogin).toLocaleString() : '--'}</span></p>
+          <p class="fs-14"><b>会员等级</b> ${CONFIG.MEMBER_LEVELS[u.level] || '免费'}</p>
+          <p class="fs-14"><b>状态</b> ${u.frozen ? '❄️ 冻结' : '✅ 正常'}</p>
+          <p class="fs-14"><b>标签</b> ${(u.tags || []).join(', ') || '无'}</p>
+        </div>
+        <div>
+          <p class="fs-14"><b>模拟金</b> <span class="text-accent">¥${(ud.capital || 0).toLocaleString()}</span></p>
+          <p class="fs-14"><b>自选股</b> ${(ud.watchlist || []).length}只</p>
+          <p class="fs-14"><b>持仓</b> ${(ud.holdings || []).length}只</p>
+          <p class="fs-14"><b>交易记录</b> ${(ud.trades || []).length}笔</p>
+          <p class="fs-14"><b>形态分析</b> ${(ud.patternLogs || []).length}次</p>
+        </div>
+      </div>
+      <div class="modal-actions"><button class="btn btn-secondary" onclick="App.closeModal()">关闭</button></div>
+    `);
+  },
+
+  toggleFreeze(username) {
+    const u = DB.getUser(username);
+    if (!u) return;
+    u.frozen = !u.frozen;
+    DB.saveUser(u);
+    this.renderUsers();
+  },
+
+  editMember(username) {
+    const u = DB.getUser(username);
+    if (!u) return;
+    App.showModal(`
+      <h3>编辑会员 · ${u.nickname}</h3>
+      <div class="form-group"><label class="form-label">会员等级</label>
+        <select class="form-input form-select" id="editLevel">
+          <option value="free" ${u.level === 'free' ? 'selected' : ''}>免费</option>
+          <option value="premium" ${u.level === 'premium' ? 'selected' : ''}>专业版</option>
+          <option value="vip" ${u.level === 'vip' ? 'selected' : ''}>尊享版</option>
+        </select>
+      </div>
+      <div class="form-group"><label class="form-label">到期时间</label><input class="form-input" id="editExpire" type="date" value="${u.expire ? u.expire.slice(0, 10) : ''}"></div>
+      <div class="form-group"><label class="form-label">标签</label><input class="form-input" id="editTags" placeholder="逗号分隔，如: 高净值,活跃" value="${(u.tags || []).join(',')}"></div>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="App.closeModal()">取消</button>
+        <button class="btn btn-primary" onclick="Admin._saveMember('${username}')">保存</button>
+      </div>
+    `);
+  },
+
+  _saveMember(username) {
+    const u = DB.getUser(username);
+    if (!u) return;
+    u.level = document.getElementById('editLevel').value;
+    const expireVal = document.getElementById('editExpire').value;
+    u.expire = expireVal ? expireVal + 'T23:59:59.000Z' : null;
+    u.tags = document.getElementById('editTags').value.split(',').map(t => t.trim()).filter(t => t);
+    DB.saveUser(u);
+    App.closeModal();
+    this.renderUsers();
+  },
+
+  deleteUser(username) {
+    if (!confirm(`⚠️ 确认永久删除用户「${username}」？此操作不可撤销！`)) return;
+    if (!confirm(`再次确认删除 ${username}？`)) return;
+    DB.deleteUser(username);
+    this.renderUsers();
+  },
+
+  exportUsers() {
+    const csv = DB.exportUsersCSV();
+    if (!csv) { alert('暂无用户数据'); return; }
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = '决策沙盘用户数据_' + new Date().toISOString().slice(0, 10) + '.csv';
+    link.click();
+  },
+
+  // ---- Stats ----
+  renderStats() {
+    this._renderRegTrend();
+    this._renderActiveChart();
+    this._renderPatternChart();
+    this._renderTradeChart();
+  },
+
+  _renderRegTrend() {
+    const canvas = document.getElementById('adRegTrendChart');
+    if (!canvas) return;
+    const users = DB.getAllUsers();
+    const days = [], counts = [];
+    for (let i = 29; i >= 0; i--) {
+      const d = new Date(); d.setDate(d.getDate() - i);
+      const key = d.toISOString().slice(0, 10);
+      days.push((d.getMonth() + 1) + '/' + d.getDate());
+      counts.push(users.filter(u => u.regTime && u.regTime.slice(0, 10) === key).length);
+    }
+    // Cumulative
+    let cum = 0; const cumCounts = counts.map(c => { cum += c; return cum; });
+    if (window._adRegTrend) window._adRegTrend.destroy();
+    window._adRegTrend = new Chart(canvas.getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: days,
+        datasets: [
+          { label: '累计注册', data: cumCounts, borderColor: '#4a9eff', backgroundColor: 'rgba(74,158,255,0.05)', fill: true, tension: 0.3, yAxisID: 'y', pointRadius: 0 },
+          { label: '每日新增', data: counts, borderColor: 'rgba(245,158,11,0.6)', backgroundColor: 'rgba(245,158,11,0.1)', fill: true, tension: 0.3, yAxisID: 'y1', pointRadius: 0 },
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { labels: { color: '#9999bb', font: { size: 10 } } } },
+        scales: {
+          x: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#9999bb', font: { size: 9 }, maxTicksLimit: 15 } },
+          y: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#9999bb', font: { size: 9 } } },
+          y1: { position: 'right', grid: { display: false }, ticks: { color: '#9999bb', font: { size: 9 } } }
+        }
+      }
+    });
+  },
+
+  _renderActiveChart() {
+    const canvas = document.getElementById('adActiveChart');
+    if (!canvas) return;
+    const users = DB.getAllUsers();
+    const days = [], active = [], newReg = [];
+    for (let i = 13; i >= 0; i--) {
+      const d = new Date(); d.setDate(d.getDate() - i);
+      const key = d.toISOString().slice(0, 10);
+      days.push((d.getMonth() + 1) + '/' + d.getDate());
+      active.push(users.filter(u => u.lastLogin && u.lastLogin.slice(0, 10) === key).length);
+      newReg.push(users.filter(u => u.regTime && u.regTime.slice(0, 10) === key).length);
+    }
+    if (window._adActive) window._adActive.destroy();
+    window._adActive = new Chart(canvas.getContext('2d'), {
+      type: 'bar',
+      data: { labels: days, datasets: [
+        { label: '活跃用户', data: active, backgroundColor: 'rgba(74,158,255,0.5)', borderRadius: 3 },
+        { label: '新增注册', data: newReg, backgroundColor: 'rgba(245,158,11,0.5)', borderRadius: 3 },
+      ]},
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: '#9999bb', font: { size: 10 } } } },
+        scales: { x: { grid: { display: false }, ticks: { color: '#9999bb', font: { size: 9 } } },
+          y: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#9999bb', font: { size: 9 }, stepSize: 1 } } } }
+    });
+  },
+
+  _renderPatternChart() {
+    const canvas = document.getElementById('adPatternChart');
+    if (!canvas) return;
+    const names = PATTERN_LIB.slice(0, 10).map(p => p.name);
+    const data = PATTERN_LIB.slice(0, 10).map(() => Math.floor(Math.random() * 30 + 5));
+    if (window._adPattern) window._adPattern.destroy();
+    window._adPattern = new Chart(canvas.getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: names,
+        datasets: [{ label: '被识别次数', data, backgroundColor: names.map(() => 'rgba(184,149,106,0.6)'), borderRadius: 3 }]
+      },
+      options: {
+        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { x: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#9999bb', font: { size: 9 } } },
+          y: { grid: { display: false }, ticks: { color: '#9999bb', font: { size: 9 } } } }
+      }
+    });
+  },
+
+  _renderTradeChart() {
+    const canvas = document.getElementById('adTradeChart');
+    if (!canvas) return;
+    const days = ['一','二','三','四','五','六','日'];
+    const data = days.map(() => Math.floor(Math.random() * 20 + 2));
+    if (window._adTrade) window._adTrade.destroy();
+    window._adTrade = new Chart(canvas.getContext('2d'), {
+      type: 'line',
+      data: { labels: days, datasets: [{ label: '交易笔数', data, borderColor: '#22c55e', backgroundColor: 'rgba(34,197,94,0.1)', fill: true, tension: 0.3 }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } },
+        scales: { x: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#9999bb' } },
+          y: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#9999bb' }, beginAtZero: true } } }
+    });
+  },
+
+  // ---- Tools ----
+  publishAnnounce() {
+    const text = document.getElementById('adAnnounceInput').value.trim();
+    if (!text) return;
+    DB.saveSystem('announcement', text);
+    alert('公告已发布');
+  },
+  clearAnnounce() {
+    DB.saveSystem('announcement', '');
+    document.getElementById('adAnnounceInput').value = '';
+    alert('公告已清除');
+  },
+
+  grantCapital() {
+    const target = document.getElementById('adGrantTarget').value;
+    const amount = parseFloat(document.getElementById('adGrantAmount').value) || 0;
+    if (amount <= 0) return;
+
+    let users = [];
+    if (target === 'all') users = DB.getAllUsers();
+    else if (target === 'active') users = DB.getAllUsers().filter(u => {
+      if (!u.lastLogin) return false;
+      return (new Date() - new Date(u.lastLogin)) < 7 * 24 * 60 * 60 * 1000;
+    });
+    else {
+      const uname = document.getElementById('adGrantUser').value.trim();
+      const u = DB.getUser(uname);
+      if (u) users = [u];
+    }
+
+    users.forEach(u => {
+      const ud = DB.getUserData(u.username);
+      ud.capital = (ud.capital || 0) + amount;
+      DB.saveUserData(u.username, ud);
+    });
+
+    alert(`已向 ${users.length} 位用户派发 ¥${amount.toLocaleString()}`);
+  },
+
+  setMaintenance(on) {
+    DB.saveSystem('maintenance', on);
+    alert(on ? '维护模式已开启，用户端无法登录' : '维护模式已关闭');
+  },
+
+  sendMessage() {
+    const target = document.getElementById('adMsgTarget').value.trim();
+    const content = document.getElementById('adMsgContent').value.trim();
+    if (!content) return;
+
+    const msgs = DB.getSystem('messages', []);
+    msgs.push({ target: target || 'all', content, time: new Date().toISOString(), read: false });
+    DB.saveSystem('messages', msgs);
+    alert('消息已发送');
+    document.getElementById('adMsgContent').value = '';
+  },
+
+  // ---- Settings ----
+  changePassword() {
+    const p1 = document.getElementById('adAdminPass').value;
+    const p2 = document.getElementById('adAdminPass2').value;
+    if (!p1) { alert('请输入新密码'); return; }
+    if (p1 !== p2) { alert('两次密码不一致'); return; }
+    DB.changeAdminPass(p1);
+    alert('密码已修改');
+    document.getElementById('adAdminPass').value = '';
+    document.getElementById('adAdminPass2').value = '';
+  },
+
+  saveSettings() {
+    const cap = parseFloat(document.getElementById('adMaxCapital').value) || CONFIG.MAX_CAPITAL;
+    const fee = parseFloat(document.getElementById('adFeeRate').value) || CONFIG.FEE_RATE;
+    DB.saveSystem('max_capital', cap);
+    DB.saveSystem('fee_rate', fee);
+    alert('设置已保存');
+  },
+
+  loadSettings() {
+    document.getElementById('adMaxCapital').value = DB.getSystem('max_capital', CONFIG.MAX_CAPITAL);
+    document.getElementById('adFeeRate').value = DB.getSystem('fee_rate', CONFIG.FEE_RATE);
+
+    // Load announcement
+    const ann = DB.getSystem('announcement', '');
+    if (ann) document.getElementById('adAnnounceInput').value = ann;
+  },
+};
+
+// ==========================================================================
+// CHART APP — 图表终端控制器
+// ==========================================================================
+const ChartApp = {
+  _currentCode: null,
+  _initialized: false,
+
+  async open(code) {
+    const sel = document.getElementById('chartStockSel');
+    if (!sel) return;
+    this._refreshStockList();
+    if (code) {
+      sel.value = code;
+    }
+    if (sel.value) {
+      this._currentCode = sel.value;
+      await this._initChart(sel.value);
+    }
+  },
+
+  _refreshStockList() {
+    const sel = document.getElementById('chartStockSel');
+    if (!sel) return;
+    const wl = Watchlist.getData().items;
+    sel.innerHTML = wl.map(i => `<option value="${i.code}">${i.name}（${i.code}）</option>`).join('');
+    if (this._currentCode && wl.find(i => i.code === this._currentCode)) {
+      sel.value = this._currentCode;
+    }
+  },
+
+  switchStock() {
+    const sel = document.getElementById('chartStockSel');
+    if (!sel || !sel.value) return;
+    this._currentCode = sel.value;
+    this._initChart(sel.value);
+  },
+
+  async _initChart(code) {
+    if (!code) return;
+    const wl = Watchlist.getData().items;
+    const item = wl.find(i => i.code === code);
+    const name = item ? item.name : code;
+    await ChartEngine.init('chartContainer', code, name);
+  },
+
+  async switchKL(kl) {
+    document.querySelectorAll('#chartTimeBtns .btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`#chartTimeBtns .btn[data-kl="${kl}"]`)?.classList.add('active');
+    await ChartEngine.switchTimeframe(kl);
+  },
+
+  switchInd(ind) {
+    document.querySelectorAll('.chart-indicator-bar .btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.chart-indicator-bar .btn[data-ind="${ind}"]`)?.classList.add('active');
+    ChartEngine.switchIndicator(ind);
+  },
+};
+
+// ==========================================================================
+// NAVIGATION BINDING
+// ==========================================================================
+document.addEventListener('click', function(e) {
+  const navLink = e.target.closest('.topbar-nav a[data-page]');
+  if (navLink) {
+    e.preventDefault();
+    App.navigate(navLink.dataset.page);
+  }
+});
+
+// ==========================================================================
+// INIT
+// ==========================================================================
+document.addEventListener('DOMContentLoaded', function() {
+  // Auto-refresh every 2 min
+  setInterval(() => {
+    if (Auth.currentUser) DATA_ENGINE.fetchQuotes(Watchlist.getData().items.map(i => i.code)).catch(() => {});
+  }, 120000);
+
+  Auth.init();
+  App.renderPatternLib();
+});
+
+// Buy qty input auto-calc
+document.addEventListener('input', function(e) {
+  if (e.target.id === 'buyQty') Trade._calcCost();
+});
+// 
+
+</script>
+</body>
+</html>
