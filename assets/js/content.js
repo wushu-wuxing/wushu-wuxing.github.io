@@ -1472,6 +1472,176 @@ id: "005",
 `
     }
   },
+  {
+    id: "011",
+    date: "2026-07-05",
+    category: "investment",
+    readingMin: 8,
+    zh: {
+      title: "解套 —— 被套之后怎么办",
+      excerpt: "被人问最多的问题是：套住了怎么办。我的回答一直没变——套住不可怕，可怕的是你什么都不做。被动死扛是最差的解套方式，主动管理才是唯一的出路。",
+      body: `
+<p>每个股民都会被套。无一例外。</p>
+
+<p>区别不在于谁套得少——在于<strong>被套之后做的事</strong>。</p>
+
+<p>我头三年炒股，每次被套就一个策略：死扛。打开账户看一眼，关掉。告诉自己"迟早会回来的"。结果呢？有些回来了，大部分没回来——回不来的那些，才是真正亏钱的。</p>
+
+<p>后来我明白了：<strong>被套不是亏损，什么都不做才是亏损。</strong></p>
+
+<p>以下是我用过且有用的四种解套方法。没有一种是"稳赚"的——但在不同的行情里，它们都比死扛管用。</p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>一、波段操作法 —— 如果它还值得救</h2>
+
+<p>适用于：个股基本面没崩，只是跟大盘一起跌。日振幅够大（至少3%）。</p>
+
+<p>核心逻辑很简单：<em>既然你短期内不想卖它，那就利用它的波动把成本降下来。</em></p>
+
+<p>具体做法：</p>
+<ul>
+<li>在反弹到压力位的时候，卖出一部分（比如持仓的三分之一到一半）</li>
+<li>等它跌回支撑位，再买回来</li>
+<li>一次差价哪怕只有2-3%，几次下来，成本就降下来了</li>
+</ul>
+
+<p>怎么判断压力和支撑？我不搞复杂的——就看两个东西：前高前低，和RSI。RSI超过70是超买，适合卖；低于30是超卖，适合买。不是每把都准，但大概率上，够用。</p>
+
+<p>缺点是累——你得盯盘。而且如果你判断错了，卖飞了比套着还难受。所以不要全仓做波段，拿部分仓位玩，留底仓。</p>
+
+<h2>二、换股操作法 —— 别跟烂股票谈恋爱</h2>
+
+<p>适用于：持仓股基本面确实不行了，或者板块明显转向了。</p>
+
+<p>这招最难的不是技术——是心理。很多人被套之后，对那只股票产生了一种莫名其妙的忠诚。明明知道它不行了，就是不肯换。因为"卖了就真的亏了"。</p>
+
+<p>算一笔账：</p>
+<ul>
+<li>你拿着A跌了20%</li>
+<li>你看好的B同样位置只跌了5%</li>
+<li>你换成B，B反弹15%，你就只亏5%了</li>
+<li>A呢？可能反弹5%就不动了</li>
+</ul>
+
+<p>这不是数字游戏——这是仓位效率的问题。资金是有时间成本的。你在一只烂股票里耗着，损失的不只是本金，还有机会——那些上涨的股票，不会等你。</p>
+
+<p>换股操作的关键：<strong>分批换，不要一键清仓一键满仓。</strong>先卖三分之一A，买三分之一的B。B涨了，信心来了，再动剩下的部分。这样心理压力小很多。</p>
+
+<h2>三、止损解套法 —— 承认错误是本事</h2>
+
+<p>适用于：暴雷、趋势破位、行业出利空。任何"基本面变了"的情况。</p>
+
+<p>很多人把止损等同于"亏钱"。但止损只是<strong>承认错误</strong>——而承认错误，是交易里最重要的本事。</p>
+
+<p>巴菲特也会止损。彼得·林奇也会止损。区别是：他们止损之后，过段时间换了一只股票赚回来了。而你止损之后，原地不动，看着账户慢慢缩水。</p>
+
+<p>我的止损纪律很简单：</p>
+<ul>
+<li>入场前设定止损位（一般是-8%到-12%，看股票波动率决定）</li>
+<li>到了就走，不带犹豫</li>
+<li>止损后至少空仓一天，不要当场换股</li>
+</ul>
+
+<p>第三点最重要。止损后你的判断力是被亏损扭曲的——你急着"扳回来"，很容易选一个更烂的标的。停一停，让认知恢复，再做下一步决定。</p>
+
+<h2>四、摊平补仓法 —— 最危险也最有效</h2>
+
+<p>适用于：基本面扎实、下跌是因为大盘系统性风险、你有足够子弹。</p>
+
+<p>这是四种方法里最危险的一种——因为它的诱惑最大。跌了就补、跌了就补，补着补着就满仓了，然后继续跌，你就彻底动不了了。</p>
+
+<p>补仓不是凭感觉补的。它要有规矩：</p>
+<ul>
+<li><strong>阶梯补仓：</strong>每跌20%补一次，不是每跌2%就补</li>
+<li><strong>资金隔离：</strong>补仓的钱和主仓位分开管。补仓的钱，补完了就不能再加</li>
+<li><strong>反弹即减：</strong>补仓部分只要涨回补仓价+5%，就卖一半。不要贪</li>
+</ul>
+
+<p>补仓的本质是：<em>用更低的价格降低平均成本，然后用更小的涨幅解套。</em></p>
+<p>举个例子：10块买了1000股，跌到8块补1000股，平均成本变成9块。原先要涨25%才能解套，现在只需要涨12.5%。有效率，但前提是——你还有子弹。</p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>这些方法之外</h2>
+
+<p>四种方法讲完了，但我最想说的不是方法——是心态。</p>
+
+<p>被套之后，你的第一反应决定了后续的一切：</p>
+<ul>
+<li>恐慌割肉 → 卖在最低点</li>
+<li>幻想死扛 → 越亏越多</li>
+<li>冷静判断 → 选一个方法执行</li>
+</ul>
+
+<p>选哪个方法，取决于三件事：<strong>个股基本面、大盘趋势、你的仓位结构。</strong></p>
+<ul>
+<li>基本面没问题、大盘震荡：波段操作</li>
+<li>基本面变了：止损，或者换股</li>
+<li>基本面扎实、大盘系统性地跌：阶梯补仓</li>
+</ul>
+
+<p>没有万能的方法。但有一条原则是通用的：</p>
+
+<blockquote>"被动死扛是最差的解套方式。<br>主动管理仓位 —— 哪怕做错 —— 也比什么都不做强。"</blockquote>
+
+<p>因为做错了你学到了东西，知道了这个方法不适用。而什么都不做——你只学到了焦虑。</p>
+
+<p>最后一句：被套不是世界末日。每个交易员都被套过。重要的是，你从这次被套里学到了什么，下一次会不会做得更好。</p>
+
+<p>市场永远有机会。</p>
+` },
+    en: {
+      title: "Getting Untrapped — What to Do When You're Stuck",
+      excerpt: "The question I get asked most: I'm trapped in a position, what now? My answer never changes — being trapped isn't the problem. Doing nothing about it is. Passive waiting is the worst strategy. Active management is the only way out.",
+      body: `
+<p>Every trader gets trapped. Without exception.</p>
+
+<p>The difference isn't who gets trapped less — it's <strong>what you do after.</strong></p>
+
+<p>My first three years in the market, my only strategy when trapped was: hold and pray. Open the account, look, close it. Tell myself "it'll come back." Some did. Most didn't — and those that didn't, were the ones that really hurt.</p>
+
+<p>Later I realized: <strong>being trapped isn't a loss. Doing nothing is the loss.</strong></p>
+
+<div class="divider"><span class=\"divider-mark\">☰</span></div>
+
+<h2>1. Swing Trading — If It's Worth Saving</h2>
+<p><em>For: stocks with solid fundamentals down with the market. Daily range at least 3%.</em></p>
+<p>Simple logic: since you won't sell it anyway, use its volatility to lower your cost.</p>
+<p>Method: sell a portion at resistance, buy back at support. Even 2-3% per swing — do it a few times and your cost base drops.</p>
+<p>For resistance/support, I keep it simple: previous highs/lows + RSI. RSI above 70 = overbought, sell. Below 30 = oversold, buy. Not every call, but good enough.</p>
+<p>Downside: you need to watch it. And if you swing wrong and it flies away — that hurts more than being trapped. So never swing your full position. Keep a base.</p>
+
+<h2>2. Switching — Don't Fall in Love with a Loser</h2>
+<p><em>For: fundamentals deteriorated, sector clearly turned.</em></p>
+<p>The hardest part isn't technical — it's psychological. People develop a weird loyalty to their losing stock. They know it's bad but won't switch. Because "if I sell, it's really a loss."</p>
+<p>Do the math. Stock A down 20%. Stock B in the same range, down 5%. Switch to B, it bounces 15%, you're only down 5%. Meanwhile A might bounce 5% and stall.</p>
+<p>This isn't a numbers game — it's capital efficiency. Money has time cost. Stuck in a loser, you're not just losing capital — you're losing opportunity. The stocks that rise won't wait for you.</p>
+<p>Key: switch in batches. Sell a third, buy a third. Get confidence. Move the rest. Less psychological pressure.</p>
+
+<h2>3. Cutting Losses — Admitting Error Is a Skill</h2>
+<p><em>For: black swans, broken trends, sector-wide bad news. Anything where "the fundamentals changed."</em></p>
+<p>Many treat stop-loss as "taking a loss." But a stop-loss is just <strong>admitting error</strong> — and in trading, admitting error is the most important skill.</p>
+<p>Buffett stops out. Peter Lynch stops out. The difference: they switch to another stock and earn it back. You sit still and watch the account shrink.</p>
+<p>My stop rules: set before entry (-8% to -12%, depending on volatility). Hit it, exit. No debate. Sit out at least a day — don't switch stocks immediately after stopping out. Your judgment is distorted by loss. Pause. Let cognition recover.</p>
+
+<h2>4. Averaging Down — Most Dangerous, Most Effective</h2>
+<p><em>For: solid fundamentals, systemic market drop, you have reserves.</em></p>
+<p>The most dangerous method — because it's the most tempting. Average down, down, down — then suddenly you're full-loaded, and it drops more.</p>
+<p>Rules for averaging down: step-based (every 20% drop, not 2%), fund isolation (averaging money is separate, once used, done), sell on bounce (sell half when averaging portion is up 5%).</p>
+<p>The essence of averaging down: lower your average cost, need a smaller bounce to break even. Bought at 10, bought more at 8, average becomes 9. Used to need 25% to break even — now you need 12.5%. Efficient — but only if you have the reserves.</p>
+
+<div class="divider"><span class=\"divider-mark\">☰</span></div>
+
+<h2>Beyond the methods</h2>
+<p>Your first reaction determines everything: panic-sell at the bottom, hope-hold and bleed, or calmly pick a method and execute.</p>
+<p>Which method depends on three things: stock fundamentals, market trend, your position structure. Fundamentals solid, market oscillating — swing. Fundamentals changed — cut or switch. Fundamentals solid, systemic drop — ladder-average.</p>
+<blockquote>"Passive waiting is the worst exit strategy.<br>Active management — even if wrong — beats doing nothing."</blockquote>
+<p>Because if you're wrong, you learned something — this method doesn't work here. Doing nothing teaches you nothing but anxiety.</p>
+<p>Getting trapped isn't the end. Every trader has been there. What matters: what did you learn, and will you do better next time?</p>
+<p>The market always gives another chance.</p>
+` }
+  },
 ];
 
 /* ============================================================
