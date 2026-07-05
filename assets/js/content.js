@@ -376,7 +376,7 @@ id: "005",
 
 <p>不，准确说：<strong>我做了三天前就定好的事</strong>。</p>
 
-<div class="divider"><span class="divider-mark">☰</span></div>
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
 
 <h2>不响的第一层：预案在前</h2>
 
@@ -476,7 +476,7 @@ id: "005",
 
 <p>No — to be precise: <strong>I did what I'd decided three days ago</strong>.</p>
 
-<div class="divider"><span class="divider-mark">☰</span></div>
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
 
 <h2>Layer one: the plan comes first</h2>
 
@@ -578,7 +578,7 @@ id: "005",
 
 <p>这句话我一直记着。不是因为它有道理——而是因为它<strong>有用</strong>。我后来做投资、做判断、看人、看己，全在这三个钱包里。</p>
 
-<div class="divider"><span class="divider-mark">☰</span></div>
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
 
 <h2>第一个钱包：实际</h2>
 
@@ -689,7 +689,7 @@ id: "005",
 
 <p>I've never forgotten this. Not because it's profound — because it's <strong>useful</strong>. Every investment, every judgment, every reading of people and self — it all lives inside these three wallets.</p>
 
-<div class="divider"><span class="divider-mark">☰</span></div>
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
 
 <h2>Wallet One: the real</h2>
 
@@ -806,7 +806,7 @@ id: "005",
 
 <p>这篇文章不讲概念——讲案例。</p>
 
-<div class="divider"><span class="divider-mark">☰</span></div>
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
 
 <h2>一、8.8秒的含义</h2>
 
@@ -912,7 +912,7 @@ id: "005",
 
 <p>This article isn't about theory. It's about cases.</p>
 
-<div class="divider"><span class="divider-mark">☰</span></div>
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
 
 <h2>1. What 8.8 seconds means</h2>
 
@@ -1026,7 +1026,7 @@ id: "005",
 
 <p>我把这套纪律总结成三个字：<strong>赔、盈、进</strong>——对应三个问题：输得起多少？赚到什么时候走？凭什么进？</p>
 
-<div class="divider"><span class="divider-mark">☰</span></div>
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
 
 <h2>第一智：赔有底线</h2>
 
@@ -1126,7 +1126,7 @@ id: "005",
 
 <p>I've boiled it down to three characters: <strong>loss, gain, entry</strong> — three questions: how much can you lose? When do you take profit? Why are you entering?</p>
 
-<div class="divider"><span class="divider-mark">☰</span></div>
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
 
 <h2>Wisdom One: define your loss</h2>
 
@@ -1236,7 +1236,7 @@ id: "005",
 
 <p>仓位纪律只有一句话：<strong>在任何一笔交易中，你都不能死。</strong></p>
 
-<div class="divider"><span class="divider-mark">☰</span></div>
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
 
 <h2>一、15%法则</h2>
 
@@ -1303,7 +1303,7 @@ id: "005",
 <p>Stock-picking without position discipline is gambling. Timing without it is a casino. Trend analysis without it — win a little when right, get wiped out when wrong.</p>
 <p>Position discipline has one sentence: <strong>in any single trade, you cannot die.</strong></p>
 
-<div class="divider"><span class="divider-mark">☰</span></div>
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
 
 <h2>1. The 15% rule</h2>
 <p>Hard rule: <strong>no single stock exceeds 15% of total capital.</strong></p>
@@ -1363,7 +1363,7 @@ id: "005",
 <p>从第一笔交易到现在，这条路走了很多年。弯路、死路、回头路——都走过。这些文字不是理论推导——是伤痕结成的茧。</p>
 <p>五篇文章从五个角度切入同一个核心问题：<strong>一个人，如何在不确定中活下来，然后活好。</strong></p>
 
-<div class="divider"><span class="divider-mark">☰</span></div>
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
 
 <h2>五篇文章的骨架</h2>
 
@@ -1422,7 +1422,7 @@ id: "005",
 <p>From the first trade to now — many years. Wrong turns, dead ends, U-turns — all of them. These words aren't theoretical deductions. They're scars turned into words.</p>
 <p>Five angles, one core question: <strong>how does a person survive uncertainty — and then thrive in it?</strong></p>
 
-<div class="divider"><span class="divider-mark">☰</span></div>
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
 
 <h2>The skeleton of five articles</h2>
 
@@ -1491,7 +1491,7 @@ id: "005",
 
 <p>以下是我用过且有用的四种解套方法。没有一种是"稳赚"的——但在不同的行情里，它们都比死扛管用。</p>
 
-<div class="divider"><span class="divider-mark">☰</span></div>
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
 
 <h2>一、波段操作法 —— 如果它还值得救</h2>
 
@@ -1561,7 +1561,7 @@ id: "005",
 <p>补仓的本质是：<em>用更低的价格降低平均成本，然后用更小的涨幅解套。</em></p>
 <p>举个例子：10块买了1000股，跌到8块补1000股，平均成本变成9块。原先要涨25%才能解套，现在只需要涨12.5%。有效率，但前提是——你还有子弹。</p>
 
-<div class="divider"><span class="divider-mark">☰</span></div>
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
 
 <h2>这些方法之外</h2>
 
@@ -1603,7 +1603,7 @@ id: "005",
 
 <p>Later I realized: <strong>being trapped isn't a loss. Doing nothing is the loss.</strong></p>
 
-<div class="divider"><span class=\"divider-mark\">☰</span></div>
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
 
 <h2>1. Swing Trading — If It's Worth Saving</h2>
 <p><em>For: stocks with solid fundamentals down with the market. Daily range at least 3%.</em></p>
@@ -1631,7 +1631,7 @@ id: "005",
 <p>Rules for averaging down: step-based (every 20% drop, not 2%), fund isolation (averaging money is separate, once used, done), sell on bounce (sell half when averaging portion is up 5%).</p>
 <p>The essence of averaging down: lower your average cost, need a smaller bounce to break even. Bought at 10, bought more at 8, average becomes 9. Used to need 25% to break even — now you need 12.5%. Efficient — but only if you have the reserves.</p>
 
-<div class="divider"><span class=\"divider-mark\">☰</span></div>
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
 
 <h2>Beyond the methods</h2>
 <p>Your first reaction determines everything: panic-sell at the bottom, hope-hold and bleed, or calmly pick a method and execute.</p>
@@ -1640,6 +1640,188 @@ id: "005",
 <p>Because if you're wrong, you learned something — this method doesn't work here. Doing nothing teaches you nothing but anxiety.</p>
 <p>Getting trapped isn't the end. Every trader has been there. What matters: what did you learn, and will you do better next time?</p>
 <p>The market always gives another chance.</p>
+` }
+  },
+  {
+    id: "012",
+    date: "2026-07-05",
+    category: "investment",
+    readingMin: 9,
+    zh: {
+      title: "趋势交易 —— 顺着走，别挡路",
+      excerpt: "趋势交易只有四个字：顺势而为。听起来像废话，但大多数人一辈子都做不到——因为他们总想比市场聪明。趋势交易不需要你聪明，只需要你听话。",
+      body: `
+<p>刚入市那两年，我最喜欢做的事就是"抄底"。</p>
+
+<p>股票跌了，我觉得它"差不多了"，买进去。然后它继续跌。我加仓。再跌。再加。一段时间后，我手里拿着一只跌了40%的股票，嘴里念叨着"价值投资"。</p>
+
+<p>后来我明白了一个道理：<strong>市场不会因为你觉得它该涨了，它就涨。</strong></p>
+
+<p>趋势交易学的第一课不是技术——是谦卑。承认你比市场笨，承认你什么都预测不了，承认唯一靠谱的事就是：它正在往哪个方向走，你就往哪个方向走。</p>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>一、怎么判断趋势 —— 用最简单的工具</h2>
+
+<p>趋势判断不需要复杂的指标。我踩过这个坑——K线图上挂满了MACD、KDJ、布林带、RSI……一个屏幕花花绿绿，最后哪个都用不好。</p>
+
+<p>现在我只用两样东西：<strong>均线 + 高低点结构</strong>。</p>
+
+<h3>均线：趋势的骨架</h3>
+
+<p>打开日线图，把均线设成三根：20日、60日、250日。</p>
+<ul>
+<li><strong>多头排列：</strong>20日在60日之上，60日在250日之上，三根线全部向上倾斜 → 上升趋势。做多，不要犹豫。</li>
+<li><strong>空头排列：</strong>20日在60日之下，60日在250日之下，三根线全部向下倾斜 → 下降趋势。要么空仓，要么做空（如果你能做空）。</li>
+<li><strong>均线缠绕：</strong>三根线搅在一起 → 震荡市。趋势交易者最好的选择是休息。</li>
+</ul>
+
+<p>就这么简单。不看什么金叉死叉——就看排列方向和倾斜角度。</p>
+
+<p>很多人纠结"用5日还是10日"、"60日还是120日"。没用。任何均线在单边趋势里都好用，在震荡里都不好用。选一个参考系，坚持用，比换来换去重要得多。</p>
+
+<h3>高低点结构：趋势的健康报告</h3>
+
+<p>均线告诉你趋势的方向，高低点告诉你趋势还活着没有。</p>
+<ul>
+<li><strong>健康的上升趋势：</strong>高点比前一个高，低点比前一个高。不断创新高，回调不破前低。</li>
+<li><strong>趋势可能衰竭：</strong>高点不再创新高，或者回调破了前低 —— 这是警示信号。</li>
+<li><strong>趋势反转：</strong>低点创新低 + 高点不再创新高 → 大概率转势了。</li>
+</ul>
+
+<p>我每天复盘只看两件事：收盘价还在不在20日均线上方？这周的高低点结构是不是健康的？两分钟，够了。</p>
+
+<h3>量价配合：验证</h3>
+
+<p>量能不是用来"预测"的，是用来"验证"的。</p>
+<p>上涨放量 → 趋势有资金支撑。回调缩量 → 只是洗盘，不是出货。上涨缩量 → 虚涨，要警惕。下跌放量 → 有人在跑。</p>
+<p>趋势交易里，量能最大的作用是<strong>帮你区分洗盘和出货</strong>。同样是跌，缩量回踩均线是洗盘，放量跌破均线是出货——两种完全不同的处理方式。</p>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>二、什么时候买，什么时候卖</h2>
+
+<h3>入场：两个买点</h3>
+
+<p><strong>买点一：回调低吸。</strong>上升趋势里，股价回踩20日或60日均线，缩量企稳，买。这是我最常用的买点——因为安全。你买在趋势的"喘息点"上，止损很明确：跌破均线就走。</p>
+
+<p><strong>买点二：突破追入。</strong>股价放量突破前期高点或震荡平台，买。这个买点快，但假突破也多。我的应对方式：不是突破那一刻满仓追，而是确认突破有效（比如收盘价站稳突破位上方）再加仓。</p>
+
+<p>两个买点没有好坏之分——看你是什么性格。稳健型选回调低吸，激进型选突破追入。我都用，但回调低吸占比大得多。</p>
+
+<h3>出场：别犹豫</h3>
+
+<p><strong>止损：</strong>有效跌破关键支撑位（比如60日线、趋势线），走。不讨论。你问一百个交易员"跌破60日线要不要走"，一百个都会说要走。但真到那一刻，大部分人都会找理由留下。</p>
+
+<p><strong>止盈：</strong>趋势破位、高点不再创新高、或者出现顶背离（股价创新高但RSI或MACD没跟上），分批出。不要奢求卖在最高点——把最后一段利润让给别人，是一种交易美德。</p>
+
+<p>止盈有个实用技巧：<em>股价在主升浪中沿着5日均线上涨，不破5日线就不卖。哪天收盘跌破了5日线，卖一半。跌破10日线，清仓。</em>简单粗暴，但有效。</p>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>三、仓位 —— 底仓+机动仓</h2>
+
+<p>趋势交易最怕什么？不是你判断错了——是你看对了，但仓位太轻，赚了等于没赚。</p>
+
+<p>所以趋势交易需要两套仓位：</p>
+<ul>
+<li><strong>底仓（60-70%）：</strong>趋势确立后建仓，趋势反转前不动。这部分赚的是主升浪的钱。</li>
+<li><strong>机动仓（30-40%）：</strong>配合波段操作。回调到支撑位加机动仓，反弹到压力位减机动仓。这部分赚的是波动的钱，同时降低底仓的持有成本。</li>
+</ul>
+
+<p>底仓让你不错过行情，机动仓让你在震荡中不焦虑。两者配合，心态会稳很多。</p>
+
+<p>止损纪律照旧：<strong>单笔亏损不超过总资金的2%。</strong>这不是我的发明——这是所有趋势交易者的共识。2%意味着你连续错20次才亏40%，而你几乎不可能连续错20次。它给你充足的容错空间。</p>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>四、最大的坑</h2>
+
+<p>趋势交易不是万能药。它有几个致命的弱点，不说清楚就是害人。</p>
+
+<p><strong>第一：震荡市是趋势交易的坟场。</strong>股价在均线上下反复穿越，你每次以为趋势来了买进去，它就掉头。连续止损几次，信心就没了。解决方案只有一个：识别震荡市，不交易。怎么识别？均线缠绕 + 高低点不清晰 + 成交量萎缩——这时候休息就是赚钱。</p>
+
+<p><strong>第二：逆势抄底的诱惑。</strong>跌了很久的股票看起来很"便宜"，很多人忍不住。趋势交易者的纪律是：<em>不抄底，不摸底。等它自己走出底部结构，确认上升趋势，再进场。</em>你可能会错过底部那20%，但你不会在下降趋势里被套40%。</p>
+
+<p><strong>第三：频繁换股。</strong>今天看这个板块涨了追这个，明天那个板块涨了换那个——趋势交易最需要的是耐心。一只股票的主升浪可能只有两三周，但你需要等一两个月。频繁换股的结果是：每只股票都只吃到鱼头，鱼身全错过了。</p>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>趋势交易是一个体力活</h2>
+
+<p>很多人以为趋势交易是"技术活"——学会看均线、MACD、量价关系就行了。</p>
+
+<p>恰恰相反。趋势交易是一个<strong>体力活</strong>——每天早上8点50看一眼外围，9点15看集合竞价，9点半开盘后观察前30分钟的量能，下午收盘后花10分钟复盘。日复一日，没有捷径。</p>
+
+<p>技术面好学，但"每天坚持做"这件事，一万个人里也没几个能做到。</p>
+
+<p>趋势交易的本质不是预测——是<strong>确认</strong>。确认它已经起来了，跟上去。确认它已经坏了，退出来。不猜顶，不摸底，不跟市场争论。</p>
+
+<blockquote>"别挡在趋势前面。"<br>—— Jesse Livermore，一百年前说的，到今天依然有效</blockquote>
+` },
+    en: {
+      title: "Trend Trading — Go With It, Don't Block It",
+      excerpt: "Trend trading is four words: follow the trend. Sounds obvious. But most people never get it — because they think they're smarter than the market. Trend trading doesn't need you to be smart. It needs you to listen.",
+      body: `
+<p>In my first two years, my favorite move was "catching the bottom."</p>
+<p>Stock drops. I think "about time," buy in. It drops more. I add. More drop. More add. A few weeks later I'm holding something down 40%, muttering "value investing."</p>
+<p>Then I learned: <strong>the market doesn't go up just because you think it should.</strong></p>
+<p>Trend trading's first lesson isn't technical — it's humility. Admit you're dumber than the market. Admit you can't predict anything. Admit the only reliable thing is: it's going this way, so you go this way.</p>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>1. Reading the trend — simplest tools only</h2>
+<p>You don't need complex indicators. I tried that — MACD, KDJ, Bollinger Bands, RSI — all over the screen. Used none.</p>
+<p>Now I use two things: <strong>moving averages + swing structure.</strong></p>
+
+<h3>Moving averages: the skeleton</h3>
+<p>Three lines: 20-day, 60-day, 250-day. Bullish alignment: 20 above 60, 60 above 250, all rising → uptrend. Go long. Bearish: 20 below 60, 60 below 250, all falling → downtrend. Sit out or short. Lines tangled → chop. Best move: rest.</p>
+<p>Simple. Don't obsess over which period — any MA works in a trend, none work in a range. Pick one and stick with it.</p>
+
+<h3>Swing structure: health check</h3>
+<p>Healthy uptrend: higher highs, higher lows. Weakening: no new high, or low breaks prior low. Reversal: new low + no new high.</p>
+<p>My daily review: two checks — closing price above 20-day MA? Swing structure still healthy? Two minutes, done.</p>
+
+<h3>Volume: verification, not prediction</h3>
+<p>Rising on volume → trend has support. Pullback on low volume → shakeout, not distribution. Rising on shrinking volume → weak, danger. Falling on rising volume → someone is leaving.</p>
+<p>Volume's main use: <strong>distinguish shakeout from distribution.</strong> Same drop — low-volume MA touch is shakeout, high-volume MA break is distribution.</p>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>2. Entry and exit</h2>
+<h3>Entry: two approaches</h3>
+<p>Pullback buy: trend up, price touches 20 or 60 MA on low volume, stabilizes — buy. Most common. Stop is clear: below MA, exit.</p>
+<p>Breakout buy: price breaks prior high or range on volume — buy. Faster but more false breaks. My rule: not full position at breakthrough — wait for close above breakout level to confirm, then add.</p>
+
+<h3>Exit: don't hesitate</h3>
+<p>Stop: valid break of key support (60 MA, trendline) — exit. No debate.</p>
+<p>Take profit: trend breaking down, no new highs, bearish divergence (price higher, RSI lower) — exit in batches. Don't try to sell the exact top. Leaving the last leg for others is a trading virtue.</p>
+<p>Practical exit: during main wave, price rides above 5-day MA. Don't sell until it closes below 5-day. If it does, sell half. Close below 10-day, clear all. Crude but effective.</p>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>3. Position: base + tactical</h2>
+<p>Trend trading's worst pain isn't being wrong — it's being right with too small a position.</p>
+<p>Two layers: base position (60-70%) — set when trend is established, hold until it reverses. Tactical (30-40%) — swing trade around the base, add on pullbacks to support, trim at resistance.</p>
+<p>Base keeps you in the move. Tactical keeps you from getting anxious in the chop. Together, your psychology stabilizes.</p>
+<p>Stop discipline: <strong>max loss per trade = 2% of total capital.</strong> This isn't my invention — it's trend trading consensus. 2% means 20 consecutive losses = 40% drawdown, and you practically cannot lose 20 in a row. It gives you room to be wrong.</p>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>4. The biggest traps</h2>
+<p><strong>First: range markets kill trend traders.</strong> Price weaves around MAs — every time you think the trend is back, it reverses. Solution: identify range markets and don't trade. MAs tangled + unclear swings + shrinking volume = time to rest.</p>
+<p><strong>Second: the lure of catching bottoms.</strong> A stock that's been falling for months looks "cheap." Trend trader discipline: don't try to pick the bottom. Wait for it to build its own base and confirm an uptrend before entering. You might miss the first 20%, but you won't get trapped in a downtrend for 40%.</p>
+<p><strong>Third: switching stocks too often.</strong> The main wave of a stock might last two or three weeks, but you might wait two months for it. Switch too much and you catch only the head of every fish, never the body.</p>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>Trend trading is manual labor</h2>
+<p>Most think it's a "technical skill" — learn MAs, MACD, volume analysis, done.</p>
+<p>It's the opposite. Trend trading is <strong>manual labor</strong> — check overnight markets at 8:50, watch opening auction at 9:15, observe first 30 minutes of volume, spend 10 minutes reviewing after close. Day after day. No shortcut.</p>
+<p>The technical stuff is easy. "Doing it every day" — barely anyone can.</p>
+<p>Trend trading isn't about prediction. It's about <strong>confirmation.</strong> Confirm it's already rising — follow. Confirm it's already broken — exit. Don't guess tops. Don't guess bottoms. Don't argue with the market.</p>
+
+<blockquote>"Don't stand in front of a trend."<br>— Jesse Livermore, a hundred years ago, still true today</blockquote>
 ` }
   },
 ];
