@@ -1824,6 +1824,220 @@ id: "005",
 <blockquote>"Don't stand in front of a trend."<br>— Jesse Livermore, a hundred years ago, still true today</blockquote>
 ` }
   },
+  {
+    id: "013",
+    date: "2026-07-05",
+    category: "investment",
+    readingMin: 10,
+    zh: {
+      title: "高位与低位 —— 你到底该在哪儿买",
+      excerpt: "'这股票是不是太高了？'——我每天都收到这个问题。很多人以为股价高低是看价格数字，其实恰恰相反。一个500块的股票可能很便宜，一个5块的股票可能贵得离谱。这篇文章把判断高低的逻辑一次说清楚。",
+      body: `
+<p>刚学炒股那会儿，我最喜欢干的一件事是：打开自选股列表，按照价格排序，从最便宜的开始买。因为我那时候的逻辑是——便宜的总比贵的"安全"吧？</p>
+
+<p>现在回头看，这个想法蠢得令人发指。但说实话，大部分散户到今天都还抱着这个错误的念头。</p>
+
+<p>股价高低，跟它本身的价格数字<strong>一毛钱关系都没有</strong>。一个500块的茅台可能很便宜（茅台在150块的时候大家觉得贵），一个5块的垃圾股可能贵得要命。价格只是分母——你真正需要看的是价格背后的估值、基本面、市场情绪。</p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>一、最核心的方法：估值</h2>
+
+<p>估值是判断股价高低的地基。不聊估值谈高位低位，都是瞎猜。</p>
+
+<p>但估值的坑也在这里——估值工具太多，每本书给你推荐不同的指标，最后你手上工具太多了，哪个都不会用。</p>
+
+<p>按公司类型分，我只用对应的一个核心指标：</p>
+
+<h3>盈利稳定的成熟公司 → 看市盈率（PE）</h3>
+<p>像茅台、招行、长江电力这类——每年利润稳稳的，就看PE。方法很简单：<strong>打开近5年的PE走势图，看当前位置在历史区间里的百分位。</strong></p>
+<ul>
+<li>低于30%分位 → 低估区间，大概率是低位</li>
+<li>30%-70%分位 → 合理区间</li>
+<li>高于70%分位 → 高估区间，需要注意了</li>
+</ul>
+<p>这不复杂吧？5年PE百分位，任何一个炒股软件都能看。你不懂基本面分析——没关系，就看这一个数字，比你看一百条消息都有用。</p>
+
+<h3>银行/保险/钢铁等重资产行业 → 看市净率（PB）</h3>
+<p>这类公司利润波动大，PE不好用。看PB。</p>
+<p>PB小于1（俗称"破净"）——极致低估。银行股历史上最赚钱的时刻，往往就是PB&lt;1的时候。PB大于3——你要小心了，这些行业很少能撑住那么高的溢价。</p>
+
+<h3>高成长赛道（新能源、AI、半导体） → 看PEG</h3>
+<p>这类公司今天很贵（PE动辄50-100倍），但只要能高速增长，贵是有道理的。PEG = PE ÷ 盈利增长率。PEG&lt;1 表示估值合理甚至有空间；PEG&gt;2 表示已经透支了未来一两年的增长。</p>
+<p>比如一个AI公司PE是60倍，但它明年预期增长60%，PEG=1——不算贵。但如果它增速下滑到30%而PE没变，PEG变成2——那就贵了。所以高速赛道里，你真正要盯的不是PE本身——是<strong>增速能否持续</strong>。</p>
+
+<h3>其他指标：股息率、市销率</h3>
+<ul>
+<li><strong>股息率</strong>：做公用事业、白马蓝筹的，股息率是很好的温度计。股息率远超十年国债收益率（当前约2.5%），说明股价大概率偏低。</li>
+<li><strong>市销率（PS）</strong>：没有盈利的初创公司看这个。PS大幅高于行业平均水平 → 可能是泡沫。但我坦白说一句：大多数散户不太需要碰这类公司。</li>
+</ul>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>二、历史价格区间 —— 最简单直观</h2>
+
+<p>估值讲完了，你可能觉得有点复杂。那就用一个最简单的：<strong>打开K线图，拉到3-5年，看一眼。</strong></p>
+
+<ul>
+<li>股价接近或突破历史高点 → 高位区域</li>
+<li>股价从高点跌了超过50%，并且在底部横盘很久不再创新低 → 低位区域</li>
+</ul>
+
+<p>这个方法虽然粗糙，但在大部分情况下够用。如果你连这个方法得出来的结论都跟自己的感觉相反——那大概率是你的感觉错了，而不是方法错了。</p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>三、量价关系 —— 主力比你先走</h2>
+
+<p>量价关系不能单独判断高低——但它是很好的<strong>辅助验证</strong>工具。</p>
+
+<p><strong>高位量价特征：</strong></p>
+<ul>
+<li>股价大涨后出现"天量"——成交量异常放大，甚至超过上一次头部时的量。这往往意味着主力在出货，阶段性顶部概率大增。</li>
+<li>"放量不涨"——成交量放大但股价不动。这叫"滞涨"，比天量更危险。说明有人在卖，而且买盘接不住了。</li>
+<li>"利好冲高回落"——出好消息了，股价高开低走，放量收阴。利好出尽是利空，这个位置要谨慎。</li>
+</ul>
+
+<p><strong>低位量价特征：</strong></p>
+<ul>
+<li>长期下跌后出现"地量"——成交量极度萎缩，只有高峰期的十分之一甚至更低。想卖的人都卖差不多了，杀跌动能衰竭。</li>
+<li>"利空不跌"——坏消息出来了，但股价不跌甚至小涨。这是罕见的底部信号，说明最后的不坚定分子也被洗走了。</li>
+</ul>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>四、技术指标辅助</h2>
+
+<p>技术指标说多了容易绕晕。我只说三个常用的，而且只说怎么用：</p>
+
+<ul>
+<li><strong>RSI：</strong>超过70 → 高位区域；低于30 → 低位区域。RSI是判断"超买超卖"的，所以越到极端值越有参考意义。但注意：强势股的RSI可以连续在70上方好几天——那不是见顶信号，只是它太强了。RSI指标要在<em>从高位回落时</em>才有确认意义。</li>
+<li><strong>KDJ：</strong>K、D值超过80 → 高位；低于20 → 低位。用法跟RSI类似，但KDJ更敏感，容易在高位钝化。我一般只在大周期（周线、月线）上看KDJ。</li>
+<li><strong>布林带：</strong>股价触及上轨 → 高位；触及下轨 → 低位。但布林带最有用的不是"触及"，而是"突破后回到"——股价在上轨上方待了几天后跌回轨道内，这叫"回归"，可能是短期顶部。</li>
+</ul>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>五、基本面与股价的匹配 —— 最考验功力</h2>
+
+<p>前四个方法都是工具。第五个是判断力——但也是最真实的。</p>
+
+<p><strong>真正的低位：</strong>公司基本面良好（业绩增长、行业前景向好），股价因为短期利空或情绪下跌，估值进入历史低位。这种"错杀"是最值得关注的。</p>
+
+<p><strong>真正的高位：</strong>公司基本面没有改善甚至恶化，股价已经被炒到天上，靠概念和故事在支撑。一旦故事讲不下去——跌回原地。</p>
+
+<p>两者的区别听起来简单，实际判断很难。因为股价在高位的时候，总有"新故事"支撑——"这次不一样"。低位的时候，总有一百个理由让你相信"还要跌"。</p>
+
+<p>我的做法：<strong>不看故事，看数字。</strong>PE、PB、PEG——这几个数字摆在那里，比任何人的嘴都诚实。</p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>重要的事说三遍</h2>
+
+<p><strong>第一：低位不等于马上会涨。</strong></p>
+<p>底部是一个区域，不是一个点。你以为的"底部"，可能是半山腰。所以不要试图一笔抄在最低点——分批买，每次跌5-10%就补一次，比你押一次准得多。</p>
+
+<p><strong>第二：高位也不等于马上会跌。</strong></p>
+<p>牛市里的"高"可以更高。你因为觉得"贵了"而早早卖出，可能会错过最肥的一段。高位只告诉你"注意风险"，不告诉你"立刻出局"。</p>
+
+<p><strong>第三：没有哪个判断方法是完美的。</strong></p>
+<p>估值法遇到周期股会失效；历史价格区间遇到基本面变化的公司会失效；技术指标遇到极端行情会失效。所以好的判断不是依赖某一个方法——是<strong>多个方法同时指向同一个结论时，才出手</strong>。</p>
+
+<blockquote>"价格是你付出的，价值是你得到的。"<br>—— Benjamin Graham</blockquote>
+
+<p>判断高低，不是为了猜顶摸底——是为了知道你在什么位置、承担什么风险、该做什么动作。知道在什么位置，远比知道"明天涨跌"更重要。</p>
+` },
+    en: {
+      title: "High or Low — Where Should You Actually Buy",
+      excerpt: "'Is this stock too high?' — I get this question every day. Most think price tells you if something is high or low. It's the opposite: a ¥500 stock can be cheap, a ¥5 stock can be ridiculously expensive. This article lays out the logic once and for all.",
+      body: `
+<p>When I first started trading, my favorite filter was sorting by price — cheapest first. My logic: cheap must be safer than expensive, right?</p>
+
+<p>Looking back, that logic is embarrassingly dumb. But honestly, most retail investors still carry this misconception today.</p>
+
+<p>A stock's price level has <strong>nothing to do</strong> with its absolute number. A ¥500 Kweichow Moutai can be cheap (people thought it was expensive at ¥150), and a ¥5 garbage stock can be outrageously expensive. Price is just the denominator — what matters is the valuation, fundamentals, and market sentiment behind it.</p>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>1. The core method: valuation</h2>
+
+<p>Valuation is the foundation. Talk about highs and lows without valuation — you're guessing.</p>
+
+<p>One core indicator per company type:</p>
+
+<h3>Stable mature companies → P/E ratio</h3>
+<p>Like Moutai, China Merchants Bank, Yangtze Power — look at P/E. <strong>Open the 5-year P/E band, check the percentile.</strong></p>
+<ul>
+<li>Below 30th percentile → undervalued, likely a low zone</li>
+<li>30-70th percentile → fair range</li>
+<li>Above 70th percentile → overvalued, be careful</li>
+</ul>
+
+<h3>Banks/insurance/steel → P/B ratio</h3>
+<p>These have volatile earnings — P/E doesn't work. Use P/B. Below 1 ("book value break") — extreme undervaluation. The most profitable times for bank stocks have historically been when P/B &lt; 1. Above 3 — you should be cautious.</p>
+
+<h3>High-growth sectors (new energy, AI, semis) → PEG</h3>
+<p>These are expensive today (P/E 50-100x), but high growth justifies it. PEG = P/E ÷ earnings growth rate. PEG &lt; 1 → reasonable. PEG &gt; 2 → already priced in the next 1-2 years of growth.</p>
+
+<h3>Other indicators</h3>
+<ul>
+<li><strong>Dividend yield:</strong> good thermometer for utilities, blue chips. Yield well above 10-year govt bond (~2.5%) → stock is likely cheap.</li>
+<li><strong>P/S ratio:</strong> for pre-profit startups. Way above industry average → possible bubble. But honestly — most retail investors shouldn't touch these.</li>
+</ul>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>2. Historical price range — simplest</h2>
+<p>If valuation sounds complex, here's simpler: <strong>pull up the 3-5 year K-line chart and look at it.</strong></p>
+<ul>
+<li>Near or breaking all-time high → high zone</li>
+<li>Down 50%+ from peak, basing for months without new lows → low zone</li>
+<li>If this simple method contradicts your gut — your gut is probably wrong.</li>
+</ul>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>3. Volume and price — the smart money moves first</h2>
+<p><strong>High zone signs:</strong></p>
+<ul>
+<li>"Sky-high volume" after a big run — distribution likely underway.</li>
+<li>"Rising volume, flat price" — more dangerous than sky-high volume. Someone's selling and bids can't absorb.</li>
+<li>"Good news, gap up, then close red" — buy the rumor, sell the news.</li>
+</ul>
+<p><strong>Low zone signs:</strong></p>
+<ul>
+<li>"Desert volume" after a long decline — selling exhausted.</li>
+<li>"Bad news, price doesn't drop" — rare bottom signal.</li>
+</ul>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>4. Technical indicators as aids</h2>
+<ul>
+<li><strong>RSI:</strong> above 70 → overbought (high zone); below 30 → oversold (low zone). But strong stocks can stay above 70 for days — RSI confirms on the <em>fall from overbought</em>, not the touch.</li>
+<li><strong>KDJ:</strong> K/D above 80 → high; below 20 → low. I only use it on weekly/monthly charts.</li>
+<li><strong>Bollinger Bands:</strong> touching upper band → high; lower band → low. The most useful signal: price returns inside the band after riding above it — possible short-term top.</li>
+</ul>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>5. Fundamentals vs price — the real test</h2>
+<p><strong>Real low:</strong> solid fundamentals, stock beaten down by short-term news or sentiment — valuation at historical lows. This is "mispricing" worth watching.</p>
+<p><strong>Real high:</strong> fundamentals haven't improved or are deteriorating, stock pumped up by concepts and stories. When the story runs out — back to earth.</p>
+<p>My approach: <strong>ignore stories, read numbers.</strong> P/E, P/B, PEG — numbers are more honest than any person's mouth.</p>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>Three things to remember</h2>
+<p><strong>1. Low doesn't mean it will go up tomorrow.</strong> A bottom is a zone, not a point. Buy in batches — every 5-10% drop add a tranche. Much better than betting on one entry.</p>
+<p><strong>2. High doesn't mean it will crash today.</strong> In a bull market, "high" can go higher. Selling too early because it feels expensive — you miss the fattest part. High means "watch risk," not "exit now."</p>
+<p><strong>3. No single method is perfect.</strong> Valuation fails on cyclicals. Historical range fails when the business has changed. Technicals fail in extreme conditions. Good judgment happens when <strong>multiple methods point to the same conclusion</strong> — then you act.</p>
+
+<blockquote>"Price is what you pay. Value is what you get."<br>— Benjamin Graham</blockquote>
+
+<p>Judging high or low isn't about catching tops or bottoms. It's about knowing where you stand, what risk you carry, and what action to take. Knowing your position matters more than knowing tomorrow's direction.</p>
+` }
+  },
 ];
 
 /* ============================================================
