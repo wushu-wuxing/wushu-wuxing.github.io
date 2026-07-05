@@ -97,6 +97,10 @@ input,select,button,textarea{font-family:inherit;}
 /* === TOP BAR === */
 .topbar{display:flex;align-items:center;padding:0 24px;height:52px;background:var(--bg-secondary);border-bottom:1px solid var(--border);}
 .topbar-brand{font-family:var(--font-serif);font-size:18px;font-weight:700;letter-spacing:3px;color:var(--accent);margin-right:24px;white-space:nowrap;}
+.topbar-brand .brand-link{color:var(--accent);text-decoration:none;border-bottom:none;}
+.topbar-brand .brand-link:hover{color:#c9a67a;}
+.topbar-brand .brand-sep{color:var(--border);margin:0 6px;letter-spacing:0;}
+.topbar-brand .brand-sub{color:var(--text-muted);font-size:14px;font-weight:400;letter-spacing:1px;}
 .topbar-brand .dot-gold{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--accent);margin:0 3px;vertical-align:middle;}
 .topbar-nav{display:flex;gap:4px;flex:1;overflow-x:auto;}
 .topbar-nav a{padding:8px 14px;font-size:13px;color:var(--text-secondary);text-decoration:none;border-radius:6px;white-space:nowrap;transition:all 0.15s;}
@@ -305,7 +309,7 @@ th.sortable.asc::after{content:'↑';opacity:0.8;} th.sortable.desc::after{conte
 
   <!-- TOPBAR -->
   <div class="topbar" id="mainTopbar">
-    <div class="topbar-brand">无<span class="dot-gold"></span>形 · 决策沙盘</div>
+    <div class="topbar-brand"><a href="index.html" class="brand-link">无<span class="dot-gold"></span>形</a><span class="brand-sep">·</span><span class="brand-sub">决策沙盘</span></div>
     <div class="topbar-nav" id="mainNav">
       <a href="#" data-page="dashboard" class="active">📊 看板</a>
       <a href="#" data-page="watchlist">📋 自选</a>
@@ -326,7 +330,7 @@ th.sortable.asc::after{content:'↑';opacity:0.8;} th.sortable.desc::after{conte
 
   <!-- ADMIN SUB-BAR (hidden for users) -->
   <div class="topbar admin-topbar hidden" id="adminTopbar">
-    <div class="topbar-brand">⚙️ 管理后台<span class="admin-badge">ADMIN</span></div>
+    <div class="topbar-brand"><a href="index.html" class="brand-link" style="color:var(--admin-accent);">⚙️ 管理后台</a><span class="admin-badge">ADMIN</span></div>
     <div class="topbar-nav" id="adminNav">
       <a href="#" data-page="admin-dashboard" class="active">📊 工作台</a>
       <a href="#" data-page="admin-users">👥 用户管理</a>
