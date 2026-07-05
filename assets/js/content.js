@@ -2038,6 +2038,188 @@ id: "005",
 <p>Judging high or low isn't about catching tops or bottoms. It's about knowing where you stand, what risk you carry, and what action to take. Knowing your position matters more than knowing tomorrow's direction.</p>
 ` }
   },
+  {
+    id: "014",
+    date: "2026-07-05",
+    category: "investment",
+    readingMin: 10,
+    zh: {
+      title: "亏了30%，还有救吗",
+      excerpt: "亏10%你着急，亏20%你焦虑，亏30%你大概率已经麻木了。但这个数字很微妙——不是绝路，但也不能死扛。30%是一个分水岭：越过它，解套需要的能力和策略，跟10%完全不是一个量级。",
+      body: `
+<p>如果你买了一只股票，跌了30%，你的第一反应大概率不是"想办法"，而是"把账户关掉"。这是人的本能——太疼了，就不想看。</p>
+
+<p>但30%这个数字很特别。</p>
+
+<p>亏10%，你可以正常止损或做波段回来。亏20%，有点疼但还有操作空间。亏30%——<strong>市场进入另一个维度的游戏了</strong>。</p>
+
+<p>数学上：亏30%，需要涨42.8%才能回本。这意味着你不能再指望"等它涨回来"——你要靠操作，而不是靠祈祷。</p>
+
+<p>这篇文章不讲"积极心态"——讲步骤。</p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>第一步：先判断，你手里拿的是什么</h2>
+
+<p>亏了30%之后，你第一个要做的不是操作，是判断。判断三件事：</p>
+
+<ol>
+<li><strong>基本面变了没？</strong>——公司还是那家公司吗？业绩暴雷了？行业方向变了？管理层出问题了？</li>
+<li><strong>大盘处于什么位置？</strong>——现在是熊市中期还是末期？还是市场只是正常回调？</li>
+<li><strong>你还有多少子弹？</strong>——这可能是最关键的。你账户里还有钱吗？还有其他仓位可以调吗？</li>
+</ol>
+
+<p>这三个问题的答案，决定了你用什么方法。没有判断就操作——比不动还危险。</p>
+
+<table class="mini-table">
+<tr><th>判断结果</th><th>推荐方法</th></tr>
+<tr><td>基本面变了</td><td>止损换股</td></tr>
+<tr><td>基本面好 + 大盘震荡</td><td>波段做T</td></tr>
+<tr><td>基本面好 + 有子弹</td><td>金字塔补仓</td></tr>
+<tr><td>基本面极好 + 百年不遇的错杀</td><td>耐心持有（但概率最低）</td></tr>
+</table>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>方法一：止损换股 —— 最痛，但有时候是唯一的活路</h2>
+
+<p>适用条件：基本面已经变了。公司暴雷、行业转向、或者你当初买它的逻辑已经不存在了。</p>
+
+<p>这是最难执行的方法——因为你已经亏了30%，再让你"认亏出局"，心里过不去那个坎。但我在#011里说过：<strong>承认错误是交易里最重要的本事。</strong></p>
+
+<p>具体做法：</p>
+<ol>
+<li><strong>卖出，不要分批。</strong>到了这个程度，快刀比慢刀好。分批卖只会让你犹豫，一犹豫又跌了。</li>
+<li><strong>至少空仓三天。</strong>不要当场换股。你的判断力被亏损扭曲了——急着"扳回来"，只会让你从一个坑跳进另一个坑。</li>
+<li><strong>三天后，找最强的。</strong>市场已经替你做了一轮筛选——那些在大盘不好时还能横盘或上涨的板块和个股，大概率是资金在抱团。切入这类标的，补回亏损的机会远大于回到原来的垃圾股。</li>
+</ol>
+
+<p>一个真实的心理技巧：不要想着"我亏了30%卖掉了"——想着"我保留70%的资金，去赚下一笔"。70%的本金还在，你就还有机会。</p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>方法二：波段做T降本 —— 最考验功力，但技术含量最高</h2>
+
+<p>适用条件：基本面没变，股票还是好股票，只是跟大盘一起跌了。日振幅够大（至少3%），股性活跃。</p>
+
+<p>核心思路：底仓不动，用机动仓位反复高抛低吸，一次降2-3%的成本。做十次，成本就降了20-30%。</p>
+
+<p>实操步骤：</p>
+
+<ol>
+<li><strong>分仓：</strong>把持仓分成底仓（60%）和机动仓（40%）。底仓不动，机动仓用来做波段。</li>
+<li><strong>找区间：</strong>打开日线图，找出近期的支撑位和压力位。支撑位买，压力位卖。这不需要多精确——大致区间就够了。</li>
+<li><strong>纪律：</strong>机动仓当天买可以当天卖（T+0的底仓份额），但不要贪。一次赚2-3%就够了。卖飞了不要追——等下一波。</li>
+<li><strong>降本：</strong>每完成一轮操作，你的成本就低了一点。盯住成本线，不要盯股价。股价还在跌不要紧——只要你的成本降得比股价快，你就在解套。</li>
+</ol>
+
+<p>这个方法最累——你得有功夫看盘。但也有个好处：一旦你开始"主动操作"而不是"被动等待"，心态会好很多。</p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>方法三：金字塔补仓 —— 最危险，但如果有子弹就最有效</h2>
+
+<p>适用条件：基本面扎实、行业龙头、只是被系统性风险错杀。最关键的是——<strong>你还有子弹。</strong></p>
+
+<p>很多人亏了30%之后开始补仓——这是最危险的冲动。你补对了，成本降一点；补错了，仓位加倍然后继续跌——结局比不补还惨。</p>
+
+<p>补仓不是"越跌越买"。真正的补仓需要有金字塔结构：</p>
+
+<p>标准做法：以当前持仓为基准，股价每再跌一定幅度就补一次，但<strong>每次补的金额递减</strong>。</p>
+
+<ul>
+<li>假设你已持仓10万元，成本价10元，现价7元（亏30%）</li>
+<li>跌到6.3元（再跌10%）→ 补2万元</li>
+<li>跌到5.67元（再跌10%）→ 补1万元</li>
+<li>跌到5.1元（再跌10%）→ 补0.5万元</li>
+<li>没有第五次了——如果跌到这份上，说明你判断错了，不要再补了</li>
+</ul>
+
+<p>为什么是递减？因为越往下，你越不确定是不是底。第一次补的时候你最有信心——补最多。越往后信心越低——补越少。如果它没跌到后面的位置——那更好，说明你第一次补对了。</p>
+
+<p>注意：<strong>补仓资金必须独立管理</strong>。专门划一笔"救援资金"，用完了就完了——不要从生活账户里挪钱补仓。这是给自己上的最后一道保险。</p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>方法四：耐心持有 —— 不是死扛</h2>
+
+<p>适用条件：极其苛刻——必须是行业绝对龙头、基本面极好、估值已在历史低位。并且你有信心持有半年以上。</p>
+
+<p>我不喜欢推荐这个方法——因为在大多数散户手里，"耐心持有"很快就会变成"死扛"的漂亮说法。两者的区别：</p>
+
+<ul>
+<li><strong>耐心持有：</strong>你知道为什么要持有——逻辑清晰、估值有底、时间站在你这边。你每天都关注，但不焦虑。</li>
+<li><strong>死扛：</strong>你不知道为什么要持有，只是因为"卖了就亏了"。你不敢看账户，但心里天天想着它。</li>
+</ul>
+
+<p>如果你选了耐心持有——那就不要再算"我亏了多少"。把账户关掉，一个月看一次。算得越勤，心态越崩。时间是你的朋友——但前提是，你选的股票配得上你的时间。</p>
+
+<div class="divider"><span class="divider-mark">☰</span></div>
+
+<h2>选方法之前，先做这件事</h2>
+
+<p>不管你选哪个方法——在做任何操作之前，先做一件事：</p>
+
+<p><strong>把这只股票从你的自选股列表里删掉，重新加上。</strong></p>
+
+<p>什么意思？假装你现在没有持有它。给你100万现金，你还会不会在今天这个价格买它？</p>
+
+<p>如果答案是"不会"——那你就应该卖掉它。不管你亏了多少。因为你现在做的所有解套操作，都是在为"一个你本来就不想买的股票"做努力——这本身就不合理。</p>
+
+<p>如果答案是"会"——那这支股票值得你花精力去解套。选择上面适合你的方法，然后执行。</p>
+
+<blockquote>"解套不是往回看——是向前看。你亏了30%已经是事实。重要的是接下来怎么办。"</blockquote>
+
+<p>亏30%确实疼。但它不是绝路。每个交易员都有这样的经历。区别在于：有的人从这里学会了操作纪律，有的人从此再也不敢看股票。</p>
+
+<p>你选哪个？</p>
+` },
+    en: {
+      title: "Down 30% — Is There Still Hope?",
+      excerpt: "Down 10% — you're worried. Down 20% — you're anxious. Down 30% — you're probably numb. But 30% is a threshold: beyond it, the skills you need and the strategies available are a different game from 10%.",
+      body: `
+<p>When a stock drops 30%, your first instinct isn't to figure out a strategy. It's to close the account window. It hurts too much — you don't want to look.</p>
+<p>But 30% is a special number.</p>
+<p>Down 10% — you can stop-loss or swing trade back. Down 20% — it stings, but you've still got room to maneuver. Down 30% — <strong>you're playing a different game now.</strong></p>
+<p>The math: down 30% means you need +42.8% to break even. You can no longer rely on "it'll come back." You need active management, not prayer.</p>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>Step one: diagnose what you're holding</h2>
+<p>Three questions:</p>
+<ol>
+<li><strong>Have fundamentals changed?</strong> — is the same company? Earnings bomb? Sector shift?</li>
+<li><strong>Where's the market?</strong> — mid-bear, late-bear, or normal pullback?</li>
+<li><strong>How much ammo do you have?</strong> — most critical. Cash available? Other positions to free up?</li>
+</ol>
+
+<h2>Method one: cut and switch — painful, but sometimes the only way</h2>
+<p>For: fundamentals have changed. This is the hardest — admitting you lost 30%. But as I said in #011: <strong>admitting error is the most important trading skill.</strong></p>
+<p>Approach: sell in one go (not in batches). Sit out for at least 3 days — your judgment is distorted. Then find the strongest stocks — the ones holding up or rising in the downturn. They have money flowing in. Use them to recover.</p>
+
+<h2>Method two: swing trade to lower cost — highest skill ceiling</h2>
+<p>For: fundamentals intact, stock just came down with the market. Active daily range at least 3%.</p>
+<p>Split into base (60%) and tactical (40%). Find support and resistance zones on the daily chart. Buy at support, sell at resistance. 2-3% per swing, 10 swings = 20-30% cost reduction. Each cycle, your cost base drops. Watch your cost, not the price.</p>
+
+<h2>Method three: pyramid averaging — most dangerous, most effective with ammo</h2>
+<p>For: solid fundamentals, sector leader, systemic sell-off only. And you have reserves.</p>
+<p>Not "buy more when it drops." Structured pyramid: every 10% further drop, add a tranche — <strong>decreasing in size.</strong> If you're holding ¥100k at cost 10, now at 7: at 6.3 add ¥20k, at 5.67 add ¥10k, at 5.1 add ¥5k. Decreasing because conviction decreases with price. If it never hits the lower targets — even better, your first add was right.</p>
+<p>Key: separate the averaging money entirely. Once the rescue fund is used, it's done. No moving money from living expenses.</p>
+
+<h2>Method four: hold with patience — not the same as hope-holding</h2>
+<p>For: absolute market leader, rock-solid fundamentals, valuation at historic lows. And you can hold 6+ months.</p>
+<p>High conviction holding: you know <em>why</em> — clear logic, valuation floor, time on your side. Hope-holding: you don't know why, just don't want to sell. If you choose to hold, stop counting your losses. Check once a month. Time is your friend — if your stock deserves it.</p>
+
+<div class=\"divider\"><span class=\"divider-mark\">☰</span></div>
+
+<h2>Before you choose a method</h2>
+<p>Pretend you don't own this stock. Given ¥1M cash today — would you buy it at this price?</p>
+<p>If no — sell it. No matter how much you're down. Every effort to untrap yourself is wasted on a stock you wouldn't even buy.</p>
+<p>If yes — then it's worth fighting for. Pick your method and execute.</p>
+
+<blockquote>"Getting untrapped isn't about looking back — it's about forward. You're down 30%. That's done. What matters is what you do next."</blockquote>
+` }
+  },
 ];
 
 /* ============================================================
