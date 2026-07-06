@@ -1,6 +1,6 @@
 {
   "capital": 1000000,
-  "cash": 476404.5,
+  "cash": 550534.5,
   "positions": [
     {
       "code": "sz000021",
@@ -16,14 +16,6 @@
       "shares": 2000,
       "avg_cost": 69.93,
       "current_price": 64.44,
-      "category": "长线"
-    },
-    {
-      "code": "sz002463",
-      "name": "沪电股份",
-      "shares": 600,
-      "avg_cost": 147.90,
-      "current_price": 135.35,
       "category": "长线"
     },
     {
@@ -65,38 +57,6 @@
       "avg_cost": 1.017,
       "current_price": 0.957,
       "category": "长线"
-    },
-    {
-      "code": "sz000537",
-      "name": "绿发电力",
-      "shares": 0,
-      "avg_cost": 0,
-      "current_price": 7.48,
-      "category": "观察"
-    },
-    {
-      "code": "sz000875",
-      "name": "电投绿能",
-      "shares": 0,
-      "avg_cost": 0,
-      "current_price": 5.17,
-      "category": "观察"
-    },
-    {
-      "code": "sh603248",
-      "name": "锡华科技",
-      "shares": 0,
-      "avg_cost": 0,
-      "current_price": 21.14,
-      "category": "观察"
-    },
-    {
-      "code": "sz301638",
-      "name": "南网数字",
-      "shares": 0,
-      "avg_cost": 0,
-      "current_price": 23.79,
-      "category": "观察"
     }
   ],
   "trades": [
@@ -264,8 +224,19 @@
       "shares": 300,
       "amount": 19803,
       "reason": "AI服务器板块持续走弱，清仓工业富联亏损-15.5%，遵守纪律止损离场"
+    },
+    {
+      "date": "2026-07-06",
+      "time": "10:55",
+      "action": "sell",
+      "code": "sz002463",
+      "name": "沪电股份",
+      "price": 123.55,
+      "shares": 600,
+      "amount": 74130,
+      "reason": "大盘暴跌沪电单日-8.7%触发止损线，遵守纪律清仓离场，等待低位回补机会"
     }
   ],
   "created": "2026-06-18",
-  "last_updated": "2026-07-06 09:12"
+  "last_updated": "2026-07-06 10:55"
 }
