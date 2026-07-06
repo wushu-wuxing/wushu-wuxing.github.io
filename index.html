@@ -108,8 +108,15 @@
     function renderHomeArticles() {
       const grid = document.getElementById("home-article-grid");
       if (!grid) return;
-      const latest = getArticles().slice(0, 3);
-      grid.innerHTML = latest.map(a => renderArticleCard(a, currentLang)).join("");
+      var all = typeof getArticles === "function" ? getArticles() : [];
+      var valid = [];
+      for (var i = 0; i < all.length; i++) {
+        if (all[i] && all[i].id) valid.push(all[i]);
+      }
+      const latest = valid.slice(0, 3);
+      if (latest.length > 0 && typeof renderArticleCard === "function") {
+        grid.innerHTML = latest.map(a => renderArticleCard(a, currentLang)).join("");
+      }
     }
 
     window.addEventListener("langchange", renderHomeArticles);

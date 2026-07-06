@@ -99,24 +99,32 @@
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/content.js"></script>
   <script>
-    /* 全内联文章渲染 — 不依赖任何外部函数的渲染 */
+    /* 全内联文章渲染 — 带重试机制 */
     window.articlesPage = {
       filter: "all",
-      hasInitialized: false
+      hasInitialized: false,
+      retryCount: 0,
+      maxRetries: 20
     };
 
     function articlesInit() {
       var list = document.getElementById("article-list");
       if (!list) return;
 
-      // 1) 检查 getArticles 是否可用
+      // 1) 检查 getArticles 是否可用 — 若未加载则重试
       if (typeof getArticles !== "function") {
-        list.innerHTML = '<li class="text-center" style="color:var(--text-tertiary);padding:var(--space-2xl)">数据加载中...</li>';
+        window.articlesPage.retryCount++;
+        if (window.articlesPage.retryCount <= window.articlesPage.maxRetries) {
+          list.innerHTML = '<li class="text-center" style="color:var(--text-tertiary);padding:var(--space-2xl)">加载中...</li>';
+          setTimeout(articlesInit, 500);
+          return;
+        }
+        list.innerHTML = '<li class="text-center" style="color:var(--text-tertiary);padding:var(--space-2xl)">数据加载超时，请刷新页面重试。</li>';
         return;
       }
 
       // 2) 获取文章
-      var all = getArticles();
+      var all = getArticles().filter(function(a) { return a && a.id; });
       if (!all || all.length === 0) {
         list.innerHTML = '<li class="text-center" style="color:var(--text-tertiary);padding:var(--space-2xl)">尚无文章，敬请期待。</li>';
         return;
@@ -133,10 +141,13 @@
 
       var lang = (typeof currentLang !== "undefined" && currentLang) ? currentLang : "zh";
 
-      // 过滤
-      var filtered = (articlesPage.filter === "all")
-        ? all
-        : all.filter(function(a) { return a.category === articlesPage.filter; });
+      // 过滤 — 跳过空条目
+      var filtered = [];
+      for (var i = 0; i < all.length; i++) {
+        if (!all[i] || !all[i].id) continue;
+        if (articlesPage.filter !== "all" && all[i].category !== articlesPage.filter) continue;
+        filtered.push(all[i]);
+      }
 
       if (filtered.length === 0) {
         list.innerHTML = '<li class="text-center" style="color:var(--text-tertiary);padding:var(--space-2xl)">该分类暂无文章。</li>';
@@ -147,7 +158,9 @@
       var html = "";
       for (var i = 0; i < filtered.length; i++) {
         try {
-          html += renderArticleListItem(filtered[i], lang);
+          if (typeof renderArticleListItem === "function") {
+            html += renderArticleListItem(filtered[i], lang);
+          }
         } catch(e) {
           html += '<li class="article-list-item"><div class="article-number">' + filtered[i].id + '</div><div class="article-list-content"><p style="color:var(--text-tertiary)">渲染出错: ' + e.message + '</p></div></li>';
         }
