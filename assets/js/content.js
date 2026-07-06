@@ -353,7 +353,7 @@ Permanence — human greed and fear never change.</p>
 <p>The market, pressed to its limit, must change. Change opens, the open endures. A trader who moves with the times endures.</p>
 `
   },
-
+{
 id: "005",
     date: "2026-07-04",
     category: "investment",
