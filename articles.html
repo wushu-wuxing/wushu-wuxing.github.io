@@ -198,11 +198,11 @@
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", function() {
         articlesBindFilters();
-        setTimeout(articlesInit, 50);
+        setTimeout(articlesInit, 3000);
       });
     } else {
       articlesBindFilters();
-      setTimeout(articlesInit, 50);
+      setTimeout(articlesInit, 3000);
     }
   </script>
 </body>
