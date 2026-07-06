@@ -1,0 +1,271 @@
+{
+  "capital": 1000000,
+  "cash": 476404.5,
+  "positions": [
+    {
+      "code": "sz000021",
+      "name": "深科技",
+      "shares": 500,
+      "avg_cost": 44.04,
+      "current_price": 55.91,
+      "category": "波段"
+    },
+    {
+      "code": "sz002475",
+      "name": "立讯精密",
+      "shares": 2000,
+      "avg_cost": 69.93,
+      "current_price": 64.44,
+      "category": "长线"
+    },
+    {
+      "code": "sz002463",
+      "name": "沪电股份",
+      "shares": 600,
+      "avg_cost": 147.90,
+      "current_price": 135.35,
+      "category": "长线"
+    },
+    {
+      "code": "sz002371",
+      "name": "北方华创",
+      "shares": 100,
+      "avg_cost": 721.04,
+      "current_price": 816.00,
+      "category": "长线"
+    },
+    {
+      "code": "sz300724",
+      "name": "捷佳伟创",
+      "shares": 750,
+      "avg_cost": 72.88,
+      "current_price": 71.11,
+      "category": "长线"
+    },
+    {
+      "code": "sh600089",
+      "name": "特变电工",
+      "shares": 2500,
+      "avg_cost": 23.32,
+      "current_price": 21.65,
+      "category": "长线"
+    },
+    {
+      "code": "sh601985",
+      "name": "中国核电",
+      "shares": 5000,
+      "avg_cost": 9.12,
+      "current_price": 8.86,
+      "category": "长线"
+    },
+    {
+      "code": "sh515790",
+      "name": "光伏ETF",
+      "shares": 59000,
+      "avg_cost": 1.017,
+      "current_price": 0.957,
+      "category": "长线"
+    },
+    {
+      "code": "sz000537",
+      "name": "绿发电力",
+      "shares": 0,
+      "avg_cost": 0,
+      "current_price": 7.48,
+      "category": "观察"
+    },
+    {
+      "code": "sz000875",
+      "name": "电投绿能",
+      "shares": 0,
+      "avg_cost": 0,
+      "current_price": 5.17,
+      "category": "观察"
+    },
+    {
+      "code": "sh603248",
+      "name": "锡华科技",
+      "shares": 0,
+      "avg_cost": 0,
+      "current_price": 21.14,
+      "category": "观察"
+    },
+    {
+      "code": "sz301638",
+      "name": "南网数字",
+      "shares": 0,
+      "avg_cost": 0,
+      "current_price": 23.79,
+      "category": "观察"
+    }
+  ],
+  "trades": [
+    {
+      "date": "2026-06-18",
+      "time": "14:30",
+      "action": "buy",
+      "code": "sz000021",
+      "name": "深科技",
+      "price": 44.04,
+      "shares": 2000,
+      "amount": 88080,
+      "reason": "爆量188万手+成交82亿+量比11.98，机构资金明显介入存储封测龙头，轻仓试探"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "09:30",
+      "action": "buy",
+      "code": "sz002475",
+      "name": "立讯精密",
+      "price": 69.93,
+      "shares": 2000,
+      "amount": 139860,
+      "reason": "消费电子+汽车电子双主线龙头，PE仅29.62合理偏低，放量228万手突破平台，建长线底仓"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "09:35",
+      "action": "buy",
+      "code": "sh601138",
+      "name": "工业富联",
+      "price": 78.08,
+      "shares": 800,
+      "amount": 62464,
+      "reason": "AI服务器龙头暴量424万手+7.49%强势突破，短期趋势确立，波段参与"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "09:40",
+      "action": "buy",
+      "code": "sz002463",
+      "name": "沪电股份",
+      "price": 147.90,
+      "shares": 600,
+      "amount": 88740,
+      "reason": "高端PCB龙头，AI基建最正宗的受益标的之一，PE在板块中合理，建长线底仓"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "09:45",
+      "action": "buy",
+      "code": "sz002371",
+      "name": "北方华创",
+      "price": 721.04,
+      "shares": 100,
+      "amount": 72104,
+      "reason": "半导体设备绝对龙头，国产替代核心标的，稀缺性溢价合理，小仓位打入"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "09:50",
+      "action": "buy",
+      "code": "sz300724",
+      "name": "捷佳伟创",
+      "price": 72.88,
+      "shares": 800,
+      "amount": 58304,
+      "reason": "光伏设备龙头，PE仅11.65严重低估，市场过度悲观，左侧潜伏周期反转"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "13:50",
+      "action": "sell",
+      "code": "sh601138",
+      "name": "工业富联",
+      "price": 78.08,
+      "shares": 500,
+      "amount": 39040,
+      "reason": "战略调整：压缩AI波段仓至300股，释放资金布局能源安全主线"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "13:52",
+      "action": "buy",
+      "code": "sz300724",
+      "name": "捷佳伟创",
+      "price": 72.88,
+      "shares": 700,
+      "amount": 51016,
+      "reason": "加仓光伏设备龙头：PE11.65极度低估，油价暴涨驱动替代能源逻辑，底部区域加大仓位"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "13:55",
+      "action": "buy",
+      "code": "sh600089",
+      "name": "特变电工",
+      "price": 23.32,
+      "shares": 2500,
+      "amount": 58300,
+      "reason": "全球电力设备景气+特高压加速，PE19合理偏低，油价暴涨→电网投资加码，建能源安全底仓"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "13:58",
+      "action": "buy",
+      "code": "sh601985",
+      "name": "中国核电",
+      "price": 9.12,
+      "shares": 5000,
+      "amount": 45600,
+      "reason": "核电建设确定性最高的能源安全标的，央企龙头，油价暴涨下替代能源价值凸显"
+    },
+    {
+      "date": "2026-06-19",
+      "time": "14:00",
+      "action": "buy",
+      "code": "sh515790",
+      "name": "光伏ETF",
+      "price": 1.017,
+      "shares": 59000,
+      "amount": 60003,
+      "reason": "一键布局光伏板块，ETF分散选股风险，油价高企→替代能源长期受益"
+    },
+    {
+      "date": "2026-06-26",
+      "time": "09:30",
+      "action": "sell",
+      "code": "sz000021",
+      "name": "深科技",
+      "price": 60.04,
+      "shares": 1000,
+      "amount": 60040,
+      "reason": "波段仓位盈利+36.3%兑现一半，沪电+深科技双爆发后减仓锁定利润"
+    },
+    {
+      "date": "2026-06-26",
+      "time": "09:35",
+      "action": "sell",
+      "code": "sz300724",
+      "name": "捷佳伟创",
+      "price": 71.01,
+      "shares": 750,
+      "amount": 53257.5,
+      "reason": "光伏设备持续逆势走弱，减仓一半止损，等待光伏周期确认"
+    },
+    {
+      "date": "2026-06-29",
+      "time": "09:30",
+      "action": "sell",
+      "code": "sz000021",
+      "name": "深科技",
+      "price": 57.47,
+      "shares": 500,
+      "amount": 28735,
+      "reason": "深科技冲高回落再出500股锁定利润，剩余500底仓继续持有"
+    },
+    {
+      "date": "2026-06-29",
+      "time": "09:35",
+      "action": "sell",
+      "code": "sh601138",
+      "name": "工业富联",
+      "price": 66.01,
+      "shares": 300,
+      "amount": 19803,
+      "reason": "AI服务器板块持续走弱，清仓工业富联亏损-15.5%，遵守纪律止损离场"
+    }
+  ],
+  "created": "2026-06-18",
+  "last_updated": "2026-07-06 09:12"
+}

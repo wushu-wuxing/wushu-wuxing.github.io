@@ -924,6 +924,39 @@ const Auth = {
     document.getElementById('appShell').style.display = 'block';
 
     const isAdmin = this.currentUser.role === 'admin';
+    // 管理员首次登录：从 data/simulation-portfolio.json 种子数据
+    if (isAdmin) {
+      const ud = DB.getUserData(this.currentUser.username);
+      const hasHoldings = ud.holdings && ud.holdings.length > 0;
+      if (!hasHoldings) {
+        fetch('data/simulation-portfolio.json').then(r => r.json()).then(seed => {
+          const holdings = seed.positions.filter(p => p.shares > 0).map(p => ({
+            code: p.code, name: p.name, shares: p.shares,
+            buyPrice: p.avg_cost, category: p.category || '长线',
+            buyTime: seed.created + 'T09:30:00.000Z'
+          }));
+          const trades = seed.trades.map(t => ({
+            type: t.action === 'buy' ? '买入' : '卖出',
+            code: t.code, name: t.name, qty: t.shares,
+            price: t.price.toFixed(2), amount: t.amount.toFixed(2),
+            time: t.date + ' ' + t.time, fee: '0.000'
+          }));
+          const watchlist = seed.positions.map(p => ({
+            code: p.code, name: p.name
+          }));
+          const newUd = {
+            capital: seed.cash,
+            holdings,
+            trades,
+            watchlist,
+            patternLogs: [],
+            groups: { '默认': watchlist.map(w => w.code) }
+          };
+          DB.saveUserData(this.currentUser.username, newUd);
+          App.refreshUI();
+        }).catch(() => {});
+      }
+    }
     document.getElementById('mainTopbar').classList.toggle('hidden', false);
     document.getElementById('adminTopbar').classList.toggle('hidden', !isAdmin);
 
