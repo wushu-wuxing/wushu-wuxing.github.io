@@ -9,87 +9,40 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    /* articles.html 额外样式 */
     .filter-bar {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
+      flex-wrap: wrap; gap: 8px; justify-content: center;
       margin-bottom: var(--space-2xl);
     }
     .filter-btn {
-      padding: 5px 16px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--text-secondary);
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: all 0.2s;
+      padding: 5px 16px; border-radius: 20px;
+      border: 1px solid var(--border); background: transparent;
+      color: var(--text-secondary); font-size: 0.8rem; cursor: pointer;
+      transition: all 0.2s; font-family: inherit;
     }
-    .filter-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-    .filter-btn.active {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
-    .article-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .article-list { list-style: none; padding: 0; margin: 0; }
     .article-list-item {
-      display: flex;
-      gap: var(--space-lg);
-      padding: var(--space-lg) 0;
+      display: flex; gap: var(--space-lg); padding: var(--space-lg) 0;
       border-bottom: 1px solid var(--border);
     }
-    .article-list-item:last-child {
-      border-bottom: none;
-    }
+    .article-list-item:last-child { border-bottom: none; }
     .article-number {
-      font-size: 2rem;
-      font-weight: 300;
-      color: var(--accent);
-      opacity: 0.5;
-      line-height: 1;
-      min-width: 48px;
+      font-size: 2rem; font-weight: 300; color: var(--accent);
+      opacity: 0.5; line-height: 1; min-width: 48px;
     }
-    .article-list-content {
-      flex: 1;
-    }
+    .article-list-content { flex: 1; }
     .article-list-title {
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--text-primary);
-      text-decoration: none;
-      line-height: 1.5;
+      font-size: 1.05rem; font-weight: 500; color: var(--text-primary);
+      text-decoration: none; line-height: 1.5;
     }
-    .article-list-title:hover {
-      color: var(--accent);
-    }
-    .article-list-meta {
-      font-size: 0.75rem;
-      color: var(--text-tertiary);
-      margin: 4px 0 8px;
-    }
-    .article-list-excerpt {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
+    .article-list-title:hover { color: var(--accent); }
+    .article-list-meta { font-size: 0.75rem; color: var(--text-tertiary); margin: 4px 0 8px; }
+    .article-list-excerpt { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
     @media (max-width: 600px) {
-      .article-list-item {
-        flex-direction: column;
-        gap: var(--space-sm);
-      }
-      .article-number {
-        font-size: 1.2rem;
-        min-width: auto;
-      }
+      .article-list-item { flex-direction: column; gap: var(--space-sm); }
+      .article-number { font-size: 1.2rem; min-width: auto; }
     }
   </style>
 </head>
@@ -99,33 +52,29 @@
     <div class="nav-inner">
       <a href="index.html" class="nav-brand"><span class="seal">印</span>无形识局</a>
       <ul class="nav-links">
-        <li><a href="index.html" data-i18n="nav_home">首页</a></li>
-        <li><a href="articles.html" class="active" data-i18n="nav_articles">文章</a></li>
-        <li><a href="family.html" data-i18n="nav_family">三姐妹</a></li>
-        <li><a href="about.html" data-i18n="nav_about">关于</a></li>
-        <li><a href="https://wushu-wuxing.github.io/compute-infrastructure-insights/" target="_blank" data-i18n="nav_insights">产业洞察</a></li>
-        <li><button class="lang-switch" data-lang="zh" onclick="setLang('zh')">中</button></li>
-        <li><button class="lang-switch" data-lang="en" onclick="setLang('en')">EN</button></li>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="articles.html" class="active">文章</a></li>
+        <li><a href="family.html">三姐妹</a></li>
+        <li><a href="about.html">关于</a></li>
+        <li><a href="https://wushu-wuxing.github.io/compute-infrastructure-insights/" target="_blank">产业洞察</a></li>
       </ul>
     </div>
   </nav>
 
   <main>
     <div class="container-narrow">
-      <h1 style="text-align: center; margin-bottom: var(--space-md);" data-i18n="articles_title">文章 · 识局录</h1>
-      <p style="text-align: center; color: var(--text-tertiary); margin-bottom: var(--space-2xl);" data-i18n="articles_subtitle">所思所悟，所历所见，皆录于此。</p>
+      <h1 style="text-align: center; margin-bottom: var(--space-md);">文章 · 识局录</h1>
+      <p style="text-align: center; color: var(--text-tertiary); margin-bottom: var(--space-2xl);">所思所悟，所历所见，皆录于此。</p>
 
-      <!-- 分类筛选 -->
       <div class="filter-bar" id="filter-bar">
-        <button class="filter-btn active" data-filter="all" data-i18n="filter_all">全部</button>
-        <button class="filter-btn" data-filter="philosophy" data-i18n="filter_philosophy">哲学</button>
-        <button class="filter-btn" data-filter="investment" data-i18n="filter_investment">投资</button>
-        <button class="filter-btn" data-filter="technology" data-i18n="filter_technology">科技</button>
-        <button class="filter-btn" data-filter="family" data-i18n="filter_family">家族</button>
-        <button class="filter-btn" data-filter="misc" data-i18n="filter_misc">杂谈</button>
+        <button class="filter-btn active" data-filter="all">全部</button>
+        <button class="filter-btn" data-filter="philosophy">哲学</button>
+        <button class="filter-btn" data-filter="investment">投资</button>
+        <button class="filter-btn" data-filter="technology">科技</button>
+        <button class="filter-btn" data-filter="family">家族</button>
+        <button class="filter-btn" data-filter="misc">杂谈</button>
       </div>
 
-      <!-- 文章列表 — 由 JS 渲染 -->
       <ul class="article-list" id="article-list">
         <li class="text-center" style="color: var(--text-tertiary); padding: var(--space-2xl);">加载中...</li>
       </ul>
@@ -135,14 +84,14 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-links">
-        <a href="index.html" data-i18n="nav_home">首页</a>
-        <a href="articles.html" data-i18n="nav_articles">文章</a>
-        <a href="family.html" data-i18n="nav_family">三姐妹</a>
-        <a href="about.html" data-i18n="nav_about">关于</a>
-        <a href="https://wushu-wuxing.github.io/compute-infrastructure-insights/" target="_blank" data-i18n="footer_insights">产业洞察站</a>
-        <a href="https://github.com/wushu-wuxing" target="_blank" data-i18n="footer_github">GitHub</a>
+        <a href="index.html">首页</a>
+        <a href="articles.html">文章</a>
+        <a href="family.html">三姐妹</a>
+        <a href="about.html">关于</a>
+        <a href="https://wushu-wuxing.github.io/compute-infrastructure-insights/" target="_blank">产业洞察站</a>
+        <a href="https://github.com/wushu-wuxing" target="_blank">GitHub</a>
       </div>
-      <p><span class="seal">印</span> <span data-i18n="footer_copy">无形识局 · 大象无形</span> · <span data-i18n="footer_made">由三姐妹共筑</span></p>
+      <p><span class="seal">印</span> 无形识局 · 大象无形 · 由三姐妹共筑</p>
     </div>
   </footer>
 
@@ -150,74 +99,98 @@
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/content.js"></script>
   <script>
-    (function() {
-      "use strict";
+    /* 全内联文章渲染 — 不依赖任何外部函数的渲染 */
+    window.articlesPage = {
+      filter: "all",
+      hasInitialized: false
+    };
 
-      var currentFilter = "all";
+    function articlesInit() {
+      var list = document.getElementById("article-list");
+      if (!list) return;
 
-      function renderArticleList() {
-        var list = document.getElementById("article-list");
-        if (!list) return;
+      // 1) 检查 getArticles 是否可用
+      if (typeof getArticles !== "function") {
+        list.innerHTML = '<li class="text-center" style="color:var(--text-tertiary);padding:var(--space-2xl)">数据加载中...</li>';
+        return;
+      }
 
-        // 安全检查：content.js 是否已加载
-        if (typeof getArticles !== "function") {
-          list.innerHTML = '<li class="text-center" style="color: var(--text-tertiary); padding: var(--space-2xl);">⚠️ 数据加载中，请刷新页面...</li>';
-          return;
-        }
+      // 2) 获取文章
+      var all = getArticles();
+      if (!all || all.length === 0) {
+        list.innerHTML = '<li class="text-center" style="color:var(--text-tertiary);padding:var(--space-2xl)">尚无文章，敬请期待。</li>';
+        return;
+      }
 
-        var all = getArticles();
-        if (!all || all.length === 0) {
-          list.innerHTML = '<li class="text-center" style="color: var(--text-tertiary); padding: var(--space-2xl);" data-i18n="articles_empty">尚无文章，敬请期待。</li>';
-          return;
-        }
+      // 3) 使用 content.js 的 getArticles() 和 renderArticleListItem()
+      //    但直接在全局作用域调用 — 不在 IIFE 闭包里跑
+      articlesRender(all);
+    }
 
-        // 按分类筛选
-        var filtered = currentFilter === "all" ? all : all.filter(function(a) { return a.category === currentFilter; });
+    function articlesRender(all) {
+      var list = document.getElementById("article-list");
+      if (!list) return;
 
-        if (filtered.length === 0) {
-          list.innerHTML = '<li class="text-center" style="color: var(--text-tertiary); padding: var(--space-2xl);">该分类暂无文章。</li>';
-          return;
-        }
+      var lang = (typeof currentLang !== "undefined" && currentLang) ? currentLang : "zh";
 
+      // 过滤
+      var filtered = (articlesPage.filter === "all")
+        ? all
+        : all.filter(function(a) { return a.category === articlesPage.filter; });
+
+      if (filtered.length === 0) {
+        list.innerHTML = '<li class="text-center" style="color:var(--text-tertiary);padding:var(--space-2xl)">该分类暂无文章。</li>';
+        return;
+      }
+
+      // 逐条渲染 — 每条单独 try/catch
+      var html = "";
+      for (var i = 0; i < filtered.length; i++) {
         try {
-          var lang = typeof currentLang !== "undefined" ? currentLang : "zh";
-          list.innerHTML = filtered.map(function(a) { return renderArticleListItem(a, lang); }).join("");
+          html += renderArticleListItem(filtered[i], lang);
         } catch(e) {
-          list.innerHTML = '<li class="text-center" style="color: var(--text-tertiary); padding: var(--space-2xl);">⚠️ 渲染出错，请刷新页面重试。</li>';
+          html += '<li class="article-list-item"><div class="article-number">' + filtered[i].id + '</div><div class="article-list-content"><p style="color:var(--text-tertiary)">渲染出错: ' + e.message + '</p></div></li>';
         }
       }
+      list.innerHTML = html;
+    }
 
-      // 分类筛选按钮事件
-      function initFilters() {
-        var bar = document.getElementById("filter-bar");
-        if (!bar) return;
-        var btns = bar.querySelectorAll(".filter-btn");
-        btns.forEach(function(btn) {
-          btn.addEventListener("click", function() {
-            btns.forEach(function(b) { b.classList.remove("active"); });
+    // 筛选按钮
+    function articlesBindFilters() {
+      var bar = document.getElementById("filter-bar");
+      if (!bar) return;
+      var btns = bar.querySelectorAll(".filter-btn");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].onclick = (function(btn) {
+          return function() {
+            var bar2 = document.getElementById("filter-bar");
+            var bs = bar2.querySelectorAll(".filter-btn");
+            for (var j = 0; j < bs.length; j++) bs[j].classList.remove("active");
             btn.classList.add("active");
-            currentFilter = btn.getAttribute("data-filter") || "all";
-            renderArticleList();
-          });
-        });
+            articlesPage.filter = btn.getAttribute("data-filter") || "all";
+            var all = getArticles();
+            if (all) articlesRender(all);
+          };
+        })(btns[i]);
       }
+    }
 
-      // 语言切换后重新渲染
-      if (typeof window !== "undefined") {
-        window.addEventListener("langchange", renderArticleList);
-      }
+    // 语言切换监听
+    window.addEventListener("langchange", function() {
+      var all = getArticles();
+      if (all) articlesRender(all);
+    });
 
-      // DOM 加载完成后初始渲染
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", function() {
-          initFilters();
-          renderArticleList();
-        });
-      } else {
-        initFilters();
-        renderArticleList();
-      }
-    })();
+    // 启动
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", function() {
+        articlesBindFilters();
+        setTimeout(articlesInit, 50);
+      });
+    } else {
+      articlesBindFilters();
+      setTimeout(articlesInit, 50);
+    }
   </script>
 </body>
 </html>
