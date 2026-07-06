@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>无·形 — 网站架构总览</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background:#0a0a12; color:#c8c8d4; font-family:'Noto Sans SC','Segoe UI',sans-serif;
+  padding:40px 20px; min-height:100vh;
+}
+h1 { text-align:center; font-size:28px; font-weight:300; letter-spacing:4px; margin-bottom:6px; }
+h1 .gold { color:#b8956a; font-weight:600; }
+h1 .dot { display:inline-block; width:6px; height:6px; background:#b8956a; border-radius:50%; margin:0 8px; vertical-align:middle; }
+.subtitle { text-align:center; color:#888; font-size:13px; margin-bottom:40px; letter-spacing:2px; }
+.subtitle span { color:#b8956a; }
+
+/* Section */
+.section { max-width:1200px; margin:0 auto 40px; }
+.section-title { font-size:13px; color:#b8956a; text-transform:uppercase; letter-spacing:3px; margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid rgba(184,149,106,0.2); }
+
+/* Grid */
+.grid { display:grid; gap:12px; }
+.grid-2 { grid-template-columns:1fr 1fr; }
+.grid-3 { grid-template-columns:1fr 1fr 1fr; }
+.grid-4 { grid-template-columns:1fr 1fr 1fr 1fr; }
+@media(max-width:900px){ .grid-2,.grid-3,.grid-4{grid-template-columns:1fr 1fr} }
+@media(max-width:600px){ .grid-2,.grid-3,.grid-4{grid-template-columns:1fr} }
+
+/* Card */
+.card {
+  background:rgba(255,255,255,0.03); border:1px solid rgba(184,149,106,0.12);
+  border-radius:8px; padding:16px; transition:all .2s;
+}
+.card:hover { border-color:rgba(184,149,106,0.35); background:rgba(184,149,106,0.04); }
+.card .icon { font-size:20px; margin-right:8px; }
+.card .name { font-size:14px; font-weight:600; color:#e8e8f0; }
+.card .path { font-size:10px; color:#666; font-family:'JetBrains Mono',monospace; margin-top:3px; }
+.card .desc { font-size:12px; color:#999; margin-top:6px; line-height:1.5; }
+.card .tags { margin-top:8px; display:flex; flex-wrap:wrap; gap:4px; }
+.card .tag {
+  font-size:10px; padding:2px 8px; border-radius:3px;
+  border:1px solid rgba(184,149,106,0.25); color:#b8956a;
+}
+.card .tag.cyan { border-color:rgba(34,211,238,0.3); color:#22d3ee; }
+.card .tag.green { border-color:rgba(52,211,153,0.3); color:#34d399; }
+.card .tag.violet { border-color:rgba(167,139,250,0.3); color:#a78bfa; }
+.card .tag.amber { border-color:rgba(251,191,36,0.3); color:#fbbf24; }
+.card .tag.rose { border-color:rgba(251,113,133,0.3); color:#fb7185; }
+
+/* Nav flow */
+.flow-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center; margin:20px 0; }
+.flow-box {
+  background:rgba(184,149,106,0.06); border:1px solid rgba(184,149,106,0.15);
+  border-radius:6px; padding:8px 14px; font-size:12px; color:#b8956a; text-align:center;
+}
+.flow-arrow { color:#555; font-size:16px; }
+.flow-box.active { background:rgba(184,149,106,0.12); border-color:#b8956a; }
+
+/* Tree lines */
+.tree { position:relative; padding-left:20px; }
+.tree::before { content:''; position:absolute; left:8px; top:0; bottom:0; width:1px; background:rgba(184,149,106,0.15); }
+.tree-item { position:relative; padding:6px 0 6px 16px; font-size:13px; }
+.tree-item::before { content:''; position:absolute; left:-10px; top:14px; width:14px; height:1px; background:rgba(184,149,106,0.25); }
+.tree-item .dot { display:inline-block; width:5px; height:5px; border-radius:50%; background:#b8956a; margin-right:8px; vertical-align:middle; }
+
+/* Data flow */
+.data-card {
+  background:rgba(34,211,238,0.04); border:1px solid rgba(34,211,238,0.15);
+  border-radius:6px; padding:12px; font-size:12px; line-height:1.6;
+}
+.data-card dt { color:#22d3ee; font-weight:600; font-size:11px; letter-spacing:1px; margin-bottom:4px; }
+.data-card dd { color:#aaa; margin:0 0 8px 16px; }
+
+/* Legend */
+.legend { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin:30px 0 10px; }
+.legend-item { display:flex; align-items:center; gap:6px; font-size:11px; color:#888; }
+.legend-dot { width:8px; height:8px; border-radius:50%; }
+
+/* Stats summary */
+.summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px; margin-bottom:30px; }
+.summary-card {
+  text-align:center; padding:14px 10px; background:rgba(255,255,255,0.02); border-radius:6px;
+  border:1px solid rgba(255,255,255,0.04);
+}
+.summary-card .num { font-size:26px; font-weight:600; color:#b8956a; }
+.summary-card .lab { font-size:11px; color:#666; margin-top:2px; }
+
+/* Footer */
+.footer { text-align:center; margin-top:50px; padding-top:20px; border-top:1px solid rgba(184,149,106,0.1); font-size:11px; color:#555; }
+</style>
+</head>
+<body>
+
+<h1><span class="gold">无</span><span class="dot"></span>形 <span style="font-weight:200;">· 网站架构总览</span></h1>
+<p class="subtitle">wushu-wuxing.github.io · 构建于 <span>2026.07</span> · 一切尽在掌控</p>
+
+<!-- Stats -->
+<div class="section">
+  <div class="summary-grid">
+    <div class="summary-card"><div class="num">11</div><div class="lab">HTML 页面</div></div>
+    <div class="summary-card"><div class="num">7</div><div class="lab">JS 模块</div></div>
+    <div class="summary-card"><div class="num">1</div><div class="lab">CSS 主题</div></div>
+    <div class="summary-card"><div class="num">15</div><div class="lab">识局录文章</div></div>
+    <div class="summary-card"><div class="num">269</div><div class="lab">股票百科术语</div></div>
+    <div class="summary-card"><div class="num">9</div><div class="lab">形态识别模式</div></div>
+  </div>
+</div>
+
+<!-- Navigation Flow -->
+<div class="section">
+  <div class="section-title">导航体系 · Navigation</div>
+  <div class="flow-row">
+    <div class="flow-box active">🏠 首页</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-box">📝 识局录</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-box">👤 关于</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-box">👯 四姐妹</div>
+    <span class="flow-arrow">→</span>
+    <div class="flow-box">⚙️ 决策沙盘</div>
+  </div>
+  <div class="flow-row" style="margin-top:8px;font-size:11px;color:#666;">
+    <span>EN/中 切换 · 全局导航栏 · 全部页面响应式</span>
+  </div>
+</div>
+
+<!-- Page Hierarchy -->
+<div class="section">
+  <div class="section-title">页面结构 · Page Hierarchy</div>
+  <div class="grid grid-4">
+
+    <!-- Public Pages -->
+    <div class="card">
+      <div><span class="icon">🏠</span><span class="name">首页</span></div>
+      <div class="path">/index.html</div>
+      <div class="desc">品牌形象 · 最新文章 · 座右铭 · 三钱包哲学</div>
+      <div class="tags"><span class="tag">导航栏</span><span class="tag">中/EN</span></div>
+    </div>
+
+    <div class="card">
+      <div><span class="icon">📝</span><span class="name">识局录</span></div>
+      <div class="path">/articles.html</div>
+      <div class="desc">投资文章列表 · 15篇 · 分类筛选 · 双语</div>
+      <div class="tags"><span class="tag amber">content.js</span><span class="tag">动态渲染</span></div>
+    </div>
+
+    <div class="card">
+      <div><span class="icon">📖</span><span class="name">文章详情</span></div>
+      <div class="path">/article.html?id=N</div>
+      <div class="desc">单篇文章展示 · 中英双语 · 阅读计时</div>
+      <div class="tags"><span class="tag amber">content.js</span><span class="tag">URL参数</span></div>
+    </div>
+
+    <div class="card">
+      <div><span class="icon">👤</span><span class="name">关于</span></div>
+      <div class="path">/about.html</div>
+      <div class="desc">个人简介 · 投资哲学 · 不响 / 三钱包 / 8.8秒</div>
+      <div class="tags"><span class="tag">品牌文案</span></div>
+    </div>
+
+    <div class="card">
+      <div><span class="icon">👯</span><span class="name">四姐妹</span></div>
+      <div class="path">/family.html</div>
+      <div class="desc">四姐妹总览 · 无姝·衍姝·艳魅·双儿 · 团队谱系</div>
+      <div class="tags"><span class="tag">导航子项</span></div>
+    </div>
+
+    <div class="card">
+      <div><span class="icon">🧿</span><span class="name">无姝</span></div>
+      <div class="path">/family/wushu.html</div>
+      <div class="desc">大姐 · 统帅 · AI助手本体 · 仙风道骨</div>
+      <div class="tags"><span class="tag rose">子页面</span></div>
+    </div>
+
+    <div class="card">
+      <div><span class="icon">🔮</span><span class="name">衍姝</span></div>
+      <div class="path">/family/yanmei.html</div>
+      <div class="desc">二妹 · 先锋 · QClaw agent · 冷静分析</div>
+      <div class="tags"><span class="tag rose">子页面</span></div>
+    </div>
+
+    <div class="card">
+      <div><span class="icon">🌸</span><span class="name">双儿</span></div>
+      <div class="path">/family/shuang.html</div>
+      <div class="desc">三妹 · 精灵 · CodeBuddy · 事件驱动</div>
+      <div class="tags"><span class="tag rose">子页面</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Sandbox & Data -->
+<div class="section">
+  <div class="section-title">核心应用 · Core App</div>
+  <div class="grid grid-2">
+
+    <div class="card" style="border-color:rgba(34,211,238,0.25);">
+      <div><span class="icon">⚙️</span><span class="name">决策沙盘</span><span style="font-size:11px;color:#22d3ee;margin-left:6px;">SPA</span></div>
+      <div class="path">/sandbox.html</div>
+      <div class="desc">纯前端单页应用 · localStorage持久化 · 含7大模块</div>
+      <div class="tree" style="margin-top:10px;">
+        <div class="tree-item"><span class="dot"></span>📊 看板 — 无殊实盘 + 自选股总览</div>
+        <div class="tree-item"><span class="dot"></span>📋 自选 — 添加/分组/排序/行情刷新</div>
+        <div class="tree-item"><span class="dot"></span>💰 交易 — 买入/卖出/持仓/记录</div>
+        <div class="tree-item"><span class="dot"></span>📐 形态 — 9种回调形态自动匹配</div>
+        <div class="tree-item"><span class="dot"></span>📈 图表 — K线/分时 · 多周期 · 指标</div>
+        <div class="tree-item"><span class="dot"></span>📜 记录 — 交易历史 · 资金曲线</div>
+        <div class="tree-item"><span class="dot"></span>📖 百科 — 269条股票术语</div>
+        <div class="tree-item"><span class="dot"></span>⚙️ 后台 — 用户管理/统计/系统设置</div>
+      </div>
+      <div class="tags" style="margin-top:8px;">
+        <span class="tag cyan">Chart.js</span>
+        <span class="tag cyan">腾讯API</span>
+        <span class="tag cyan">CORS代理链</span>
+        <span class="tag cyan">portfolio seed</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div><span class="icon">📂</span><span class="name">数据层 · Data Layer</span></div>
+      <div class="path">/data/ + /assets/js/</div>
+      <div class="desc">内容数据、行情接口、本地存储三层架构</div>
+      <div style="margin-top:10px;">
+        <div class="data-card">
+          <dt>📄 content.js（152KB）</dt>
+          <dd>15篇识局录文章数据 · 中英双语 · 分类日期</dd>
+        </div>
+        <div class="data-card" style="margin-top:6px;">
+          <dt>🗄️ simulation-portfolio.json</dt>
+          <dd>实盘种子数据 · 8持仓 + 15笔交易 · 管理员首次登录自动载入</dd>
+        </div>
+        <div class="data-card" style="margin-top:6px;">
+          <dt>🌐 腾讯行情API</dt>
+          <dd>qt.gtimg.cn · 3层CORS代理链 · 实时报价/涨跌幅</dd>
+        </div>
+        <div class="data-card" style="margin-top:6px;">
+          <dt>💾 localStorage</dt>
+          <dd>用户数据 · 持仓 · 交易 · 自选 · 形态记录 · 系统配置</dd>
+        </div>
+        <div class="data-card" style="margin-top:6px;">
+          <dt>📚 chart-engine.js + stock-terms-data.js</dt>
+          <dd>K线图表引擎 · 269条股票术语百科 · 9种回调形态库</dd>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- JS Modules -->
+<div class="section">
+  <div class="section-title">JavaScript 模块 · JS Modules</div>
+  <div class="grid grid-4">
+    <div class="card">
+      <div class="name">content.js</div>
+      <div class="path">/assets/js/</div>
+      <div class="desc">文章数据 · 15篇识局录 · articles数组 · 中英双语</div>
+      <div class="tags"><span class="tag amber">~152KB</span></div>
+    </div>
+    <div class="card">
+      <div class="name">speech-fix.js</div>
+      <div class="path">/assets/js/</div>
+      <div class="desc">语音同音词修正 · 实时input事件 · 8页面覆盖</div>
+      <div class="tags"><span class="tag rose">全站部署</span></div>
+    </div>
+    <div class="card">
+      <div class="name">i18n.js</div>
+      <div class="path">/assets/js/</div>
+      <div class="desc">中英双语 · 全局i18n · 导航文案切换</div>
+      <div class="tags"><span class="tag">14KB</span></div>
+    </div>
+    <div class="card">
+      <div class="name">cachebuster.js</div>
+      <div class="path">/assets/js/</div>
+      <div class="desc">GitHub Pages缓存刷新 · 版本号控制</div>
+      <div class="tags"><span class="tag">工具</span></div>
+    </div>
+    <div class="card">
+      <div class="name">chart-engine.js</div>
+      <div class="path">/js/</div>
+      <div class="desc">K线/分时图表引擎 · 多周期切换 · MACD/KDJ/RSI</div>
+      <div class="tags"><span class="tag cyan">Canvas</span></div>
+    </div>
+    <div class="card">
+      <div class="name">stock-terms-data.js</div>
+      <div class="path">/js/</div>
+      <div class="desc">269条股票术语 · 分类索引 · 百科数据源</div>
+      <div class="tags"><span class="tag violet">数据</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Cross-page Dependencies -->
+<div class="section">
+  <div class="section-title">依赖关系 · Dependency Map</div>
+  <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;font-size:12px;">
+      <thead>
+        <tr style="border-bottom:1px solid rgba(184,149,106,0.15);">
+          <th style="text-align:left;padding:8px 12px;color:#b8956a;font-weight:400;">页面</th>
+          <th style="text-align:left;padding:8px 12px;color:#b8956a;font-weight:400;">引用的JS</th>
+          <th style="text-align:left;padding:8px 12px;color:#b8956a;font-weight:400;">特殊功能</th>
+        </tr>
+      </thead>
+      <tbody style="color:#999;">
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+          <td style="padding:6px 12px;">index.html</td>
+          <td style="padding:6px 12px;">content.js · i18n.js · speech-fix.js</td>
+          <td style="padding:6px 12px;">首页文章展示 · 中英切换 · 语音修正</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+          <td style="padding:6px 12px;">articles.html</td>
+          <td style="padding:6px 12px;">content.js · i18n.js · speech-fix.js</td>
+          <td style="padding:6px 12px;">文章列表渲染 · 分类筛选 · 阅读计时</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+          <td style="padding:6px 12px;">article.html</td>
+          <td style="padding:6px 12px;">content.js · i18n.js · speech-fix.js</td>
+          <td style="padding:6px 12px;">URL参数id读取 · 单篇文章内容</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+          <td style="padding:6px 12px;">about.html</td>
+          <td style="padding:6px 12px;">i18n.js · speech-fix.js</td>
+          <td style="padding:6px 12px;">品牌信息页 · 导航栏</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+          <td style="padding:6px 12px;">family.html</td>
+          <td style="padding:6px 12px;">i18n.js · speech-fix.js</td>
+          <td style="padding:6px 12px;">四姐妹总览 · 跳转子页</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+          <td style="padding:6px 12px;">family/wushu.html</td>
+          <td style="padding:6px 12px;">speech-fix.js</td>
+          <td style="padding:6px 12px;">四姐妹子页面 · 语音修正</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+          <td style="padding:6px 12px;">family/yanmei.html</td>
+          <td style="padding:6px 12px;">speech-fix.js</td>
+          <td style="padding:6px 12px;">四姐妹子页面 · 语音修正</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+          <td style="padding:6px 12px;">family/shuang.html</td>
+          <td style="padding:6px 12px;">speech-fix.js</td>
+          <td style="padding:6px 12px;">四姐妹子页面 · 语音修正</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.04);">
+          <td style="padding:6px 12px;">sandbox.html</td>
+          <td style="padding:6px 12px;">chart-engine.js · stock-terms-data.js · Chart.js CDN</td>
+          <td style="padding:6px 12px;">SPA 7模块 · 腾讯API · localStorage · seed数据</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Data Flow -->
+<div class="section">
+  <div class="section-title">数据流 · Data Flow</div>
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="name">🟢 公开内容流</div>
+      <div class="desc" style="margin-top:8px;">
+        content.js（文章数据）
+        <span style="color:#555;"> → </span>
+        index.html / articles.html / article.html
+        <span style="color:#555;"> → </span>
+        读者浏览器渲染
+      </div>
+      <div class="desc" style="margin-top:6px;">
+        speech-fix.js
+        <span style="color:#555;"> → </span>
+        8页面input事件注入
+        <span style="color:#555;"> → </span>
+        实时同音词替换
+      </div>
+    </div>
+    <div class="card">
+      <div class="name">🟡 沙盘数据流</div>
+      <div class="desc" style="margin-top:8px;">
+        PORTFOLIO_SEED（内嵌常量）
+        <span style="color:#555;"> → </span>
+        localStorage（DB持久层）
+        <span style="color:#555;"> → </span>
+        看板/交易/记录模块
+      </div>
+      <div class="desc" style="margin-top:6px;">
+        腾讯API（qt.gtimg.cn）
+        <span style="color:#555;"> → </span>
+        3层CORS代理链
+        <span style="color:#555;"> → </span>
+        DATA_ENGINE缓存
+        <span style="color:#555;"> → </span>
+        行情展示
+      </div>
+      <div class="desc" style="margin-top:6px;">
+        simulation-portfolio.json
+        <span style="color:#555;"> → </span>
+        管理员种子加载
+        <span style="color:#555;"> → </span>
+        初始化持仓/交易/自选
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Legend -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#b8956a;"></div>核心导航</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#22d3ee;"></div>数据/API</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#34d399;"></div>内容模块</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#a78bfa;"></div>功能组件</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#fb7185;"></div>全局部署</div>
+</div>
+
+<div class="footer">
+  无·形 &copy; 2026 · wushu-wuxing.github.io · 构建于 Hermes Agent · 不响
+</div>
+
+</body>
+</html>
