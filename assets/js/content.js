@@ -2375,3 +2375,4 @@ function renderArticleListItem(article, lang) {
     </li>
   `;
 }
+
