@@ -8,6 +8,90 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* articles.html 额外样式 */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: var(--space-2xl);
+    }
+    .filter-btn {
+      padding: 5px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .filter-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .article-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .article-list-item {
+      display: flex;
+      gap: var(--space-lg);
+      padding: var(--space-lg) 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .article-list-item:last-child {
+      border-bottom: none;
+    }
+    .article-number {
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--accent);
+      opacity: 0.5;
+      line-height: 1;
+      min-width: 48px;
+    }
+    .article-list-content {
+      flex: 1;
+    }
+    .article-list-title {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      text-decoration: none;
+      line-height: 1.5;
+    }
+    .article-list-title:hover {
+      color: var(--accent);
+    }
+    .article-list-meta {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      margin: 4px 0 8px;
+    }
+    .article-list-excerpt {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    @media (max-width: 600px) {
+      .article-list-item {
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
+      .article-number {
+        font-size: 1.2rem;
+        min-width: auto;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -31,7 +115,20 @@
       <h1 style="text-align: center; margin-bottom: var(--space-md);" data-i18n="articles_title">文章 · 识局录</h1>
       <p style="text-align: center; color: var(--text-tertiary); margin-bottom: var(--space-2xl);" data-i18n="articles_subtitle">所思所悟，所历所见，皆录于此。</p>
 
-      <ul class="article-list" id="article-list"></ul>
+      <!-- 分类筛选 -->
+      <div class="filter-bar" id="filter-bar">
+        <button class="filter-btn active" data-filter="all" data-i18n="filter_all">全部</button>
+        <button class="filter-btn" data-filter="philosophy" data-i18n="filter_philosophy">哲学</button>
+        <button class="filter-btn" data-filter="investment" data-i18n="filter_investment">投资</button>
+        <button class="filter-btn" data-filter="technology" data-i18n="filter_technology">科技</button>
+        <button class="filter-btn" data-filter="family" data-i18n="filter_family">家族</button>
+        <button class="filter-btn" data-filter="misc" data-i18n="filter_misc">杂谈</button>
+      </div>
+
+      <!-- 文章列表 — 由 JS 渲染 -->
+      <ul class="article-list" id="article-list">
+        <li class="text-center" style="color: var(--text-tertiary); padding: var(--space-2xl);">加载中...</li>
+      </ul>
     </div>
   </main>
 
@@ -53,19 +150,74 @@
   <script src="assets/js/i18n.js"></script>
   <script src="assets/js/content.js"></script>
   <script>
-    function renderArticleList() {
-      const list = document.getElementById("article-list");
-      if (!list) return;
-      const all = getArticles();
-      if (all.length === 0) {
-        list.innerHTML = '<li class="text-center" style="color: var(--text-tertiary); padding: var(--space-2xl);" data-i18n="articles_empty">尚无文章，敬请期待。</li>';
-        return;
-      }
-      list.innerHTML = all.map(a => renderArticleListItem(a, currentLang)).join("");
-    }
+    (function() {
+      "use strict";
 
-    window.addEventListener("langchange", renderArticleList);
-    document.addEventListener("DOMContentLoaded", renderArticleList);
+      var currentFilter = "all";
+
+      function renderArticleList() {
+        var list = document.getElementById("article-list");
+        if (!list) return;
+
+        // 安全检查：content.js 是否已加载
+        if (typeof getArticles !== "function") {
+          list.innerHTML = '<li class="text-center" style="color: var(--text-tertiary); padding: var(--space-2xl);">⚠️ 数据加载中，请刷新页面...</li>';
+          return;
+        }
+
+        var all = getArticles();
+        if (!all || all.length === 0) {
+          list.innerHTML = '<li class="text-center" style="color: var(--text-tertiary); padding: var(--space-2xl);" data-i18n="articles_empty">尚无文章，敬请期待。</li>';
+          return;
+        }
+
+        // 按分类筛选
+        var filtered = currentFilter === "all" ? all : all.filter(function(a) { return a.category === currentFilter; });
+
+        if (filtered.length === 0) {
+          list.innerHTML = '<li class="text-center" style="color: var(--text-tertiary); padding: var(--space-2xl);">该分类暂无文章。</li>';
+          return;
+        }
+
+        try {
+          var lang = typeof currentLang !== "undefined" ? currentLang : "zh";
+          list.innerHTML = filtered.map(function(a) { return renderArticleListItem(a, lang); }).join("");
+        } catch(e) {
+          list.innerHTML = '<li class="text-center" style="color: var(--text-tertiary); padding: var(--space-2xl);">⚠️ 渲染出错，请刷新页面重试。</li>';
+        }
+      }
+
+      // 分类筛选按钮事件
+      function initFilters() {
+        var bar = document.getElementById("filter-bar");
+        if (!bar) return;
+        var btns = bar.querySelectorAll(".filter-btn");
+        btns.forEach(function(btn) {
+          btn.addEventListener("click", function() {
+            btns.forEach(function(b) { b.classList.remove("active"); });
+            btn.classList.add("active");
+            currentFilter = btn.getAttribute("data-filter") || "all";
+            renderArticleList();
+          });
+        });
+      }
+
+      // 语言切换后重新渲染
+      if (typeof window !== "undefined") {
+        window.addEventListener("langchange", renderArticleList);
+      }
+
+      // DOM 加载完成后初始渲染
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function() {
+          initFilters();
+          renderArticleList();
+        });
+      } else {
+        initFilters();
+        renderArticleList();
+      }
+    })();
   </script>
 </body>
 </html>

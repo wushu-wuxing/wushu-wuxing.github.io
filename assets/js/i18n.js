@@ -40,7 +40,15 @@ const i18n = {
     articles_subtitle: "所思所悟，所历所见，皆录于此。",
     articles_empty: "尚无文章，敬请期待。",
 
-    // 文章元信息
+    // 分类筛选
+    filter_all: "全部",
+    filter_philosophy: "哲学",
+    filter_investment: "投资",
+    filter_technology: "科技",
+    filter_family: "家族",
+    filter_misc: "杂谈",
+
+    // 文章详情
     meta_date: "日期",
     meta_category: "分类",
     meta_reading: "阅读",
@@ -147,7 +155,15 @@ const i18n = {
     articles_subtitle: "Thoughts, experiences, observations — recorded here.",
     articles_empty: "No essays yet. Stay tuned.",
 
-    // Meta
+    // Category filters
+    filter_all: "All",
+    filter_philosophy: "Philosophy",
+    filter_investment: "Investment",
+    filter_technology: "Tech",
+    filter_family: "Family",
+    filter_misc: "Misc",
+
+    // Article details
     meta_date: "Date",
     meta_category: "Category",
     meta_reading: "Read",
