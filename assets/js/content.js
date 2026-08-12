@@ -790,7 +790,6 @@ id: "005",
 `
     }
   },
-,
 
 {
     id: "007",
@@ -1008,7 +1007,6 @@ id: "005",
 `
     }
   },
-,
 
 {
     id: "008",
@@ -1216,7 +1214,6 @@ id: "005",
 `
     }
   },
-,
 
 {
     id: "009",
@@ -1349,7 +1346,7 @@ id: "005",
 <p>Survive, and there's a next time. Survive, and you can afford to make mistakes and fix them. Survive, and time works for you.</p>
 `
     }
-  },,
+  },
 
 {
     id: "010",
