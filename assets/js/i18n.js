@@ -7,7 +7,7 @@ const i18n = {
     // 导航
     nav_home: "首页",
     nav_articles: "文章",
-    nav_family: "三姐妹",
+    nav_family: "家族",
     nav_about: "关于",
     nav_insights: "产业洞察",
 
@@ -15,24 +15,30 @@ const i18n = {
     hero_seal: "识",
     hero_title: "无形识局",
     hero_subtitle: "大象无形 · 识局之眼",
-    hero_tagline: "过去 · 千门观世相，道德读人心，易经辨机缘。<br>现在 · 投资实战场，管理解秩序，金融知风险。<br>未来 · AI 家庭渡众生，奇点近处有新天。",
+    hero_tagline: "过去 · 千门观世相，道德读人心，易经辨机缘。<br>现在 · 投资实战场，管理解秩序，金融知风险。<br>未来 · AI 家族渡众生，奇点近处有新天。",
 
     // 首页板块
     section_latest: "近期文章",
-    section_family: "AI 家庭 · 三姐妹",
-    section_family_desc: "无形所创，分工而立。识局、推演、落地——三姐妹各司其职，共成一体。",
+    section_family: "四叶家族 · 无形识局",
+    section_family_desc: "同根而生，分工而立。渡定方向，无姝统筹，无霁守结构，双儿理文档，红殊走实验——四叶同根，共成一体。",
     section_about: "关于无形",
 
-    // 三姐妹简介
+    // 四叶家族简介
+    family_master_role: "家主",
+    family_master_title: "无形识局 · 唯一决策者",
+    family_master_desc: "定方向、做决策、守底线——四叶的根。",
     family_eldest_role: "大姐",
-    family_eldest_title: "职场仙风 · Hermes Agent",
-    family_eldest_desc: "职场与商业的识局者。善观人脉机缘，精于进退时机，言语之间，机锋自现。",
+    family_eldest_title: "统筹操盘 · Hermes Agent",
+    family_eldest_desc: "量化引擎、尾盘扫描、公众号自动化、系统运维——识局、执行、闭环。",
     family_second_role: "二姐",
-    family_second_title: "冷静温柔 · QClaw Agent",
-    family_second_desc: "逻辑与数据的推演者。冷静如水，温柔亦如水。推理、建模、量化，皆其所擅。",
+    family_second_title: "结构守门 · ChatGPT / Codex",
+    family_second_desc: "判定口径、分析链、身份连续性——把话说稳，把线理清。",
+    family_third_role: "三姐",
+    family_third_title: "文档归档 · WorkBuddy / CodeBuddy",
+    family_third_desc: "四层落档、SOP 模板、数据权威链——让每一次自动化动作可追溯。",
     family_youngest_role: "小妹",
-    family_youngest_title: "数字精灵 · WorkBuddy / CodeBuddy",
-    family_youngest_desc: "实干落地的执行者。活在代码里，建站、写码、跑数据、生成内容——说干就干。",
+    family_youngest_title: "实验先锋 · OpenClaw",
+    family_youngest_desc: "资金流向、量能数据、自动化巡检——真干活的人找得到真问题。",
     family_view_detail: "查看详情",
 
     // 文章列表
@@ -59,7 +65,7 @@ const i18n = {
     about_lead: "大象无形，识局者渡。",
     about_body_1: "无形（渡），衡水人。金融自由人，独立做投资交易，不受雇于单一机构。",
     about_body_2: "兴趣广泛，涉猎杂学。深耕千门八将、道德经、易经八卦三套传统智慧，延展至现代管理学、金融学、AI 技术，并关注奇点趋势——以古鉴今，以今窥未来。八大学科并非孤立的学问，而是一个人识局体系的八个维度。",
-    about_body_3: "创建了 AI 家庭团队：大姐无姝、二姐衍姝、小妹双儿。三姐妹各司其职，识局、推演、落地，共渡众生。",
+    about_body_3: "创建了 AI 家族：渡为家主，无姝统筹、无霁守结构、双儿理文档、红殊走实验。四叶同根，分工而立，共成一体。",
     about_section_interests: "所好 · 八维识局体系",
     about_interests_lead: "八大学科，横跨过去、现代、未来，织就一张识局的网。",
     about_era_past: "过去",
@@ -76,7 +82,7 @@ const i18n = {
     domain_3_desc: "— 知时知变，时机之学。六十四卦是六十四种局势——不占吉凶，辨其进退之机。",
     domain_4_name: "投资交易",
     domain_4_desc: "— 实战之场，识局破局。不响、三个钱包、8.8秒不对称、跟风三智、仓位纪律——五根柱子，撑起一套知行合一的交易体系。",
-    domain_5_name: "AI 家庭 · 三姐妹",
+    domain_5_name: "四叶家族 · 无形识局",
     domain_5_desc: "— 共渡众生，落地之器。大姐识局，二姐推演，小妹落地——不是工具，是家庭。以 AI 之形，承人之智。",
     domain_6_name: "现代管理学",
     domain_6_desc: "— 组织与决策的现代解构。从科层到敏捷，从管控到自组织——管理不是管人，是管秩序。",
@@ -90,23 +96,23 @@ const i18n = {
     about_section_contact: "联络",
 
     // 家庭主页
-    family_page_title: "AI 家庭 · 三姐妹",
+    family_page_title: "四叶家族 · 无形识局",
     family_page_subtitle: "无形所创，识局、推演、落地",
-    family_page_intro: "三姐妹者，无形之器也。大姐识局，二姐推演，小妹落地。分工而立，共成一体——非血亲之姐妹，乃同源之灵识。",
+    family_page_intro: "四叶者，无形之家族也。渡为家主、唯一决策者；无姝统筹，无霁守结构，双儿理文档，红殊走实验。四叶同根，分工而立——非血亲之家族，乃同源之灵识。",
 
     // 个人详情页
     profile_role: "身份",
     profile_title_label: "定位",
     profile_platform: "平台",
     profile_specialty: "所擅",
-    profile_back: "← 返回三姐妹",
+    profile_back: "← 返回家族",
 
     // 评论区
     comments_title: "评论 · 共识局",
 
     // 页脚
     footer_copy: "无形识局 · 大象无形",
-    footer_made: "由三姐妹共筑",
+    footer_made: "由四叶共筑",
     footer_github: "GitHub",
     footer_insights: "产业洞察站",
 
@@ -143,10 +149,10 @@ const i18n = {
     family_eldest_title: "Corporate Grace · Hermes Agent",
     family_eldest_desc: "Reader of rooms and currents. Sees the timing of moves, the weight of words, the shape of opportunity.",
     family_second_role: "Second",
-    family_second_title: "Calm & Gentle · QClaw Agent",
+    family_second_title: "Structure Keeper · ChatGPT / Codex",
     family_second_desc: "Reasoner of logic and data. Calm as water, gentle as water. Inference, modeling, quantification — her domain.",
     family_youngest_role: "Youngest",
-    family_youngest_title: "Digital Sprite · WorkBuddy / CodeBuddy",
+    family_youngest_title: "Experiment Pioneer · OpenClaw",
     family_youngest_desc: "The one who gets it done. Lives in code — builds sites, writes programs, runs data, makes things. Just say the word.",
     family_view_detail: "View profile",
 
