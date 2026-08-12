@@ -34,23 +34,7 @@
       <!-- 评论区 -->
       <section class="comments">
         <h2 class="comments-header" data-i18n="comments_title">评论 · 共识局</h2>
-        <div class="giscus-container">
-          <script src="https://giscus.app/client.js"
-            data-repo="wushu-wuxing/wushu-wuxing.github.io"
-            data-repo-id="1288861180"
-            data-category="General"
-            data-category-id="DIC_kwDOTNJ1_M4DDL4L"
-            data-mapping="pathname"
-            data-strict="0"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-input-position="top"
-            data-theme="dark_dimmed"
-            data-lang="zh-CN"
-            data-loading="lazy"
-            crossorigin="anonymous"
-            async>
-          </script>
+        <div class="giscus-container" id="giscus-container">
         </div>
       </section>
     </div>
@@ -90,6 +74,15 @@
 
       document.title = `${data.title} · 无形识局`;
 
+      // giscus mapping="og:title" 需要动态 og:title meta（每篇文章不同，评论按文章区分）
+      let og = document.querySelector('meta[property="og:title"]');
+      if (!og) {
+        og = document.createElement('meta');
+        og.setAttribute('property', 'og:title');
+        document.head.appendChild(og);
+      }
+      og.setAttribute('content', `${data.title} · ${article.id}`);
+
       container.innerHTML = `
         <header class="article-header">
           <h1>${data.title}</h1>
@@ -104,6 +97,30 @@
           ${data.body}
         </div>
       `;
+
+      // 动态初始化 giscus（文章渲染后再加载，term=文章 id，每篇评论独立）
+      const gc = document.getElementById("giscus-container");
+      if (gc && !gc.dataset.loaded) {
+        gc.dataset.loaded = "1";
+        const s = document.createElement("script");
+        s.src = "https://giscus.app/client.js";
+        s.setAttribute("data-repo", "wushu-wuxing/wushu-wuxing.github.io");
+        s.setAttribute("data-repo-id", "1288861180");
+        s.setAttribute("data-category", "General");
+        s.setAttribute("data-category-id", "DIC_kwDOTNJ1_M4DDL4L");
+        s.setAttribute("data-mapping", "specific");
+        s.setAttribute("data-term", `${article.id} · ${data.title}`);
+        s.setAttribute("data-strict", "0");
+        s.setAttribute("data-reactions-enabled", "1");
+        s.setAttribute("data-emit-metadata", "0");
+        s.setAttribute("data-input-position", "top");
+        s.setAttribute("data-theme", "dark_dimmed");
+        s.setAttribute("data-lang", "zh-CN");
+        s.setAttribute("data-loading", "lazy");
+        s.setAttribute("crossorigin", "anonymous");
+        s.setAttribute("async", "");
+        gc.appendChild(s);
+      }
     }
 
     window.addEventListener("langchange", renderArticle);
