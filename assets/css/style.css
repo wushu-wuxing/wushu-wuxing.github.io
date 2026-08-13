@@ -799,6 +799,53 @@ main {
   border-bottom: none;
 }
 
+/* 关注公众号区块 */
+.gzh-section {
+  padding: 48px 0 16px;
+}
+.gzh-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  background: linear-gradient(135deg, #10151c, #1a2230);
+  border: 1px solid rgba(224, 179, 106, 0.25);
+  border-radius: 16px;
+  padding: 28px 36px;
+}
+.gzh-text h3 {
+  font-size: 20px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.gzh-text p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.gzh-tip {
+  color: var(--accent-gold) !important;
+  font-size: 13px;
+}
+.gzh-qr {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .gzh-box {
+    flex-direction: column;
+    text-align: center;
+  }
+  .gzh-qr {
+    width: 140px;
+    height: 140px;
+  }
+}
+
 .footer a:hover {
   color: var(--accent-gold);
 }
